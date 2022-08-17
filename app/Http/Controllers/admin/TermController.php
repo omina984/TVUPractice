@@ -15,7 +15,7 @@ class TermController extends Controller
         // test
         // test2
         // test3
-        $test='';
+        $test='hi';
         $pagetitle = 'ترم‌ها';
         $terms = DB::table('terms')->orderBy('id', 'desc')->get()->where('state', '=', 1);
 
