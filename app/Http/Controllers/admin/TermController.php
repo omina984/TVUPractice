@@ -12,10 +12,6 @@ class TermController extends Controller
 {
     public function index()
     {
-        // test
-        // test2
-        // test3
-        $test='hi';
         $pagetitle = 'ترم‌ها';
         $terms = DB::table('terms')->orderBy('id', 'desc')->get()->where('state', '=', 1);
 
