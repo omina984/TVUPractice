@@ -45,8 +45,21 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
-        dd('create');
-        exit;
+        $type = -1;
+        if ($data['type'] == 'student')
+            $type = 1;
+        else if ($data['type'] == 'teacher')
+            $type = 2;
+        else if ($data['type'] == 'admin')
+            $type = 99;
+        else
+            $type = -1;
+
+        $isadmin = -1;
+        if ($data['type'] == 'admin')
+            $isadmin = 1;
+        else
+            $isadmin = 0;
 
         return User::create([
             'username' => $data['username'],
@@ -58,6 +71,9 @@ class RegisterController extends Controller
             'markaz_id' => $data['markaz'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'type' => $type,
+            'isadmin' => $isadmin,
+            'state' => 1,
         ]);
     }
 }

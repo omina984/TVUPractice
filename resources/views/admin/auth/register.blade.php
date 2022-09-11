@@ -134,7 +134,7 @@
 
                                 <div class="fb-item fb-50-item-column" id="item59">
                                     <div class="fb-grouplabel">
-                                        <label id="txtmarkaz" style="font-weight: bold; display: inline;">مرکز
+                                        <label id="txtmarkaz" style="font-weight: bold; display: inline;">
                                             دانشکده محل آموزش</label>
                                     </div>
 
@@ -185,7 +185,7 @@
                                     </div>
                                 </div>
 
-                                <div class="fb-item fb-50-item-column" id="item50">
+                                <div class="fb-item fb-100-item-column" id="item50">
                                     <div class="fb-grouplabel">
                                         <label id="txtname" style="font-weight: bold; display: inline;">نوع
                                             کاربر</label>
@@ -200,21 +200,6 @@
                                         </select>
                                     </div>
                                 </div>
-
-                                <div class="fb-item fb-50-item-column" id="item50">
-                                    <div class="fb-grouplabel">
-                                        <label id="txtname" style="font-weight: bold; display: inline;">ادمین
-                                            باشد؟</label>
-                                    </div>
-
-                                    <div class="fb-dropdown">
-                                        <select name="type" id="type"
-                                            style="font-size: 16px; font-weight: bold; height: 30px;">
-                                            <option value="type_no" selected>خیر</option>
-                                            <option value="type_yes">بلی</option>
-                                        </select>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -226,7 +211,7 @@
 
                             <button type="button" class="btn btn-info btn-fw"
                                 style="font-family: 'B Nazanin'; font-size: 16px; font-weight: bold; width: 150px;"
-                                onclick="window.location='{{ url('/') }}'">
+                                onclick="window.location='{{ route('admin.index') }}'">
                                 بازگشت </button>
                         </div>
                         <br>
