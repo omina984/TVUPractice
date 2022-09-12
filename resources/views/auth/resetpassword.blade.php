@@ -18,7 +18,7 @@
                         action="{{ route('auth.resetpassword.resetpass') }}" method="post">
                         @csrf
 
-                        @include('layouts.messages')
+                        {{-- @include('layouts.messages') --}}
 
                         <div class="fb-form-header" id="fb-form-header1"
                             style="height: 30px; background-repeat: no-repeat; background-position-x: left; background-color: transparent;">

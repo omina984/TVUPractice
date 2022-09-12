@@ -19,7 +19,7 @@
                         action="{{ route('login') }}" method="post">
                         @csrf
 
-                        @include('layouts.messages')
+                        {{-- @include('layouts.messages') --}}
 
                         <div class="fb-form-header" id="fb-form-header1"
                             style="height: 0px; background-repeat: no-repeat; background-position-x: left; background-color: transparent;">
@@ -40,7 +40,7 @@
                                     <div class="fb-input-box">
                                         <input name="username" id="item49_text_1" type="text" maxlength="254"
                                             placeholder="نام کاربری یا آدرس پست الکترونیکی" data-hint=""
-                                            autocomplete="off"
+                                            autocomplete="off" value="{{ old('username') }}"
                                             style="font-size: 16px; font-weight: bold; text-align: left;" />
 
                                         @error('username')

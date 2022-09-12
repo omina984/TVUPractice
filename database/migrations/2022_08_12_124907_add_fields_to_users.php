@@ -25,14 +25,14 @@ return new class extends Migration
 
         //admin user
         DB::table('users')->insert([
-            'username' => 'admin000',
-            'name' => 'کاربر مدیریت 000',
+            'username' => 'admin99901',
+            'name' => 'کاربر مدیریت 99901',
             'family' => '',
             'father' => '',
             'nationalcode' => '0',
             'mobile' => '0',
             'markaz_id' => 999, //999 = sazman markazi
-            'email' => 'admin@tvu.ac.ir',
+            'email' => 'admin99901@tvu.ac.ir',
             'password' => bcrypt('1234567890'),
             'type' => '99',
             'isadmin' => 1,
