@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="aa">
+    <div class="MyStyle">
         به سامانه مدیریت تمارین خوش آمدید
     </div>
     <br>
@@ -57,7 +57,7 @@
 
                                     <div class="fb-input-box">
                                         <input name="password" id="item50_text_1" type="password" maxlength="254"
-                                            placeholder="" data-hint="" autocomplete="off"
+                                            placeholder="کلمه عبور" data-hint="" autocomplete="off"
                                             style="font-size: 16px; font-weight: bold; text-align: left;" />
 
                                         @error('password')
@@ -73,11 +73,6 @@
                             <button type="submit" class="btn btn-info btn-fw"
                                 style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px;">
                                 ورود</button>
-
-                            {{-- <button type="button" class="btn btn-info btn-fw"
-                            style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px;"
-                            onclick="window.location='{{ url('register') }}'">
-                            ثبت نام</button> --}}
 
                             <button type="button" class="btn btn-info btn-fw"
                                 style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px;"

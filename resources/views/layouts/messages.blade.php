@@ -10,7 +10,6 @@
     </div>
 @endif
 
-
 @if (session('success'))
     <div class="alert alert-success" style="text-align: center">
         {{ session('success') }}

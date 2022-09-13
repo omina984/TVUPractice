@@ -87,7 +87,7 @@ class TermController extends Controller
         try {
             $term->update($request->all());
 
-            $msg = 'ذخیره ترم جاری با موفقیت انجام شد';
+            $msg = 'ذخیره ترم موجود با موفقیت انجام شد';
             return redirect(Route('admin.term.index'))->with('success', $msg);
         } catch (Exception $exception) {
             return redirect(Route('admin.term.index'))->with('warning', $exception->getCode());

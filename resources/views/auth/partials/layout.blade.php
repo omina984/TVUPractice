@@ -11,14 +11,8 @@
     <link rel="stylesheet" type="text/css" href="auth/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="theme/blue_pad/css/default.css?version=679" id="theme" />
 
-    <title>
-        {{ $pagetitle }}
-    </title>
-</head>
-
-<body style="background-color: #EEE">
     <style>
-        .aa {
+        .MyStyle {
             font-family: 'B Nazanin';
             font-size: 40px;
             color: black;
@@ -27,6 +21,12 @@
         }
     </style>
 
+    <title>
+        {{ $pagetitle }}
+    </title>
+</head>
+
+<body style="background-color: #EEE">
     <div class="limiter" style="background-image: url('auth/images/img-01.jpg');">
         <div class="container-login100">
             @include('auth.partials.header')
@@ -43,14 +43,6 @@
     <script src="auth/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="auth/assets/vendor/aos/aos.js"></script>
     <script src="auth/assets/js/main.js"></script>
-
-    <form action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-
-        <button type="submit" class="btn btn-warning btn-block"
-            style="font-family: B Nazanin; font-size: 20px; font-weight: bold;"> خروج از
-            کاربری </button>
-    </form>
 </body>
 
 </html>

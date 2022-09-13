@@ -12,13 +12,21 @@
     <link rel="stylesheet" type="text/css" href="/theme/blue_pad/css/default.css?version=679" id="theme" />
 
     <style>
+        .MyStyle {
+            font-family: 'B Nazanin';
+            font-size: 40px;
+            color: black;
+            text-align: center;
+            /* padding-top: 50px; */
+        }
+
         a,
         body,
         button,
         li {
-            direction: rtl;
-            font-size: 20px !important;
-            font-family: B Nazanin !important;
+            /* direction: rtl; */
+            font-size: 20px;
+            font-family: B Nazanin;
         }
     </style>
 
@@ -26,16 +34,6 @@
 </head>
 
 <body style="background-color: #EEE">
-    <style>
-        .aa {
-            font-family: 'B Nazanin';
-            font-size: 40px;
-            color: black;
-            text-align: center;
-            padding-top: 50px;
-        }
-    </style>
-
     <div class="limiter" style="background-image: url('/auth/images/img-01.jpg');">
         <div class="container-login100">
             @include('admin.partials.header')
@@ -52,14 +50,6 @@
     <script src="/auth/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="/auth/assets/vendor/aos/aos.js"></script>
     <script src="/auth/assets/js/main.js"></script>
-
-    <form action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-
-        <button type="submit" class="btn btn-warning btn-block"
-            style="font-family: B Nazanin; font-size: 20px; font-weight: bold;"> خروج از
-            کاربری </button>
-    </form>
 </body>
 
 </html>

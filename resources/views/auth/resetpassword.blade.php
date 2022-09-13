@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="aa">
+    <div class="MyStyle">
         لطفا اطلاعات خواسته شده را وارد و سپس کلمه عبور خود را به روزرسانی کنید
     </div>
 

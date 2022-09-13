@@ -5,15 +5,13 @@
 @endsection
 
 @section('content')
-    <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb bgcolor" style="font-family: 'B Nazanin'; font-size: 18px;">
-            <li class="breadcrumb-item active" aria-current="page">&nbsp; صفحه مدیریت</li>
-            <li class="breadcrumb-item" style="margin-left: -10px;"><a href="{{ url('register') }}">&nbsp;
-                    کاربر جدید</a>
-            </li>
-            <li class="breadcrumb-item" style="margin-left: 0px;"><a href="{{ route('admin.term.index') }}">&nbsp;
-                    ترم‌ها</a>
-            </li>
-        </ol>
-    </nav>
+    <div class="breadcrumb">
+        <div>
+            <span style="color: gray">صفحه مدیریت</span>
+            &nbsp; / &nbsp;
+            <a href="{{ url('register') }}">کاربر جدید</a>
+            &nbsp; / &nbsp;
+            <a href="{{ route('admin.term.index') }}">ترم‌ها</a>
+        </div>
+    </div>
 @endsection

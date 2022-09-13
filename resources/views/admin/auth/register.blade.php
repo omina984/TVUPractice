@@ -1,11 +1,19 @@
-@extends('admin.auth.partials.layout')
+@extends('admin.partials.layout')
 
 @section('pagetitle')
     {{ $pagetitle }}
 @endsection
 
 @section('content')
-    <div class="aa">
+    <div class="breadcrumb">
+        <div>
+            <a href="{{ route('admin.index') }}">بازگشت</a>
+            &nbsp; / &nbsp;
+            <span style="color: gray">ثبت‌نام کاربر جدید</span>
+        </div>
+    </div>
+
+    <div class="MyStyle">
         لطفا در صورت نداشتن نام کاربری با مدیر سامانه در تماس باشید
     </div>
 

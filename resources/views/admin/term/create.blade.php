@@ -5,13 +5,13 @@
 @endsection
 
 @section('content')
-    <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb bgcolor" style="font-family: 'B Nazanin'; font-size: 18px;">
-            <li class="breadcrumb-item" style="margin-left: 0px;"><a href="{{ route('admin.term.index') }}">برگشت</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">&nbsp; ایجاد ترم جدید</li>
-        </ol>
-    </nav>
+    <div class="breadcrumb">
+        <div>
+            <a href="{{ route('admin.term.index') }}">برگشت</a>
+            &nbsp; / &nbsp;
+            <span style="color: gray">ایجاد ترم جدید</span>
+        </div>
+    </div>
 
     <section id="hero" class="d-flex align-items-center">
         <div class="container">

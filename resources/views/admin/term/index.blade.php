@@ -5,12 +5,13 @@
 @endsection
 
 @section('content')
-    <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb bgcolor" style="font-family: 'B Nazanin'; font-size: 18px;">
-            <li class="breadcrumb-item" style="margin-left: 0px;"><a href="{{ route('admin.index') }}">برگشت</a></li>
-            <li class="breadcrumb-item active" aria-current="page">&nbsp; ترم‌های موجود</li>
-        </ol>
-    </nav>
+    <div class="breadcrumb">
+        <div>
+            <a href="{{ route('admin.index') }}">برگشت</a>
+            &nbsp; / &nbsp;
+            <span style="color: gray">ترم‌های موجود</span>
+        </div>
+    </div>
 
     <div class="container">
         @include('layouts.messages')
