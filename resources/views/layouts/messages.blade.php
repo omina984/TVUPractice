@@ -1,4 +1,4 @@
-@if ($errors->any())
+@if ($errors->any() && session('warning'))
     <div class="alert alert-danger" style="text-align: right">
         <ul>
             @foreach ($errors->all() as $error)
@@ -19,5 +19,11 @@
 @if (session('warning'))
     <div class="alert alert-danger" style="text-align: center">
         {{ session('warning') }}
+    </div>
+@endif
+
+@if (session('login'))
+    <div class="alert alert-danger" style="text-align: center">
+        {{ session('login') }}
     </div>
 @endif

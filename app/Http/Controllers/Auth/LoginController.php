@@ -44,16 +44,7 @@ class LoginController extends Controller
             }
         } else {
             $msg = 'نام کاربری یا آدرس پست الکترونیکی یا کلمه عبور اشتباه است';
-            return redirect()->route('login')->with('warning', $msg);
+            return redirect()->route('login')->with('login', $msg);
         }
     }
-
-    // protected function authenticated()
-    // {
-    //     if (auth()->user()->isadmin == 1) {
-    //         return redirect('/admin');
-    //     }
-
-    //     return redirect('/');
-    // }
 }

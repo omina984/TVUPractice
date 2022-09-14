@@ -178,7 +178,9 @@ return [
         "time" => "زمان",
         "available" => "موجود",
         "notavailable" => "موجود نیست",
-        "size" => "اندازه"
+        "size" => "اندازه",
+        "nationalcode"=>"کد ملی",
+        "father"=>"نام پدر"
     ],
 
 ];
