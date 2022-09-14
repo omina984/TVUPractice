@@ -9,7 +9,7 @@
         <div>
             <a href="{{ route('admin.index') }}">بازگشت</a>
             &nbsp; / &nbsp;
-            <span style="color: gray">ثبت‌نام کاربر جدید</span>
+            <span style="color: gray">کاربر جدید</span>
         </div>
     </div>
 

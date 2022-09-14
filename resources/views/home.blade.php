@@ -1,4 +1,4 @@
-<b>hi mehdi</b>
+<b> {{ Auth::user()->username; }}</b>
 
 <form action="{{ route('logout') }}" method="POST">
     @csrf

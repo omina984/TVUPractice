@@ -9,7 +9,7 @@
         <div>
             <a href="{{ route('admin.index') }}">برگشت</a>
             &nbsp; / &nbsp;
-            <span style="color: gray">ترم‌های موجود</span>
+            <span style="color: gray">ترم‌ها</span>
         </div>
     </div>
 

@@ -73,8 +73,7 @@
 
                                     <div class="fb-input-box">
                                         <textarea name="description" id="description" cols="30" rows="10" data-hint="" autocomplete="off"
-                                            style="font-size: 16px; font-weight: bold;" value="{{ old('description') }}" />
-                                            </textarea>
+                                            style="font-size: 16px; font-weight: bold;" value="{{ old('description') }}" /></textarea>
 
                                         @error('description')
                                             <div class="alert alert-danger"> {{ $message }} </div>
