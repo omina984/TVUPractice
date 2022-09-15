@@ -19,7 +19,7 @@
                 <div class="col-lg-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
                     <form data-aos="fade-up" data-aos-delay="400" class="fb-toplabel fb-100-item-column selected-object"
                         id="docContainer"
-                        style="border-width: 3px; font-family: 'B Nazanin'; font-size: 20px; width: 700px;"
+                        style="border-width: 3px; font-family: 'B Nazanin'; font-size: 20px; width: 800px;"
                         action="{{ route('admin.term.store') }}" method="post">
                         @csrf
 
@@ -85,13 +85,13 @@
                         </div>
 
                         <div class="fb-footer fb-item-alignment-center" id="fb-submit-button-div"
-                            style="height: 75px; min-height: 1px;">
+                            style="height: 75px; padding-top: 20px; min-height: 100px;">
                             <button type="submit" class="btn btn-info btn-fw"
-                                style="font-family: 'B Nazanin'; font-size: 16px; font-weight: bold; width: 150px;">
+                                style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px;">
                                 ثبت </button>
 
                             <button type="button" class="btn btn-info btn-fw"
-                                style="font-family: 'B Nazanin'; font-size: 16px; font-weight: bold; width: 150px;"
+                                style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px;"
                                 onclick="window.location='{{ route('admin.term.index') }}'">
                                 بازگشت </button>
                         </div>

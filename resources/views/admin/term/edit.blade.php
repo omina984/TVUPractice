@@ -87,13 +87,13 @@
                         </div>
 
                         <div class="fb-footer fb-item-alignment-center" id="fb-submit-button-div"
-                            style="height: 75px; min-height: 1px;">
+                            style="height: 75px; padding-top: 20px; min-height: 100px;">
                             <button type="submit" class="btn btn-info btn-fw"
-                                style="font-family: 'B Nazanin'; font-size: 16px; font-weight: bold; width: 150px;">
+                                style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px;">
                                 ثبت </button>
 
                             <button type="button" class="btn btn-info btn-fw"
-                                style="font-family: 'B Nazanin'; font-size: 16px; font-weight: bold; width: 150px;"
+                                style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px;"
                                 onclick="window.location='{{ route('admin.term.index') }}'">
                                 بازگشت </button>
                         </div>

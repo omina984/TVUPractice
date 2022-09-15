@@ -8,14 +8,13 @@
     <div class="MyStyle">
         به سامانه مدیریت تمارین خوش آمدید
     </div>
-    <br>
 
     <section id="hero" class="d-flex align-items-center">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
                     <form data-aos="fade-up" data-aos-delay="400" class="fb-100-item-column selected-object" id="docContainer"
-                        style="margin-top: 0px; border-width: 5px; font-family: 'B Nazanin'; font-size: 20px;"
+                        style="margin-top: 0px; border-width: 5px; font-family: 'B Nazanin'; font-size: 20px; width: 800px;"
                         action="{{ route('login') }}" method="post">
                         @csrf
 

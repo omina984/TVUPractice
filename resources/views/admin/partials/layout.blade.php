@@ -18,6 +18,7 @@
             color: black;
             text-align: center;
             /* padding-top: 50px; */
+            color: #0071bc;
         }
 
         a,

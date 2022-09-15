@@ -20,15 +20,16 @@
                     @include('layouts.messages')
 
                     <form data-aos="fade-up" data-aos-delay="400" class="fb-toplabel fb-100-item-column selected-object"
-                        id="docContainer" action="#">
+                        style="width: 100%;" id="docContainer" action="#">
 
                         <div class="section" id="section1">
                             <h2 style="text-align: center; text-decoration: underline; padding-top: 10px;"> ترم‌های موجود
                             </h2>
 
-                            <a href="{{ route('admin.term.create') }}" class="btn btn-info"
-                                style="float: right; margin-right: 30px; margin-bottom: 10px; width: 120px; height: 40px; padding:5px; font-family: 'B Nazanin'; font-size: 20px;">ایجاد
-                                ترم جدید</a>
+                            <button type="button" class="btn btn-info btn-fw"
+                                style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px; margin-right:10px;"
+                                onclick="window.location='{{ route('admin.term.create') }}'">
+                                ایجاد ترم جدید </button>
 
                             {{-- <div class="column ui-sortable" id="column1"> --}}
                             <div class="fb-item fb-100-item-column" id="item49">
@@ -48,7 +49,7 @@
                                             @foreach ($terms as $term)
                                                 <tr style="border: 1px solid;">
                                                     <td style="width: 5%; border: 1px solid; background-color:lightblue;"><a
-                                                            href="#">{{ $term->id }}</a>
+                                                            href="{{ route('admin.term.edit', $term->id) }}">{{ $term->id }}</a>
                                                     </td>
                                                     <td style="width: 15%; border: 1px solid;">{{ $term->name }}</td>
                                                     <td style="width: 50%; border: 1px solid;">{{ $term->description }}</td>
@@ -63,7 +64,7 @@
                                                     </td>
                                                     <td style="width: 20%;"><a
                                                             href="{{ route('admin.term.edit', $term->id) }}"
-                                                            class="btn btn-warning"
+                                                            class="btn btn-link"
                                                             style="width: 90%; margin-top: 5px;">ویرایش</a>
                                                     </td>
                                                 </tr>

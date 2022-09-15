@@ -193,7 +193,7 @@ input[type="date"]::-webkit-inner-spin-button {
 #docContainer {
     margin: 0px auto;
     padding: 0px 0px 0px 0px;
-    width: 100%;
+    /* width: 100%; */
     font-family: 'B Nazanin';
     font-size: 20px;
     background: url("../images/fb_bg.png") repeat;
