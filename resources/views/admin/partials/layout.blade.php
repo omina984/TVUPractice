@@ -28,6 +28,17 @@
             font-size: 20px;
             font-family: B Nazanin;
         }
+
+        table {
+            text-align: center;
+            font-family: 'B Nazanin';
+            font-size: 20px;
+        }
+
+        thead {
+            font-size: 20px;
+            font-weight: bold;
+        }
     </style>
 
     <title>@yield('pagetitle')</title>

@@ -18,12 +18,12 @@
             <div class="row">
                 <div class="col-lg-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
                     <form data-aos="fade-up" data-aos-delay="400" class="fb-toplabel fb-100-item-column selected-object"
-                        id="docContainer" style="border-width: 3px; font-family: 'B Nazanin'; font-size: 20px;"
+                        id="docContainer" style="border-width: 3px; font-family: 'B Nazanin'; font-size: 20px; width: 800px;"
                         action="{{ route('admin.term.update', $term->id) }}" method="post">
                         @csrf
 
                         <div class="fb-form-header" id="fb-form-header1"
-                            style="height: 30px; background-repeat: no-repeat; background-position-x: left; background-color: transparent;">
+                            style="height: 0px; background-repeat: no-repeat; background-position-x: left; background-color: transparent;">
                             <a class="fb-link-logo" id="fb-link-logo1" style="max-width: 104px;" target="_blank"><img
                                     title="Alternative text" class="fb-logo" id="fb-logo1"
                                     style="width: 100%; display: none;" alt="Alternative text"
@@ -87,7 +87,7 @@
                         </div>
 
                         <div class="fb-footer fb-item-alignment-center" id="fb-submit-button-div"
-                            style="height: 75px; padding-top: 25px; min-height: 1px;">
+                            style="height: 75px; min-height: 1px;">
                             <button type="submit" class="btn btn-info btn-fw"
                                 style="font-family: 'B Nazanin'; font-size: 16px; font-weight: bold; width: 150px;">
                                 ثبت </button>
@@ -97,7 +97,6 @@
                                 onclick="window.location='{{ route('admin.term.index') }}'">
                                 بازگشت </button>
                         </div>
-                        <br>
 
                         <input name="fb_form_custom_html" type="hidden" />
                         <input name="fb_form_embedded" type="hidden" />

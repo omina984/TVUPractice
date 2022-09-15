@@ -108,6 +108,7 @@
 #docContainer q {
     quotes: none;
 }
+
 #docContainer blockquote:before,
 #docContainer blockquote:after,
 #docContainer q:before,
@@ -115,6 +116,7 @@
     content: "";
     content: none;
 }
+
 #docContainer table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -125,9 +127,9 @@
     display: none !important;
 }
 
-input:focus + .fb-hint,
-select:focus + .fb-hint,
-textarea:focus + .fb-hint {
+input:focus+.fb-hint,
+select:focus+.fb-hint,
+textarea:focus+.fb-hint {
     display: inline-block !important;
 }
 
@@ -145,9 +147,11 @@ input[type="date"]::-webkit-inner-spin-button {
 #docContainer ::-webkit-input-placeholder {
     color: #ccc !important;
 }
+
 #docContainer :-moz-placeholder {
     color: #ccc !important;
 }
+
 /* Style to force the submit button to not be standard */
 .non-standard {
     -webkit-appearance: none;
@@ -187,14 +191,14 @@ input[type="date"]::-webkit-inner-spin-button {
 /* Theme CSS */
 /* This rule will applied to the form container */
 #docContainer {
-    margin: 30px auto;
+    margin: 0px auto;
     padding: 0px 0px 0px 0px;
-    width: 800px;
-    font-family: "Podkova";
-    font-size: 16px;
+    width: 100%;
+    font-family: 'B Nazanin';
+    font-size: 20px;
     background: url("../images/fb_bg.png") repeat;
     color: #0071bc;
-    border: 1px solid #0071bc;
+    border: 3px solid #0071bc;
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.28);
     -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.28);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.28);
@@ -215,8 +219,7 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 /* Special rule to modify the selector by a new one that can be used in both for Mac and Windows. Must be used with !important*/
-#docContainer .selected-object {
-}
+#docContainer .selected-object {}
 
 /* Column properties. This applies to a common style inside the form  in fb-large mode*/
 #docContainer.fb-large .column {
@@ -249,9 +252,11 @@ input[type="date"]::-webkit-inner-spin-button {
 #docContainer.fb-large .fb-item {
     padding: 6px 7px 15px 7px;
 }
+
 #docContainer .fb-item {
     padding: 10px 3px 10px 4px;
 }
+
 #docContainer.fb-small .fb-item {
     padding: 5px 3px 5px 3px;
 }
@@ -261,9 +266,11 @@ input[type="date"]::-webkit-inner-spin-button {
 #docContainer.fb-large #fb-submit-button-div {
     padding: 6px 5px 20px 5px;
 }
+
 #docContainer #fb-submit-button-div {
     padding: 5px 4px 15px 5px;
 }
+
 #docContainer.fb-small #fb-submit-button-div {
     padding: 4px 3px 10px 3px;
 }
@@ -275,21 +282,27 @@ input[type="date"]::-webkit-inner-spin-button {
 #docContainer.fb-large .fb-item.fb-100-item-column {
     width: 99%;
 }
+
 #docContainer.fb-large .fb-item.fb-75-item-column {
     width: 72%;
 }
+
 #docContainer.fb-large .fb-item.fb-66-item-column {
     width: 64%;
 }
+
 #docContainer.fb-large .fb-item.fb-50-item-column {
     width: 47%;
 }
+
 #docContainer.fb-large .fb-item.fb-33-item-column {
     width: 30%;
 }
+
 #docContainer.fb-large .fb-item.fb-25-item-column {
     width: 22%;
 }
+
 #docContainer.fb-large .fb-item.fb-20-item-column {
     width: 17%;
 }
@@ -298,21 +311,27 @@ input[type="date"]::-webkit-inner-spin-button {
 #docContainer .fb-item.fb-100-item-column {
     width: 99%;
 }
+
 #docContainer .fb-item.fb-75-item-column {
     width: 72%;
 }
+
 #docContainer .fb-item.fb-66-item-column {
     width: 63%;
 }
+
 #docContainer .fb-item.fb-50-item-column {
     width: 47%;
 }
+
 #docContainer .fb-item.fb-33-item-column {
     width: 30%;
 }
+
 #docContainer .fb-item.fb-25-item-column {
     width: 22%;
 }
+
 #docContainer .fb-item.fb-20-item-column {
     width: 17%;
 }
@@ -322,21 +341,27 @@ input[type="date"]::-webkit-inner-spin-button {
 #docContainer.fb-small .fb-item.fb-100-item-column {
     width: 98%;
 }
+
 #docContainer.fb-small .fb-item.fb-75-item-column {
     width: 70%;
 }
+
 #docContainer.fb-small .fb-item.fb-66-item-column {
     width: 61%;
 }
+
 #docContainer.fb-small .fb-item.fb-50-item-column {
     width: 45%;
 }
+
 #docContainer.fb-small .fb-item.fb-33-item-column {
     width: 28%;
 }
+
 #docContainer.fb-small .fb-item.fb-25-item-column {
     width: 21%;
 }
+
 #docContainer.fb-small .fb-item.fb-20-item-column {
     width: 15%;
 }
@@ -411,9 +436,11 @@ input[type="date"]::-webkit-inner-spin-button {
 #docContainer input[type="file"] {
     border: none;
 }
+
 #docContainer.fb-small input[type="file"] {
     border: none;
 }
+
 #docContainer.fb-large input[type="file"] {
     border: none;
 }
@@ -453,8 +480,7 @@ input[type="date"]::-webkit-inner-spin-button {
     padding: 4px 1px 4px 1px;
 }
 
-#docContainer .fb-input-number {
-}
+#docContainer .fb-input-number {}
 
 #docContainer .fb-input-number input {
     color: #666;
@@ -475,6 +501,7 @@ input[type="date"]::-webkit-inner-spin-button {
     color: #f25620;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
+
 #docContainer.fb-small .fb-header h2 {
     font-size: 20px;
     font-weight: normal;
@@ -493,6 +520,7 @@ input[type="date"]::-webkit-inner-spin-button {
     font-size: 16px;
     line-height: 1.4em;
 }
+
 #docContainer.fb-small .fb-static-text p {
     font-size: 14px;
     line-height: 1.3em;
@@ -504,7 +532,7 @@ input[type="date"]::-webkit-inner-spin-button {
     background-repeat: repeat-x;
     background-position: bottom;
     height: 100px;
-    padding: 50px 0 0 0;
+    padding: 10px 0 0 0;
 }
 
 /*  Rule for Submit button */
@@ -533,7 +561,7 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 /* Rule to be able to control the position of the captcha when generated */
-#fb-captcha_control > div {
+#fb-captcha_control>div {
     display: inline-block;
 }
 
@@ -556,8 +584,7 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 /* Rule for the text area container */
-#docContainer .fb-textarea {
-}
+#docContainer .fb-textarea {}
 
 /* Rule for the text area box */
 #docContainer .fb-textarea textarea {
@@ -615,8 +642,7 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 /* Rule for the dropdown container */
-#docContainer .fb-dropdown {
-}
+#docContainer .fb-dropdown {}
 
 /* Rule for the dropdown select */
 #docContainer .fb-dropdown select {
@@ -631,8 +657,7 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 /* Rule for the listbox container */
-#docContainer .fb-listbox {
-}
+#docContainer .fb-listbox {}
 
 /* Rule for the listbox select */
 #docContainer .fb-listbox select {
@@ -753,6 +778,7 @@ input[type="date"]::-webkit-inner-spin-button {
     width: 30%;
     text-align: left;
 }
+
 .fb-leftlabel .fb-input-box,
 .fb-leftlabel .fb-dropdown,
 .fb-leftlabel .fb-listbox,
@@ -795,6 +821,7 @@ input[type="date"]::-webkit-inner-spin-button {
 .fb-toplabel .fb-grouplabel {
     width: 95%;
 }
+
 .fb-toplabel .fb-input-box,
 .fb-toplabel .fb-dropdown,
 .fb-toplabel .fb-listbox,
@@ -812,9 +839,11 @@ input[type="date"]::-webkit-inner-spin-button {
     float: none;
     width: 95%;
 }
+
 #docContainer.fb-toplabel .fb-hint {
     margin-left: 2px;
 }
+
 #docContainer.fb-toplabel .fb-static-text {
     width: 90%;
 }
@@ -825,12 +854,14 @@ input[type="date"]::-webkit-inner-spin-button {
     display: inline-block;
     width: 100%;
 }
+
 .fb-two-column .fb-radio label,
 .fb-two-column .fb-checkbox label {
     display: inline-block;
     float: left;
     width: 47%;
 }
+
 .fb-three-column .fb-radio label,
 .fb-three-column .fb-checkbox label {
     display: inline;
@@ -855,13 +886,16 @@ input[type="date"]::-webkit-inner-spin-button {
     padding-left: 0px;
     text-align: left;
 }
+
 #docContainer .fb-item-alignment-center {
     text-align: center;
 }
+
 #docContainer .fb-item-alignment-right {
     padding-right: 0px;
     text-align: right;
 }
+
 #docContainer .fb-item-alignment-justify {
     padding-left: 0px;
     padding-right: 0px;
@@ -869,52 +903,46 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 /*  Rules for container header alignments */
-#docContainer .fb-header.fb-item-alignment-left {
-}
-#docContainer .fb-header.fb-item-alignment-center {
-}
-#docContainer .fb-header.fb-item-alignment-right {
-}
+#docContainer .fb-header.fb-item-alignment-left {}
+
+#docContainer .fb-header.fb-item-alignment-center {}
+
+#docContainer .fb-header.fb-item-alignment-right {}
 
 /*  Rules for element header alignments */
-#docContainer .fb-header.fb-item-alignment-left h2 {
-}
-#docContainer .fb-header.fb-item-alignment-center h2 {
-}
-#docContainer .fb-header.fb-item-alignment-right h2 {
-}
+#docContainer .fb-header.fb-item-alignment-left h2 {}
+
+#docContainer .fb-header.fb-item-alignment-center h2 {}
+
+#docContainer .fb-header.fb-item-alignment-right h2 {}
 
 /*  Rules for container static text alignments */
-#docContainer .fb-static-text.fb-item-alignment-left {
-}
-#docContainer .fb-static-text.fb-item-alignment-center {
-}
-#docContainer .fb-static-text.fb-item-alignment-right {
-}
+#docContainer .fb-static-text.fb-item-alignment-left {}
+
+#docContainer .fb-static-text.fb-item-alignment-center {}
+
+#docContainer .fb-static-text.fb-item-alignment-right {}
 
 /*  Rules for element static text alignments */
-#docContainer .fb-static-text.fb-item-alignment-left p {
-}
-#docContainer .fb-static-text.fb-item-alignment-center p {
-}
-#docContainer .fb-static-text.fb-item-alignment-right p {
-}
+#docContainer .fb-static-text.fb-item-alignment-left p {}
+
+#docContainer .fb-static-text.fb-item-alignment-center p {}
+
+#docContainer .fb-static-text.fb-item-alignment-right p {}
 
 /*  Rules for container submit alignments */
-#docContainer #fb-submit-button-div.fb-item-alignment-left {
-}
-#docContainer #fb-submit-button-div.fb-item-alignment-center {
-}
-#docContainer #fb-submit-button-div.fb-item-alignment-right {
-}
+#docContainer #fb-submit-button-div.fb-item-alignment-left {}
+
+#docContainer #fb-submit-button-div.fb-item-alignment-center {}
+
+#docContainer #fb-submit-button-div.fb-item-alignment-right {}
 
 /*  Rules for element submit alignments */
-#docContainer #fb-submit-button-div.fb-item-alignment-left input {
-}
-#docContainer #fb-submit-button-div.fb-item-alignment-center input {
-}
-#docContainer #fb-submit-button-div.fb-item-alignment-right input {
-}
+#docContainer #fb-submit-button-div.fb-item-alignment-left input {}
+
+#docContainer #fb-submit-button-div.fb-item-alignment-center input {}
+
+#docContainer #fb-submit-button-div.fb-item-alignment-right input {}
 
 /* Rules for Validation styles */
 #docContainer label.error {
@@ -930,6 +958,7 @@ input[type="date"]::-webkit-inner-spin-button {
     font: italic 12px Helvetica, sans-serif;
     margin: 1px 0 0 0;
 }
+
 #docContainer input[type="text"].error,
 #docContainer input[type="password"].error,
 #docContainer input[type="email"].error,
@@ -941,97 +970,118 @@ input[type="date"]::-webkit-inner-spin-button {
 #docContainer input[type="tel"].error {
     border: 1px solid #f25620 !important;
 }
+
 #docContainer .fb-fieldlabel {
     float: left;
     width: 80%;
     margin-top: 0px;
 }
+
 #docContainer input[type="radio"],
 #docContainer input[type="checkbox"] {
     float: left;
 }
+
 #docContainer .fb-side-by-side .fb-radio label .fb-fieldlabel,
 #docContainer .fb-side-by-side .fb-checkbox label .fb-fieldlabel {
     width: 100%;
     float: none;
 }
+
 .fb-side-by-side .fb-radio input[type="radio"],
 .fb-side-by-side .fb-checkbox input[type="checkbox"] {
     float: none;
     margin-right: 3px;
 }
+
 #docContainer .fb-html a {
     color: #0066d6;
     text-decoration: underline;
 }
+
 #docContainer .fb-html a:hover {
     color: #cc3300 !important;
     text-decoration: underline;
 }
+
 #docContainer .fb-html a:focus {
     outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px;
 }
+
 #docContainer .fb-html a:hover,
 #docContainer .fb-html a:active {
     outline: 0;
 }
+
 #docContainer .fb-html a:visited {
     color: #5575a0;
 }
+
 #docContainer .fb-html ul,
 #docContainer .fb-html ol {
     padding: 0;
     margin: 15px 0 15px 25px;
     text-align: left;
 }
+
 #docContainer .fb-html ul {
     list-style: disc;
 }
+
 #docContainer .fb-html ol {
     list-style: decimal;
 }
+
 #docContainer .fb-html li {
     line-height: 15px;
     padding: 5px 0;
     vertical-align: middle;
 }
+
 #docContainer .fb-html blockquote {
     border-left: 5px solid #ddd;
     margin: 15px 0;
     padding: 0 0 0 15px;
     text-align: left;
 }
+
 #docContainer .fb-html blockquote,
 #docContainer .fb-html blockquote p {
     font-size: 14px;
     font-weight: 300;
     line-height: 20px;
 }
+
 #docContainer .fb-html blockquote small {
     display: block;
     font-size: 12px;
     line-height: 22px;
     color: #999;
 }
+
 #docContainer .fb-html blockquote small:before {
     content: "\2014 \00A0";
 }
+
 #docContainer .fb-html blockquote:before,
 #docContainer .fb-html blockquote:after {
     content: "";
 }
+
 #docContainer .fb-html table {
     max-width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
 }
+
 #docContainer .fb-html table {
     border: 1px solid #ddd;
     margin: 15px 0;
     width: 100%;
 }
+
 #docContainer .fb-html table th,
 #docContainer .fb-html table td {
     border-top: 1px solid #ddd;
@@ -1039,17 +1089,21 @@ input[type="date"]::-webkit-inner-spin-button {
     padding: 8px;
     text-align: left;
 }
+
 #docContainer .fb-html table th {
     font-weight: bold;
     vertical-align: bottom;
 }
+
 #docContainer .fb-html table td {
     vertical-align: top;
 }
+
 #docContainer .fb-html table thead:first-child tr th,
 #docContainer .fb-html table thead:first-child tr td {
     border-top: 0;
 }
+
 #docContainer .fb-html table tbody tr:nth-child(odd) th,
 #docContainer .fb-html table tbody tr:nth-child(odd) td {
     background-color: #fbfbfb;
