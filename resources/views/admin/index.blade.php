@@ -12,7 +12,7 @@
             {{-- <a href="{{ url('register') }}">کاربر جدید</a> --}}
             <a href="{{ route('admin.auth.register') }}">کاربر جدید</a>
             &nbsp; / &nbsp;
-            <a href="{{ route('admin.auth.resetpassword.index') }}">ریست پسورد</a>
+            <a href="{{ route('admin.auth.updateuser.index') }}">به‌روزرسانی کاربر</a>
             &nbsp; / &nbsp;
             <a href="{{ route('admin.term.index') }}">ترم‌ها</a>
         </div>
