@@ -9,7 +9,10 @@
         <div>
             <span style="color: gray">صفحه مدیریت</span>
             &nbsp; / &nbsp;
-            <a href="{{ url('register') }}">کاربر جدید</a>
+            {{-- <a href="{{ url('register') }}">کاربر جدید</a> --}}
+            <a href="{{ route('admin.auth.register') }}">کاربر جدید</a>
+            &nbsp; / &nbsp;
+            <a href="{{ route('admin.auth.resetpassword.index') }}">ریست پسورد</a>
             &nbsp; / &nbsp;
             <a href="{{ route('admin.term.index') }}">ترم‌ها</a>
         </div>

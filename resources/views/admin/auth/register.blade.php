@@ -23,7 +23,7 @@
                 <div class="col-lg-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
                     <form data-aos="fade-up" data-aos-delay="400" class="fb-toplabel fb-100-item-column selected-object"
                         id="docContainer" style="border-width: 3px; font-family: 'B Nazanin'; font-size: 20px; width: 800px;"
-                        action="{{ route('register') }}" method="post">
+                        action="{{ route('admin.auth.register') }}" method="post">
                         @csrf
 
                         {{-- @include('layouts.messages') --}}

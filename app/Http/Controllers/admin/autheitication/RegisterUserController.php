@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+// namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\admin\autheitication;
 
 use App\Models\Marakez;
 use App\Models\User;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 
-class RegisterController extends Controller
+class RegisteruserController extends Controller
 {
     use RegistersUsers;
 
