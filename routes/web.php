@@ -34,7 +34,9 @@ Route::post('/resetpassword', [ResetPasswordController::class, 'resetpassword'])
 Route::prefix('admin')->middleware('Check_Is_ADMIN')->group(function () {
     //auth
     Route::get('/register', [AutheiticationRegisterUserController::class, 'showRegistrationForm'])->middleware('Check_Is_ADMIN')->name('admin.auth.register');
+    
     Route::get('/updateuser', [UpdateUserController::class, 'index'])->middleware('Check_Is_ADMIN')->name('admin.auth.updateuser.index');
+    Route::post('/updateuser', [UpdateUserController::class, 'search'])->middleware('Check_Is_ADMIN')->name('admin.auth.updateuser.search');
 
     //admin
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');

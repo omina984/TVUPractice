@@ -40,7 +40,7 @@
                             <div class="column ui-sortable" id="column1">
                                 <div class="fb-item fb-50-item-column" id="item49">
                                     <div class="fb-grouplabel">
-                                        <label id="txtusername" style="font-weight: bold; display: inline;">نام
+                                        <label id="username" style="font-weight: bold; display: inline;">نام
                                             کاربری</label>
                                     </div>
 

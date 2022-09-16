@@ -20,18 +20,27 @@
                     @include('layouts.messages')
 
                     <form data-aos="fade-up" data-aos-delay="400" class="fb-toplabel fb-100-item-column selected-object"
-                        style="width: 100%;" id="docContainer" action="#">
+                        style="width: 100%;" id="docContainer" action="{{ route('admin.auth.updateuser.search') }}" method="post">
+                        @csrf
 
                         <div class="section" id="section1">
                             <h2 style="text-align: center; text-decoration: underline; padding-top: 10px;"> کاربران موجود
                             </h2>
 
-                            <button type="button" class="btn btn-info btn-fw"
-                                style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px; margin-right:10px;"
-                                onclick="window.location='{{ route('admin.term.create') }}'">
-                                ایجاد ترم جدید </button>
+                            <button type="submit" class="btn btn-info btn-fw"
+                                style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px; margin-right:10px; margin-top: 5.5px;"
+                                onclick="window.location='{{ route('admin.auth.updateuser.search') }}'">
+                                جستجو </button>
 
-                            {{-- <div class="column ui-sortable" id="column1"> --}}
+                            <div class="fb-item fb-50-item-column" id="item49">
+                                <div class="fb-input-box">
+                                    <input name="username" id="item49_text_1" type="text" maxlength="254"
+                                        placeholder="نام کاربری" data-hint="" autocomplete="off"
+                                        style="font-size: 16px; font-weight: bold; width: 200px; text-align: left;"
+                                        value="{{ old('username') }}" />
+                                </div>
+                            </div>
+
                             <div class="fb-item fb-100-item-column" id="item49">
                                 <div class="container">
                                     <table class="table table-bordered table-hover" style="margin-right: 6px;">
@@ -61,9 +70,7 @@
                                                     <td style="width: 20%; border: 1px solid;">
                                                         {{ $user->markaz_name }}
                                                     </td>
-                                                    <td style="width: 15%;"><a
-                                                            href="#"
-                                                            class="btn btn-link"
+                                                    <td style="width: 15%;"><a href="#" class="btn btn-link"
                                                             style="width: 90%; margin-top: 5px;">ویرایش</a>
                                                     </td>
                                                 </tr>
@@ -72,7 +79,6 @@
                                     </table>
                                 </div>
                             </div>
-                            {{-- </div> --}}
                         </div>
                     </form>
                 </div>
