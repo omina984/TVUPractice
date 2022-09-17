@@ -7,7 +7,7 @@
 @section('content')
     <div class="breadcrumb">
         <div>
-            <a href="{{ route('admin.term.index') }}">برگشت</a>
+            <a href="{{ route('admin.terms.index') }}">برگشت</a>
             &nbsp; / &nbsp;
             <span style="color: gray">ویرایش ترم موجود</span>
         </div>
@@ -94,7 +94,7 @@
 
                             <button type="button" class="btn btn-info btn-fw"
                                 style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px;"
-                                onclick="window.location='{{ route('admin.term.index') }}'">
+                                onclick="window.location='{{ route('admin.terms.index') }}'">
                                 بازگشت </button>
                         </div>
 

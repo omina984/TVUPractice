@@ -20,7 +20,7 @@
                     @include('layouts.messages')
 
                     <form data-aos="fade-up" data-aos-delay="400" class="fb-toplabel fb-100-item-column selected-object"
-                        style="width: 100%;" id="docContainer" action="{{ route('admin.auth.updateuser.search') }}"
+                        style="width: 100%;" id="docContainer" action="{{ route('admin.auth.users.search') }}"
                         method="post">
                         @csrf
 
@@ -30,7 +30,7 @@
 
                             <button type="submit" class="btn btn-info btn-fw"
                                 style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px; margin-right:10px;"
-                                onclick="window.location='{{ route('admin.auth.updateuser.search') }}'">
+                                onclick="window.location='{{ route('admin.auth.users.search') }}'">
                                 جستجو </button>
 
                                     <input name="username" id="item49_text_1" type="text" maxlength="254"
@@ -80,10 +80,10 @@
                                                     <td style="width: 15%; border: 1px solid;">{{ $user->family }}</td>
                                                     <td style="width: 15%; border: 1px solid;">{{ $user->nationalcode }}
                                                     </td>
-                                                    <td style="width: 20%; border: 1px solid;">
+                                                    <td style="width: 25%; border: 1px solid;">
                                                         {{ $user->markaz_name }}
                                                     </td>
-                                                    <td style="width: 15%;"><a href="#" class="btn btn-info"
+                                                    <td style="width: 10%;"><a href="{{ route('admin.auth.user.edit',$user->user_id)}}" class="btn btn-info"
                                                             style="width: 90%; margin-top: 5px;">ویرایش</a>
                                                     </td>
                                                 </tr>

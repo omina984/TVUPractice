@@ -52,7 +52,7 @@
                                                             href="{{ route('admin.term.edit', $term->id) }}">{{ $term->id }}</a>
                                                     </td>
                                                     <td style="width: 20%; border: 1px solid;">{{ $term->name }}</td>
-                                                    <td style="width: 50%; border: 1px solid;">{{ $term->description }}</td>
+                                                    <td style="width: 55%; border: 1px solid;">{{ $term->description }}</td>
                                                     <td style="width: 10%; border: 1px solid;">
                                                         @if ($term->state == 0)
                                                             غیر فعال
@@ -62,7 +62,7 @@
                                                             نا معلوم
                                                         @endif
                                                     </td>
-                                                    <td style="width: 15%;"><a
+                                                    <td style="width: 10%;"><a
                                                             href="{{ route('admin.term.edit', $term->id) }}"
                                                             class="btn btn-info"
                                                             style="width: 90%; margin-top: 5px;">ویرایش</a>

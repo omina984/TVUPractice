@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\autheitication\RegisteruserController as Autheiti
 use App\Http\Controllers\admin\autheitication\reset\MyAuthController as ResetMyAuthController;
 use App\Http\Controllers\admin\autheitication\ResetUserController;
 use App\Http\Controllers\admin\autheitication\UpdateUserController;
+use App\Http\Controllers\admin\autheitication\UserController;
 use App\Http\Controllers\admin\AuthRegisterController;
 use App\Http\Controllers\admin\myauth\AuthRegisterController as MyauthAuthRegisterController;
 use App\Http\Controllers\admin\myauth\RegisteruserController;
@@ -30,23 +31,25 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/resetpassword', [ResetPasswordController::class, 'index'])->name('auth.resetpassword.index');
 Route::post('/resetpassword', [ResetPasswordController::class, 'resetpassword'])->name('auth.resetpassword.resetpass');
 
-// admin
 Route::prefix('admin')->middleware('Check_Is_ADMIN')->group(function () {
-    //auth
-    Route::get('/register', [AutheiticationRegisterUserController::class, 'showRegistrationForm'])->middleware('Check_Is_ADMIN')->name('admin.auth.register');
-    
-    Route::get('/updateuser', [UpdateUserController::class, 'index'])->middleware('Check_Is_ADMIN')->name('admin.auth.updateuser.index');
-    Route::post('/updateuser', [UpdateUserController::class, 'search'])->middleware('Check_Is_ADMIN')->name('admin.auth.updateuser.search');
-
-    //admin
+    //admin - index
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 
+    // admin - auth
+    Route::get('/user/register', [AutheiticationRegisterUserController::class, 'showRegistrationForm'])->name('admin.auth.register');
+
+    Route::get('/users', [UserController::class, 'index'])->name('admin.auth.users.index');
+    Route::post('/users', [UserController::class, 'search'])->name('admin.auth.users.search');
+
+    Route::get('/user/edit/{user}', [UserController::class, 'edit'])->name('admin.auth.user.edit');
+    Route::post('/user/update/{user}', [UserController::class, 'update'])->name('admin.auth.user.update');
+
     //admin - term
-    Route::get('/term', [TermController::class, 'index'])->name('admin.term.index');
+    Route::get('/terms', [TermController::class, 'index'])->name('admin.terms.index');
 
-    Route::get('/create', [TermController::class, 'create'])->name('admin.term.create');
-    Route::post('/store', [TermController::class, 'store'])->name('admin.term.store');
+    Route::get('/term/create', [TermController::class, 'create'])->name('admin.term.create');
+    Route::post('/term/store', [TermController::class, 'store'])->name('admin.term.store');
 
-    Route::get('/edit/{term}', [TermController::class, 'edit'])->name('admin.term.edit');
-    Route::post('/update/{term}', [TermController::class, 'update'])->name('admin.term.update');
+    Route::get('/term/edit/{term}', [TermController::class, 'edit'])->name('admin.term.edit');
+    Route::post('/term/update/{term}', [TermController::class, 'update'])->name('admin.term.update');
 });
