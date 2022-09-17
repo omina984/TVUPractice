@@ -21,6 +21,8 @@ class UpdateUserController extends Controller
                 'family',
                 'father',
                 'nationalcode',
+                'isadmin',
+                'users.state as user_state',
                 'marakez.name as markaz_name'
             )->get();
 
@@ -40,6 +42,8 @@ class UpdateUserController extends Controller
                     'family',
                     'father',
                     'nationalcode',
+                    'isadmin',
+                    'users.state as user_state',
                     'marakez.name as markaz_name'
                 )->get();
         } else {
@@ -51,6 +55,8 @@ class UpdateUserController extends Controller
                     'family',
                     'father',
                     'nationalcode',
+                    'isadmin',
+                    'users.state as user_state',
                     'marakez.name as markaz_name'
                 )->get()->where('username', '=', $request->username);
         }

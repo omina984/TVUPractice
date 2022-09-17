@@ -64,7 +64,7 @@
                                                     </td>
                                                     <td style="width: 15%;"><a
                                                             href="{{ route('admin.term.edit', $term->id) }}"
-                                                            class="btn btn-link"
+                                                            class="btn btn-info"
                                                             style="width: 90%; margin-top: 5px;">ویرایش</a>
                                                     </td>
                                                 </tr>
