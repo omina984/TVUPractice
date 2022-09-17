@@ -71,12 +71,6 @@ class RegisteruserController extends Controller
         else
             $type = -1;
 
-        $isadmin = -1;
-        if ($data['type'] == 'admin')
-            $isadmin = 1;
-        else
-            $isadmin = 0;
-
         return User::create([
             'username' => $data['username'],
             'name' => $data['name'],
@@ -88,7 +82,6 @@ class RegisteruserController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'type' => $type,
-            'isadmin' => $isadmin,
             'state' => 1,
         ]);
     }

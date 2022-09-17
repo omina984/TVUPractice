@@ -9,7 +9,7 @@ class Check_Is_ADMIN
 {
     public function handle(Request $request, Closure $next)
     {
-        if (Auth()->check() && Auth()->user()->isadmin == 1) {
+        if (Auth()->check() && Auth()->user()->type == 99) {
             return $next($request);
         }
 

@@ -56,13 +56,13 @@
                                         <body>
                                             @foreach ($users as $user)
                                                 <tr 
-                                                    @if ($user->isadmin == 0) 
+                                                    @if ($user->type !=  99) 
                                                         @if ($user->user_state == 0)
                                                             style="border: 1px solid; background-color: lightsalmon;" 
                                                         @else
                                                             style="border: 1px solid;" 
                                                         @endif
-                                                    @elseif ($user->isadmin == 1)
+                                                    @elseif ($user->type == 99)
                                                         @if ($user->user_state == 0) 
                                                             style="border: 1px solid; background-color: lightsalmon;" 
                                                         @else

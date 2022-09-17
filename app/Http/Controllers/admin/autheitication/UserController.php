@@ -21,7 +21,10 @@ class UserController extends Controller
                 'family',
                 'father',
                 'nationalcode',
-                'isadmin',
+                'mobile',
+                'markaz_id',
+                'email',
+                'type',
                 'users.state as user_state',
                 'marakez.name as markaz_name'
             )->get();
@@ -42,7 +45,10 @@ class UserController extends Controller
                     'family',
                     'father',
                     'nationalcode',
-                    'isadmin',
+                    'mobile',
+                    'markaz_id',
+                    'email',
+                    'type',
                     'users.state as user_state',
                     'marakez.name as markaz_name'
                 )->get();
@@ -55,7 +61,10 @@ class UserController extends Controller
                     'family',
                     'father',
                     'nationalcode',
-                    'isadmin',
+                    'mobile',
+                    'markaz_id',
+                    'email',
+                    'type',
                     'users.state as user_state',
                     'marakez.name as markaz_name'
                 )->get()->where('username', '=', $request->username);
@@ -69,22 +78,27 @@ class UserController extends Controller
         $pagetitle = 'ویرایش کاربر موجود';
         $marakez = Marakez::all()->where('state', '<>', 0);
 
-        return view('admin.auth.users.edit', compact('pagetitle', 'user','marakez'));
+        return view('admin.auth.users.edit', compact('pagetitle', 'user', 'marakez'));
     }
 
     public function update(Request $request, User $user)
     {
-        dd($request);
-        exit;
 
         $messages = [
-            'name.required' => 'فیلد نام ترم را وارد کنید',
+            // 'name.required' => 'فیلد نام ترم را وارد کنید',
         ];
 
         $request->validate([
-            'name' => 'required',
+            'name' => ['required', 'string', 'max:255'],
+            'family' => ['required', 'string', 'max:255'],
+            'father' => ['required', 'string', 'max:255'],
+            'nationalcode' => ['required', 'string', 'max:255'],
+            'mobile' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
         ], $messages);
-
+dd($request);
+exit;
         //اگر نام تکراری برای ترم انتخاب شود
         $id = DB::table('terms')->where('name', '=', $request->name)->get();
         if (!$id->isEmpty())

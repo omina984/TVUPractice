@@ -25,7 +25,7 @@ Auth::routes();
 
 // login
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //reset password
 Route::get('/resetpassword', [ResetPasswordController::class, 'index'])->name('auth.resetpassword.index');
