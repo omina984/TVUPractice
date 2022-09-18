@@ -27,7 +27,7 @@
                             </h2>
 
                             <button type="button" class="btn btn-info btn-fw"
-                                style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px; margin-right:10px;"
+                                style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 120px; margin-right:10px;"
                                 onclick="window.location='{{ route('admin.term.create') }}'">
                                 ایجاد ترم جدید </button>
 

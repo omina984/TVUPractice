@@ -37,7 +37,7 @@ class LoginController extends Controller
         $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
         if (auth()->attempt(array($fieldType => $input['username'], 'password' => $input['password']))) {
-            if (auth()->user()->type == 99) {
+            if (auth()->user()->type == 0) {
                 return redirect()->route('admin.index');
             } else {
                 return redirect()->route('home');

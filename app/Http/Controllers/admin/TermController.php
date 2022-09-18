@@ -47,9 +47,9 @@ class TermController extends Controller
 
             $msg = 'ذخیره ترم جدید با موفقیت انجام شد';
 
-            return redirect(Route('admin.term.index'))->with('success', $msg);
+            return redirect(Route('admin.terms.index'))->with('success', $msg);
         } catch (Exception $exception) {
-            return redirect(Route('admin.term.index'))->with('warning', $exception->getCode());
+            return redirect(Route('admin.terms.index'))->with('warning', $exception->getCode());
         }
     }
 
@@ -88,9 +88,9 @@ class TermController extends Controller
             $term->update($request->all());
 
             $msg = 'ذخیره ترم موجود با موفقیت انجام شد';
-            return redirect(Route('admin.term.index'))->with('success', $msg);
+            return redirect(Route('admin.terms.index'))->with('success', $msg);
         } catch (Exception $exception) {
-            return redirect(Route('admin.term.index'))->with('warning', $exception->getCode());
+            return redirect(Route('admin.terms.index'))->with('warning', $exception->getCode());
         }
     }
 

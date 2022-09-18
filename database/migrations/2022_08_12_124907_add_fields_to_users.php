@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nationalcode')->after('father')->nullable();
             $table->string('mobile')->after('nationalcode')->nullable();
             $table->bigInteger('markaz_id')->after('mobile')->unsigned();
-            $table->bigInteger('type')->after('remember_token')->default(1); //student=1, teacher=2, admin=99
+            $table->bigInteger('type')->after('remember_token')->default(1); //admin=0, teacher=1, student=2
             $table->string('state')->after('type')->default(1); //false=0, true=1
 
             $table->foreign('markaz_id')->references('id')->on('marakez')->onDelete('cascade');
@@ -33,7 +33,7 @@ return new class extends Migration
             'markaz_id' => 999, //999 = sazman markazi
             'email' => 'admin99901@tvu.ac.ir',
             'password' => bcrypt('1234567890'),
-            'type' => '99',
+            'type' => '0',
             'state' => 1,
             'created_at' => null,
             'updated_at' => null
@@ -50,7 +50,7 @@ return new class extends Migration
             'markaz_id' => 33, //33 = shamsipoor
             'email' => 'user03301@tvu.ac.ir',
             'password' => bcrypt('1234567890'),
-            'type' => '2',
+            'type' => '1',
             'state' => 1,
             'created_at' => null,
             'updated_at' => null

@@ -52,12 +52,13 @@ class ResetPasswordController extends Controller
         $input['password'] = Hash::make($request['password']);
         if (count($user) == 0) {
             $msg = 'کاربری وارد شده در سامانه وجود ندارد. لطفا با کاربر مرکز خود در تماس باشید';
+
             return redirect()->route('auth.resetpassword.resetpass')->with('warning', $msg);
         } else {
             User::find($user[0]->id)->update($input);
 
             $msg = 'کلمه عبور با موفقیت در سامانه میز خدمت تغییر یافت';
-            return redirect()->route('home')->with('success', $msg);
+            return redirect()->route('login')->with('success', $msg);
         }
     }
 }

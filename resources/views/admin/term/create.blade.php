@@ -41,7 +41,7 @@
                                     <div class="fb-input-box">
                                         <input name="name" id="item49_text_1" type="text" maxlength="254"
                                             placeholder="عنوان ترم" data-hint="" autocomplete="off"
-                                            style="font-size: 16px; font-weight: bold;" value="{{ old('name') }}" />
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;" value="{{ old('name') }}" />
 
                                         @error('name')
                                             <div class="alert alert-danger"> {{ $message }} </div>
@@ -56,7 +56,7 @@
 
                                     <div class="fb-dropdown">
                                         <select name="state" id="state"
-                                            style="font-size: 16px; font-weight: bold; height: 30px;">
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 30px;">
                                             <option value="1" selected>فعال</option>
                                             <option value="0">غیر فعال</option>
                                         </select>
@@ -74,7 +74,7 @@
 
                                     <div class="fb-input-box">
                                         <textarea name="description" id="description" cols="30" rows="10" data-hint="" autocomplete="off"
-                                            style="font-size: 16px; font-weight: bold;" value="{{ old('description') }}" /></textarea>
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;" value="{{ old('description') }}" /></textarea>
 
                                         @error('description')
                                             <div class="alert alert-danger"> {{ $message }} </div>
