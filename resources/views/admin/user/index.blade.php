@@ -26,32 +26,29 @@
                         <div class="section" id="section1">
                             <h2 style="text-align: center; text-decoration: underline; padding-top: 10px;"> کاربران موجود
                             </h2>
-
+                            
                             <div class="d-flex justify-content-between">
                                 <div>
                                     <button type="button" class="btn btn-info btn-fw"
                                         style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 120px; margin-right:10px;"
                                         onclick="window.location='{{ route('admin.user.create') }}'">
-                                        ایجاد کاربر جدید 
+                                        ایجاد کاربر جدید
                                     </button>
                                 </div>
-
+                                
                                 <div>
-                                    <input name="username" id="item49_text_1" type="text" maxlength="254"
-                                        placeholder="نام کاربری" data-hint="" autocomplete="off"
-                                        style="font-size: 16px; font-weight: bold; width: 200px; text-align: left;  float: left; margin-left: 10px;margin-top: 2px; margin-right: 10px; padding-top: 10px;"
-                                        value="{{ old('username') }}" />
-
                                     <button type="submit" class="btn btn-info btn-fw"
-                                        style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 120px; float: left; padding-left: 10px;"
+                                        style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 120px;"
                                         onclick="window.location='{{ route('admin.users.search') }}'">
                                         جستجو
                                     </button>
+
+                                    <input name="username" id="item49_text_1" type="text" maxlength="254"
+                                        placeholder="نام کاربری" data-hint="" autocomplete="off"
+                                        style="font-size: 16px; font-weight: bold; width: 200px; text-align: left; margin-left: 10px;"
+                                        value="{{ old('username') }}" />
                                 </div>
                             </div>
-
-
-
 
                             <div class="fb-item fb-100-item-column" id="item49">
                                 <div class="container">

@@ -13,9 +13,9 @@
         </div>
     </div>
 
-    <div class="MyStyle">
+    {{-- <div class="MyStyle">
         لطفا در صورت نداشتن نام کاربری با مدیر سامانه در تماس باشید
-    </div>
+    </div> --}}
 
     <section id="hero" class="d-flex align-items-center">
         <div class="container">

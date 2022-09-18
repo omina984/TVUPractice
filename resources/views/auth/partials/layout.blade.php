@@ -18,7 +18,7 @@
             color: black;
             text-align: center;
             padding-top: 50px;
-            color: #0071bc;
+            color: #055a93;
         }
     </style>
 
