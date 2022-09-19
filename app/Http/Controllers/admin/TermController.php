@@ -13,7 +13,8 @@ class TermController extends Controller
     public function index()
     {
         $pagetitle = 'ترم‌ها';
-        $terms = DB::table('terms')->orderBy('id', 'desc')->get()->where('state', '>=', 0);
+        // $terms = DB::table('terms')->orderBy('id', 'desc')->get()->where('state', '>=', 0);
+        $terms = Term::where('state', '>=', 0)->orderBy('id', 'desc')->paginate(10);
 
         return view('admin.term.index', compact('pagetitle', 'terms'));
     }

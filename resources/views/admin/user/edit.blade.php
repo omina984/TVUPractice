@@ -21,9 +21,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                    <form data-aos="fade-up" data-aos-delay="400" class="fb-toplabel fb-100-item-column selected-object"
+                    <form data-aos="fade-up" data-aos-delay="400" class="MyStyle_create_edit_form fb-toplabel fb-100-item-column selected-object"
                         id="docContainer"
-                        style="border-width: 3px; font-family: 'B Nazanin'; font-size: 20px; width: 800px;"
                         action="{{ route('admin.user.update', $user->id) }}" method="post">
                         @csrf
 
@@ -150,7 +149,7 @@
 
                                     <div class="fb-dropdown">
                                         <select name="markaz" id="markaz"
-                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 30px;">
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
                                             @foreach ($marakez as $mz)
                                                 <option value="{{ $mz->id }}"
                                                     {{ old('markaz_id', $user->markaz_id) == $mz->id ? 'selected' : '' }}>
@@ -205,7 +204,7 @@
 
                                     <div class="fb-dropdown">
                                         <select name="type" id="type"
-                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 30px;">
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
                                             <option value="2" {{ $user->type == 2 ? 'selected' : '' }}>دانشجو
                                             </option>
                                             <option value="1" {{ $user->type == 1 ? 'selected' : '' }}>استاد
@@ -222,7 +221,7 @@
 
                                     <div class="fb-dropdown">
                                         <select name="state" id="type"
-                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 30px;">
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
                                             <option value="1" {{ $user->state == 1 ? 'selected' : '' }}>فعال</option>
                                             <option value="0" {{ $user->state == 0 ? 'selected' : '' }}>غیر فعال
                                             </option>

@@ -17,8 +17,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                    <form data-aos="fade-up" data-aos-delay="400" class="fb-toplabel fb-100-item-column selected-object"
-                        id="docContainer" style="border-width: 3px; font-family: 'B Nazanin'; font-size: 20px; width: 800px;"
+                    <form data-aos="fade-up" data-aos-delay="400" class="MyStyle_create_edit_form fb-toplabel fb-100-item-column selected-object"
+                        id="docContainer" 
                         action="{{ route('admin.term.update', $term->id) }}" method="post">
                         @csrf
 
@@ -56,7 +56,7 @@
 
                                     <div class="fb-dropdown">
                                         <select name="state" id="state"
-                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 30px;">
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
                                             <option value="1" {{ old('state', $term->state) == 1 ? 'selected' : '' }}>
                                                 فعال</option>
                                             <option value="0" {{ old('state', $term->state) == 0 ? 'selected' : '' }}>

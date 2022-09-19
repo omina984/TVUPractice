@@ -1,3 +1,15 @@
+/* Mehdi */
+#docContainer table thead tr td {
+    border: 1px solid;
+    background-color: lightblue;
+}
+
+#docContainer table tbody tr td
+{
+    border: 1px solid;
+}
+/* Mehdi */
+
 /* Reset styles of the form */
 #docContainer div,
 #docContainer span,
@@ -84,6 +96,32 @@
     vertical-align: top;
 }
 
+/* Mehdi - MyPaginate */
+#docContainer #MyPaginate {
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+#docContainer #MyPaginate a {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding-left: 1px;
+    margin-left: 1px;
+    border: 2px solid lightblue;
+}
+
+#docContainer #MyPaginate nav ul li span {
+    border: 2px solid lightblue;
+    padding-left: 1px;
+    margin-left: 1px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+/* Mehdi - MyPaginate */
+
 /* HTML5 display-role reset for older browsers */
 #docContainer article,
 #docContainer aside,
@@ -120,6 +158,10 @@
 #docContainer table {
     border-collapse: collapse;
     border-spacing: 0;
+    /* Mehdi */
+    border: 1px solid;
+    margin-right: 6px;
+    /* Mehdi */
 }
 
 /*Hiding/showing hints.*/

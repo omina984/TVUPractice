@@ -21,6 +21,31 @@
             color: #055a93;
         }
 
+        .MyStyle_breadcrumb_span {
+            color: gray;
+        }
+
+        .MyStyle_inbox_H2 {
+            text-align: center;
+            text-decoration: underline;
+            padding-top: 10px;
+        }
+
+        .MyStyle_inbox_button {
+            font-family: 'B Nazanin';
+            font-size: 18px;
+            font-weight: bold;
+            width: 120px;
+            margin-right: 10px;
+        }
+
+        .MyStyle_create_edit_form {
+            border-width: 3px;
+            font-family: 'B Nazanin';
+            font-size: 20px;
+            width: 800px;
+        }
+
         a,
         body,
         button,

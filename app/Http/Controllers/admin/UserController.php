@@ -29,7 +29,7 @@ class UserController extends Controller
                 'type',
                 'users.state as user_state',
                 'marakez.name as markaz_name'
-            )->get();
+            )->paginate(10);
 
         return view('admin.user.index', compact('pagetitle', 'users'));
     }
@@ -53,9 +53,9 @@ class UserController extends Controller
                     'type',
                     'users.state as user_state',
                     'marakez.name as markaz_name'
-                )->get();
+                )->paginate(10);
         } else {
-            $users = DB::table('users')->join('marakez', 'marakez.id', '=', 'users.markaz_id')->orderBy('users.id', 'desc')
+            $users = User::where('username', '=', $request->username)->join('marakez', 'marakez.id', '=', 'users.markaz_id')->orderBy('users.id', 'desc')
                 ->select(
                     'users.id as user_id',
                     'username',
@@ -69,7 +69,7 @@ class UserController extends Controller
                     'type',
                     'users.state as user_state',
                     'marakez.name as markaz_name'
-                )->get()->where('username', '=', $request->username);
+                )->paginate(10);
         }
 
         return view('admin.user.index', compact('pagetitle', 'users'));
