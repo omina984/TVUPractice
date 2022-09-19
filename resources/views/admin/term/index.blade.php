@@ -22,16 +22,16 @@
                     <form data-aos="fade-up" data-aos-delay="400" class="fb-toplabel fb-100-item-column selected-object"
                         style="width: 100%;" id="docContainer" action="#">
                         <div class="section" id="section1">
-                            <h2 class="MyStyle_inbox_H2"> ترم‌های موجود
+                            <h2 id='MyH2'> ترم‌های موجود
                             </h2>
-
-                            <button type="button" class="MyStyle_inbox_button btn btn-info btn-fw"
-                                onclick="window.location='{{ route('admin.term.create') }}'">
-                                ایجاد ترم جدید </button>
 
                             {{-- <div class="column ui-sortable" id="column1"> --}}
                             <div class="fb-item fb-100-item-column" id="item49">
                                 <div class="container">
+                                    <button type="button" class="MyStyle_inbox_button btn btn-info btn-fw"
+                                        onclick="window.location='{{ route('admin.term.create') }}'">
+                                        ایجاد ترم جدید </button>
+
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr>

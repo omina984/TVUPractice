@@ -17,19 +17,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                    <form data-aos="fade-up" data-aos-delay="400" class="MyStyle_create_edit_form fb-toplabel fb-100-item-column selected-object"
-                        id="docContainer" 
+                    <form data-aos="fade-up" data-aos-delay="400"
+                        class="MyStyle_create_edit_form fb-toplabel fb-100-item-column selected-object" id="docContainer"
                         action="{{ route('admin.term.update', $term->id) }}" method="post">
                         @csrf
 
-                        <div class="fb-form-header" id="fb-form-header1"
-                            style="height: 0px; background-repeat: no-repeat; background-position-x: left; background-color: transparent;">
-                            <a class="fb-link-logo" id="fb-link-logo1" style="max-width: 104px;" target="_blank"><img
-                                    title="Alternative text" class="fb-logo" id="fb-logo1"
-                                    style="width: 100%; display: none;" alt="Alternative text"
-                                    src="common/images/image_default.png" /></a>
-                        </div>
-
+                        <br>
                         <div class="section" id="section1">
                             <div class="column ui-sortable" id="column1">
                                 <div class="fb-item fb-50-item-column" id="item49">

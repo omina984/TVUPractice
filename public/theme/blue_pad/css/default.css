@@ -4,10 +4,16 @@
     background-color: lightblue;
 }
 
-#docContainer table tbody tr td
-{
+#docContainer table tbody tr td {
     border: 1px solid;
 }
+
+#docContainer #MyH2 {
+    text-align: center;
+    text-decoration: underline;
+    padding-top: 20px;
+}
+
 /* Mehdi */
 
 /* Reset styles of the form */
@@ -161,7 +167,10 @@
     /* Mehdi */
     border: 1px solid;
     margin-right: 6px;
-    /* Mehdi */
+    /* width: 90%;
+    margin: auto; */
+    margin-bottom: 10px
+        /* Mehdi */
 }
 
 /*Hiding/showing hints.*/

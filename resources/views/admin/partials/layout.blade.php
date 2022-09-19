@@ -25,18 +25,13 @@
             color: gray;
         }
 
-        .MyStyle_inbox_H2 {
-            text-align: center;
-            text-decoration: underline;
-            padding-top: 10px;
-        }
-
         .MyStyle_inbox_button {
             font-family: 'B Nazanin';
             font-size: 18px;
             font-weight: bold;
             width: 120px;
-            margin-right: 10px;
+            margin-right: 5px;
+            margin-bottom: 10px;
         }
 
         .MyStyle_create_edit_form {

@@ -24,32 +24,32 @@
                         @csrf
 
                         <div class="section" id="section1">
-                            <h2 class="MyStyle_inbox_H2"> کاربران موجود
+                            <h2 id='MyH2'> کاربران موجود
                             </h2>
-
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <button type="button" class="MyStyle_inbox_button btn btn-info btn-fw"
-                                        onclick="window.location='{{ route('admin.user.create') }}'">
-                                        ایجاد کاربر جدید
-                                    </button>
-                                </div>
-
-                                <div>
-                                    <button type="submit" class="MyStyle_inbox_button btn btn-info btn-fw"
-                                        onclick="window.location='{{ route('admin.users.search') }}'">
-                                        جستجو
-                                    </button>
-
-                                    <input name="username" id="item49_text_1" type="text" maxlength="254"
-                                        placeholder="نام کاربری" data-hint="" autocomplete="off"
-                                        style="font-size: 16px; font-weight: bold; width: 200px; text-align: left; margin-left: 10px;"
-                                        value="{{ old('username') }}" />
-                                </div>
-                            </div>
 
                             <div class="fb-item fb-100-item-column" id="item49">
                                 <div class="container">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <button type="button" class="MyStyle_inbox_button btn btn-info btn-fw"
+                                                onclick="window.location='{{ route('admin.user.create') }}'">
+                                                ایجاد کاربر جدید
+                                            </button>
+                                        </div>
+
+                                        <div>
+                                            <button type="submit" class="MyStyle_inbox_button btn btn-info btn-fw"
+                                                onclick="window.location='{{ route('admin.users.search') }}'">
+                                                جستجو
+                                            </button>
+
+                                            <input name="username" id="item49_text_1" type="text" maxlength="254"
+                                                placeholder="نام کاربری" data-hint="" autocomplete="off"
+                                                style="font-size: 16px; width: 200px; text-align: left;"
+                                                value="{{ old('username') }}" />
+                                        </div>
+                                    </div>
+
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr>
@@ -65,19 +65,14 @@
 
                                         <body>
                                             @foreach ($users as $user)
-                                                <tr 
-                                                    @if ($user->type != 0) 
-                                                        @if ($user->user_state == 0)
+                                                <tr @if ($user->type != 0) @if ($user->user_state == 0)
                                                             style="background-color: lightsalmon;" 
                                                         @else 
-                                                            style="background-color: transparent" 
-                                                        @endif
-                                                    @elseif ($user->type == 0)
-                                                        @if ($user->user_state == 0) 
-                                                            style="background-color: lightsalmon;" 
+                                                            style="background-color: transparent" @endif
+                                                @elseif ($user->type == 0)
+                                                    @if ($user->user_state == 0) style="background-color: lightsalmon;" 
                                                         @else
-                                                            style="background-color: lightgreen;" 
-                                                        @endif
+                                                            style="background-color: lightgreen;" @endif
                                                     @endif
                                                     >
 
@@ -89,7 +84,7 @@
                                                     <td style="width: 15%;">{{ $user->family }}</td>
                                                     <td style="width: 15%;">{{ $user->nationalcode }}
                                                     </td>
-                                                    <td style="width: 25%;">
+                                                    <td style="width: 20%;">
                                                         {{ $user->markaz_name }}
                                                     </td>
                                                     <td style="width: 10%;"><a

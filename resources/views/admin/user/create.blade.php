@@ -21,19 +21,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                    <form data-aos="fade-up" data-aos-delay="400" class="MyStyle_create_edit_form fb-toplabel fb-100-item-column selected-object"
-                        id="docContainer" 
+                    <form data-aos="fade-up" data-aos-delay="400"
+                        class="MyStyle_create_edit_form fb-toplabel fb-100-item-column selected-object" id="docContainer"
                         action="{{ route('admin.user.store') }}" method="post">
                         @csrf
 
-                        <div class="fb-form-header" id="fb-form-header1"
-                            style="height: 30px; background-repeat: no-repeat; background-position-x: left; background-color: transparent;">
-                            <a class="fb-link-logo" id="fb-link-logo1" style="max-width: 104px;" target="_blank"><img
-                                    title="Alternative text" class="fb-logo" id="fb-logo1"
-                                    style="width: 100%; display: none;" alt="Alternative text"
-                                    src="common/images/image_default.png" /></a>
-                        </div>
-
+                        <br>
                         <div class="section" id="section1">
                             <div class="column ui-sortable" id="column1">
                                 <div class="fb-item fb-50-item-column" id="item49">
@@ -45,7 +38,8 @@
                                     <div class="fb-input-box">
                                         <input name="username" id="item49_text_1" type="text" maxlength="254"
                                             placeholder="نام کاربری یکتا" data-hint="" autocomplete="off"
-                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;" value="{{ old('username') }}" />
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
+                                            value="{{ old('username') }}" />
 
                                         @error('username')
                                             <div class="alert alert-danger"> {{ $message }} </div>
@@ -78,7 +72,8 @@
                                     <div class="fb-input-box">
                                         <input name="name" id="item50_text_1" type="text" maxlength="254"
                                             placeholder="" data-hint="" autocomplete="off"
-                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;" value="{{ old('name') }}" />
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
+                                            value="{{ old('name') }}" />
 
                                         @error('name')
                                             <div class="alert alert-danger"> {{ $message }} </div>
@@ -95,7 +90,8 @@
                                     <div class="fb-input-box">
                                         <input name="family" id="item51_text_1" type="text" maxlength="254"
                                             placeholder="" data-hint="" autocomplete="off"
-                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;" value="{{ old('family') }}" />
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
+                                            value="{{ old('family') }}" />
 
                                         @error('family')
                                             <div class="alert alert-danger"> {{ $message }} </div>
@@ -112,7 +108,8 @@
                                     <div class="fb-input-box">
                                         <input name="father" id="item54_text_1" type="text" maxlength="254"
                                             placeholder="" data-hint="" autocomplete="off"
-                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;" value="{{ old('father') }}" />
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
+                                            value="{{ old('father') }}" />
 
                                         @error('father')
                                             <div class="alert alert-danger"> {{ $message }} </div>
@@ -164,7 +161,8 @@
                                     <div class="fb-input-box">
                                         <input name="mobile" id="item55_text_1" type="text" maxlength="254"
                                             placeholder="" data-hint="" autocomplete="off"
-                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;" value="{{ old('mobile') }}" />
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
+                                            value="{{ old('mobile') }}" />
 
                                         @error('mobile')
                                             <div class="alert alert-danger"> {{ $message }} </div>
