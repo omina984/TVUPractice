@@ -22,7 +22,6 @@
                         action="{{ route('admin.term.update', $term->id) }}" method="post">
                         @csrf
 
-                        <br>
                         <div class="section" id="section1">
                             <div class="column ui-sortable" id="column1">
                                 <div class="fb-item fb-50-item-column" id="item49">
@@ -79,8 +78,7 @@
                             </div>
                         </div>
 
-                        <div class="fb-footer fb-item-alignment-center" id="fb-submit-button-div"
-                            style="height: 75px; padding-top: 20px; min-height: 100px;">
+                        <div class="fb-footer fb-item-alignment-center" id="fb-submit-button-div">
                             <button type="submit" class="btn btn-info btn-fw"
                                 style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px;">
                                 ثبت </button>
@@ -90,11 +88,6 @@
                                 onclick="window.location='{{ route('admin.terms.index') }}'">
                                 بازگشت </button>
                         </div>
-
-                        <input name="fb_form_custom_html" type="hidden" />
-                        <input name="fb_form_embedded" type="hidden" />
-                        <input name="fb_js_enable" id="fb_js_enable" type="hidden" />
-                        <input name="fb_url_embedded" id="fb_url_embedded" type="hidden" />
                     </form>
                 </div>
             </div>

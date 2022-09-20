@@ -6,6 +6,8 @@
 
 #docContainer table tbody tr td {
     border: 1px solid;
+    text-align: center;
+    vertical-align:middle;
 }
 
 #docContainer #MyH2 {
@@ -14,6 +16,12 @@
     padding-top: 20px;
 }
 
+#docContainer #Mya {
+    height: 30px;
+    width: 90%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 /* Mehdi */
 
 /* Reset styles of the form */
@@ -281,7 +289,10 @@ input[type="date"]::-webkit-inner-spin-button {
 /* Column properties. This applies to a common style inside the form */
 #docContainer .column {
     margin: 0px;
-    padding: 0 10% 0 4%;
+    /* Mehdi */
+    /* padding: 0 10% 0 4%; */
+    padding: 10px 40px 0px 30px;
+    /* Mehdi */
 }
 
 /* Column properties. This applies to a common style inside the form  in fb-small mode*/
@@ -319,7 +330,10 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 #docContainer #fb-submit-button-div {
-    padding: 5px 4px 15px 5px;
+    /* Mehdi */
+    /* padding: 5px 4px 15px 5px; */
+    padding: 10px 4px 30px 5px;
+    /* Mehdi */
 }
 
 #docContainer.fb-small #fb-submit-button-div {
@@ -372,7 +386,10 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 #docContainer .fb-item.fb-50-item-column {
+    /* Mehdi */
     width: 47%;
+    width: 49%;
+    /* Mehdi */
 }
 
 #docContainer .fb-item.fb-33-item-column {
@@ -582,8 +599,10 @@ input[type="date"]::-webkit-inner-spin-button {
     /* background-image: url("../images/fb_footer.png"); */
     background-repeat: repeat-x;
     background-position: bottom;
-    height: 100px;
-    padding: 10px 0 0 0;
+    /* Mehdi */
+    /* height: 100px; */
+    /* padding: 10px 0 0 0; */
+    /* Mehdi */
 }
 
 /*  Rule for Submit button */
@@ -870,7 +889,10 @@ input[type="date"]::-webkit-inner-spin-button {
 
 /* Rule for labels aligned on top */
 .fb-toplabel .fb-grouplabel {
-    width: 95%;
+    /* Mehdi */
+    /* width: 95%; */
+    width: 100%;
+    /* Mehdi */
 }
 
 .fb-toplabel .fb-input-box,
@@ -888,7 +910,10 @@ input[type="date"]::-webkit-inner-spin-button {
 .fb-toplabel .fb-regex {
     margin: 9px 0 0 0;
     float: none;
-    width: 95%;
+    /* Mehdi */
+    /* width: 95%; */
+    width: 100%;
+    /* Mehdi */
 }
 
 #docContainer.fb-toplabel .fb-hint {

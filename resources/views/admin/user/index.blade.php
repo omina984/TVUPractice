@@ -29,7 +29,7 @@
 
                             <div class="fb-item fb-100-item-column" id="item49">
                                 <div class="container">
-                                    <div class="d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between" style="margin-left: -6px;">
                                         <div>
                                             <button type="button" class="MyStyle_inbox_button btn btn-info btn-fw"
                                                 onclick="window.location='{{ route('admin.user.create') }}'">
@@ -87,10 +87,11 @@
                                                     <td style="width: 20%;">
                                                         {{ $user->markaz_name }}
                                                     </td>
-                                                    <td style="width: 10%;"><a
-                                                            href="{{ route('admin.user.edit', $user->user_id) }}"
+                                                    <td style="width: 10%;">
+                                                        <a id='Mya' href="{{ route('admin.user.edit', $user->user_id) }}"
                                                             class="btn btn-info"
-                                                            style="width: 90%; margin-top: 5px;">ویرایش</a>
+                                                            >ویرایش
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             @endforeach

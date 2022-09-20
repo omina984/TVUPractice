@@ -20,14 +20,6 @@
 
                         @include('layouts.messages')
 
-                        <div class="fb-form-header" id="fb-form-header1"
-                            style="height: 30px; background-repeat: no-repeat; background-position-x: left; background-color: transparent;">
-                            <a class="fb-link-logo" id="fb-link-logo1" style="max-width: 104px;" target="_blank"><img
-                                    title="Alternative text" class="fb-logo" id="fb-logo1"
-                                    style="width: 100%; display: none;" alt="Alternative text"
-                                    src="common/images/logo.png" /></a>
-                        </div>
-
                         <div class="section" id="section1">
                             <div class="column ui-sortable" id="column1">
                                 <div class="fb-item fb-100-item-column" id="item49">
@@ -41,7 +33,7 @@
                                             placeholder="نام کاربری موجود" data-hint="" autocomplete="off"
                                             style="font-size: 16px; font-weight: bold;" value="{{ old('username') }}" />
 
-                                            @error('username')
+                                        @error('username')
                                             <div class="alert alert-danger"> {{ $message }} </div>
                                         @enderror
                                     </div>
@@ -58,7 +50,7 @@
                                             placeholder="کلمه عبور جدید خود را وارد کنید" data-hint="" autocomplete="off"
                                             style="font-size: 16px; font-weight: bold;" />
 
-                                            @error('password')
+                                        @error('password')
                                             <div class="alert alert-danger"> {{ $message }} </div>
                                         @enderror
                                     </div>
@@ -75,7 +67,7 @@
                                             placeholder="کدملی خود را وارد کنید" data-hint="" autocomplete="off"
                                             style="font-size: 16px; font-weight: bold;" value="{{ old('nationalcode') }}" />
 
-                                            @error('nationalcode')
+                                        @error('nationalcode')
                                             <div class="alert alert-danger"> {{ $message }} </div>
                                         @enderror
                                     </div>
@@ -93,7 +85,7 @@
                                             autocomplete="off" style="font-size: 16px; font-weight: bold;"
                                             value="{{ old('mobile') }}" />
 
-                                            @error('mobile')
+                                        @error('mobile')
                                             <div class="alert alert-danger"> {{ $message }} </div>
                                         @enderror
                                     </div>
@@ -113,7 +105,7 @@
                                             style="font-size: 16px; font-weight: bold; text-align: left;"
                                             value="{{ old('email') }}" />
 
-                                            @error('email')
+                                        @error('email')
                                             <div class="alert alert-danger"> {{ $message }} </div>
                                         @enderror
                                     </div>
@@ -121,8 +113,7 @@
                             </div>
                         </div>
 
-                        <div class="fb-footer fb-item-alignment-center" id="fb-submit-button-div"
-                            style="height: 75px; padding-top: 25px; min-height: 1px;">
+                        <div class="fb-footer fb-item-alignment-center" id="fb-submit-button-div">
                             <button type="submit" class="btn btn-info btn-fw"
                                 style="font-family: 'B Nazanin'; font-size: 16px; font-weight: bold; width: 150px;">
                                 به روزرسانی</button>
@@ -132,12 +123,6 @@
                                 onclick="window.location='{{ url('/') }}'">
                                 بازگشت </button>
                         </div>
-                        <br>
-
-                        <input name="fb_form_custom_html" type="hidden" />
-                        <input name="fb_form_embedded" type="hidden" />
-                        <input name="fb_js_enable" id="fb_js_enable" type="hidden" />
-                        <input name="fb_url_embedded" id="fb_url_embedded" type="hidden" />
                     </form>
                 </div>
             </div>

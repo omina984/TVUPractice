@@ -14,19 +14,11 @@
             <div class="row">
                 <div class="col-lg-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
                     <form data-aos="fade-up" data-aos-delay="400" class="fb-100-item-column selected-object" id="docContainer"
-                        style="margin-top: 0px; border-width: 5px; font-family: 'B Nazanin'; font-size: 20px; width: 800px;"
+                        style="margin-top: 0px; border-width: 5px; font-family: 'B Nazanin'; font-size: 20px; width: 700px;"
                         action="{{ route('login') }}" method="post">
                         @csrf
 
                         @include('layouts.messages')
-
-                        <div class="fb-form-header" id="fb-form-header1"
-                            style="height: 0px; background-repeat: no-repeat; background-position-x: left; background-color: transparent;">
-                            <a class="fb-link-logo" id="fb-link-logo1" style="max-width: 104px;" target="_blank"><img
-                                    title="Alternative text" class="fb-logo" id="fb-logo1"
-                                    style="width: 100%; display: none;" alt="Alternative text"
-                                    src="common/images/logo.png" /></a>
-                        </div>
 
                         <div class="section" id="section1">
                             <div class="column ui-sortable" id="column1">
@@ -67,8 +59,7 @@
                             </div>
                         </div>
 
-                        <div class="fb-footer fb-item-alignment-center" id="fb-submit-button-div"
-                            style="height: 75px; padding-top: 25px; min-height: 1px;">
+                        <div class="fb-footer fb-item-alignment-center" id="fb-submit-button-div">
                             <button type="submit" class="btn btn-info btn-fw"
                                 style="font-family: 'B Nazanin'; font-size: 18px; font-weight: bold; width: 150px;">
                                 ورود</button>
@@ -78,12 +69,6 @@
                                 onclick="window.location='{{ url('resetpassword') }}'">
                                 تغییر کلمه عبور</button>
                         </div>
-                        <br>
-
-                        <input name="fb_form_custom_html" type="hidden" />
-                        <input name="fb_form_embedded" type="hidden" />
-                        <input name="fb_js_enable" id="fb_js_enable" type="hidden" />
-                        <input name="fb_url_embedded" id="fb_url_embedded" type="hidden" />
                     </form>
                 </div>
             </div>

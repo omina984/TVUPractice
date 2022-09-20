@@ -61,8 +61,8 @@
                                                         @endif
                                                     </td>
                                                     <td style="width: 10%;">
-                                                        <a href="{{ route('admin.term.edit', $term->id) }}"
-                                                            class="btn btn-info" style="width: 90%; margin-top: 5px;">ویرایش
+                                                        <a id='Mya' href="{{ route('admin.term.edit', $term->id) }}"
+                                                            class="btn btn-info">ویرایش
                                                         </a>
                                                     </td>
                                                 </tr>
