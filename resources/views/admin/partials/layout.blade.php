@@ -30,7 +30,7 @@
             font-size: 18px;
             font-weight: bold;
             width: 120px;
-            margin-right: 5px;
+            margin-right: 15px;
             margin-bottom: 10px;
         }
 

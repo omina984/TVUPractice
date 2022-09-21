@@ -37,12 +37,14 @@
                                             </button>
                                         </div>
 
-                                        <div>
+                                        <div style="width: 100%; text-align: left;">
                                             <button type="submit" class="MyStyle_inbox_button btn btn-info btn-fw"
                                                 onclick="window.location='{{ route('admin.users.search') }}'">
                                                 جستجو
                                             </button>
+                                        </div>
 
+                                        <div style="padding-top: 5px; padding-right: 5px; padding-left: 5px;">
                                             <input name="username" id="item49_text_1" type="text" maxlength="254"
                                                 placeholder="نام کاربری" data-hint="" autocomplete="off"
                                                 style="font-size: 16px; width: 200px; text-align: left;"
@@ -88,9 +90,9 @@
                                                         {{ $user->markaz_name }}
                                                     </td>
                                                     <td style="width: 10%;">
-                                                        <a id='Mya' href="{{ route('admin.user.edit', $user->user_id) }}"
-                                                            class="btn btn-info"
-                                                            >ویرایش
+                                                        <a id='Mya'
+                                                            href="{{ route('admin.user.edit', $user->user_id) }}"
+                                                            class="btn btn-info">ویرایش
                                                         </a>
                                                     </td>
                                                 </tr>
