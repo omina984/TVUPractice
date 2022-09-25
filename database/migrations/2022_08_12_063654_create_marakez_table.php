@@ -9,6 +9,8 @@ return new class extends Migration
 {
     public function up()
     {
+        Schema::dropIfExists('marakez');
+
         Schema::create('marakez', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -25,7 +27,8 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('users');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('marakez');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 };

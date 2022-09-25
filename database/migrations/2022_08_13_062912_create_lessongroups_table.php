@@ -9,6 +9,8 @@ return new class extends Migration
 {
     public function up()
     {
+        Schema::dropIfExists('lessongroups');
+
         Schema::create('lessongroups', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -29,6 +31,8 @@ return new class extends Migration
 
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('lessongroups');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 };
