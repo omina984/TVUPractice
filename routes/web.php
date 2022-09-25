@@ -3,24 +3,11 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
-use App\Http\Controllers\admin\auth\AuthRegisterController as AuthAuthRegisterController;
-use App\Http\Controllers\admin\autheitication\MyAuthController as AutheiticationMyAuthController;
-use App\Http\Controllers\admin\autheitication\RegisteruserController as AutheiticationRegisteruserController;
-use App\Http\Controllers\admin\autheitication\reset\MyAuthController as ResetMyAuthController;
-use App\Http\Controllers\admin\autheitication\ResetUserController;
-use App\Http\Controllers\admin\autheitication\UpdateUserController;
-use App\Http\Controllers\admin\autheitication\UserController;
-use App\Http\Controllers\admin\AuthRegisterController;
-use App\Http\Controllers\admin\myauth\AuthRegisterController as MyauthAuthRegisterController;
-use App\Http\Controllers\admin\myauth\RegisteruserController;
-use App\Http\Controllers\admin\MyAuthController;
-use App\Http\Controllers\admin\MyRegisterController;
-use App\Http\Controllers\admin\RegisterController as AdminRegisterController;
+use App\Http\Controllers\admin\LessongroupController;
 use App\Http\Controllers\admin\TermController;
 use App\Http\Controllers\admin\UserController as AdminUserController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
-use App\Http\Middleware\Check_Is_ADMIN;
+use App\Models\admin\Lessongroup;
 
 Auth::routes();
 
@@ -54,4 +41,13 @@ Route::prefix('admin')->middleware('Check_Is_ADMIN')->group(function () {
 
     Route::get('/term/edit/{term}', [TermController::class, 'edit'])->name('admin.term.edit');
     Route::post('/term/update/{term}', [TermController::class, 'update'])->name('admin.term.update');
+
+    //admin - lessongroup
+    Route::get('/lessongroups', [LessongroupController::class, 'index'])->name('admin.lessongroups.index');
+
+    Route::get('/lessongroup/create', [LessongroupController::class, 'create'])->name('admin.lessongroup.create');
+    Route::post('/lessongroup/store', [LessongroupController::class, 'store'])->name('admin.lessongroup.store');
+
+    Route::get('/lessongroup/edit/{lessongroup}', [LessongroupController::class, 'edit'])->name('admin.lessongroup.edit');
+    Route::post('/lessongroup/update/{lessongroup}', [LessongroupController::class, 'update'])->name('admin.lessongroup.update');
 });

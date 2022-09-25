@@ -12,6 +12,8 @@
             <a href="{{ route('admin.users.index') }}">کاربران</a>
             &nbsp; / &nbsp;
             <a href="{{ route('admin.terms.index') }}">ترم‌ها</a>
+            &nbsp; / &nbsp;
+            <a href="{{ route('admin.lessongroups.index') }}">گروه‌های درسی</a>
         </div>
     </div>
 @endsection
