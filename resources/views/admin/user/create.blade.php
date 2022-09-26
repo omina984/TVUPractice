@@ -174,7 +174,9 @@
 
                                     <div class="fb-input-box">
                                         <input name="email" id="item60_text_1" type="email" maxlength="254"
-                                            placeholder="it@tvu.ac.ir" data-hint="" autocomplete="off"
+                                            oninvalid="this.setCustomValidity('لطفا آدرس پست الکترونیکی درست وارد کنید')"
+                                            oninput="this.setCustomValidity('')" placeholder="it@tvu.ac.ir"
+                                            data-hint="" autocomplete="off"
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold; text-align: left;"
                                             value="{{ old('email') }}" />
 

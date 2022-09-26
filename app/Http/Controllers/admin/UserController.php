@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Exception;
+use App\Rules\Nationalcode;
 
 class UserController extends Controller
 {
@@ -90,7 +91,7 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'family' => ['required', 'string', 'max:255'],
             'father' => ['required', 'string', 'max:255'],
-            'nationalcode' => ['required', 'string', 'max:255'],
+            'nationalcode' => ['required', 'string', 'max:255',new Nationalcode],
             'mobile' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
