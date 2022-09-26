@@ -15,7 +15,7 @@ class Nationalcode implements Rule
     {
         if (!preg_match('/^[0-9]{10}$/', $value))
             return false;
-            
+
         for ($i = 0; $i < 10; $i++)
             if (preg_match('/^' . $i . '{10}$/', $value))
                 return false;
@@ -27,7 +27,7 @@ class Nationalcode implements Rule
         $parity = intval(substr($value, 9, 1));
         if (($ret < 2 && $ret == $parity) || ($ret >= 2 && $ret == 11 - $parity))
             return true;
-            
+
         return false;
     }
 

@@ -56,7 +56,7 @@ class UserController extends Controller
                     'marakez.name as markaz_name'
                 )->paginate(10);
         } else {
-            $users = User::where('username', '=', $request->username)->join('marakez', 'marakez.id', '=', 'users.markaz_id')->orderBy('users.id', 'desc')
+            $users = User::where('username', 'like', '%' . $request->username . '%')->join('marakez', 'marakez.id', '=', 'users.markaz_id')->orderBy('users.id', 'desc')
                 ->select(
                     'users.id as user_id',
                     'username',
@@ -91,7 +91,7 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'family' => ['required', 'string', 'max:255'],
             'father' => ['required', 'string', 'max:255'],
-            'nationalcode' => ['required', 'string', 'max:255',new Nationalcode],
+            'nationalcode' => ['required', 'string', 'max:255', 'unique:users', new Nationalcode],
             'mobile' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
@@ -146,7 +146,7 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'family' => ['required', 'string', 'max:255'],
             'father' => ['required', 'string', 'max:255'],
-            'nationalcode' => ['required', 'string', 'max:255'],
+            'nationalcode' => ['required', 'string', 'max:255', new Nationalcode],
             'mobile' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8'],
