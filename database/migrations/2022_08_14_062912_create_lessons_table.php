@@ -9,9 +9,9 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('lessons');
 
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create('lessons', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->bigInteger('lessongroups_id')->unsigned();
@@ -27,7 +27,7 @@ return new class extends Migration
         });
 
         //امنيت شبكه
-        DB::table('courses')->insert([
+        DB::table('lessons')->insert([
             'name' => 'امنيت شبكه',
             'lessongroups_id' => 1, //کامپیوتر
             'lessongroup_code' => '30201133',
@@ -43,6 +43,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('lessons');
     }
 };

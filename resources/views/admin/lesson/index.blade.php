@@ -29,7 +29,7 @@
                             <div class="fb-item fb-100-item-column" id="item49">
                                 <div class="container">
                                     <button type="button" class="MyStyle_inbox_button btn btn-info btn-fw"
-                                        onclick="window.location='{{ route('admin.course.create') }}'">
+                                        onclick="window.location='{{ route('admin.lesson.create') }}'">
                                         ایجاد درس جدید </button>
 
                                     <table class="table table-bordered table-hover">
@@ -49,29 +49,29 @@
                                         </thead>
 
                                         <body>
-                                            @foreach ($courses as $course)
+                                            @foreach ($lessons as $lesson)
                                                 <tr>
                                                     <td style="width: 5%; background-color:lightblue;"><a
-                                                            href="{{ route('admin.course.edit', $course->course_id) }}">{{ $course->course_id }}</a>
+                                                            href="{{ route('admin.lesson.edit', $lesson->lesson_id) }}">{{ $lesson->lesson_id }}</a>
                                                     </td>
-                                                    <td style="width: 15%;">{{ $course->course_name }}</td>
-                                                    <td style="width: 10%;">{{ $course->lessongroup_name }}</td>
-                                                    <td style="width: 10%;">{{ $course->lessongroup_code }}</td>
-                                                    <td style="width: 10%;">{{ $course->lessoncode }}</td>
-                                                    <td style="width: 10%;">{{ $course->vahed }}</td>
-                                                    <td style="width: 10%;">{{ $course->vahed_teory }}</td>
-                                                    <td style="width: 10%;">{{ $course->vahed_amali }}</td>
+                                                    <td style="width: 15%;">{{ $lesson->lesson_name }}</td>
+                                                    <td style="width: 10%;">{{ $lesson->lessongroup_name }}</td>
+                                                    <td style="width: 10%;">{{ $lesson->lessongroup_code }}</td>
+                                                    <td style="width: 10%;">{{ $lesson->lessoncode }}</td>
+                                                    <td style="width: 10%;">{{ $lesson->vahed }}</td>
+                                                    <td style="width: 10%;">{{ $lesson->vahed_teory }}</td>
+                                                    <td style="width: 10%;">{{ $lesson->vahed_amali }}</td>
                                                     <td style="width: 10%;">
-                                                        @if ($course->course_state == 0)
+                                                        @if ($lesson->lesson_state == 0)
                                                             غیر فعال
-                                                        @elseif ($course->course_state == 1)
+                                                        @elseif ($lesson->lesson_state == 1)
                                                             فعال
                                                         @else
                                                             نا معلوم
                                                         @endif
                                                     </td>
                                                     <td style="width: 10%;">
-                                                        <a id='Mya' href="{{ route('admin.course.edit', $course->course_id) }}"
+                                                        <a id='Mya' href="{{ route('admin.lesson.edit', $lesson->lesson_id) }}"
                                                             class="btn btn-info">ویرایش
                                                         </a>
                                                     </td>
@@ -82,7 +82,7 @@
                                 </div>
 
                                 <div id='MyPaginate'>
-                                    {{ $courses->links() }}
+                                    {{ $lessons->links() }}
                                 </div>
                             </div>
                             {{-- </div> --}}
