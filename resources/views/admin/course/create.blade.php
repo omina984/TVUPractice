@@ -22,6 +22,8 @@
                         action="{{ route('admin.course.store') }}" method="post">
                         @csrf
 
+                        @include('layouts.messages')
+
                         <div class="section" id="section1">
                             <div class="column ui-sortable" id="column1">
                                 <div class="fb-item fb-50-item-column" id="item49">
@@ -43,7 +45,8 @@
 
                                 <div class="fb-item fb-50-item-column" id="item49">
                                     <div class="fb-grouplabel">
-                                        <label id="lessongroups_id" style="font-weight: bold; display: inline;">گروه درسی</label>
+                                        <label id="lessongroups_id" style="font-weight: bold; display: inline;">گروه
+                                            درسی</label>
                                     </div>
 
                                     <div class="fb-dropdown">
@@ -59,7 +62,8 @@
 
                                 <div class="fb-item fb-50-item-column" id="item49">
                                     <div class="fb-grouplabel">
-                                        <label id="lessongroup_code" style="font-weight: bold; display: inline;">کد گروه درسی</label>
+                                        <label id="lessongroup_code" style="font-weight: bold; display: inline;">کد گروه
+                                            درسی</label>
                                     </div>
 
                                     <div class="fb-input-box">
@@ -97,10 +101,13 @@
                                     </div>
 
                                     <div class="fb-input-box">
-                                        <input name="vahed" id="item49_text_1" type="text" maxlength="254"
-                                            placeholder="تعداد واحد" data-hint="" autocomplete="off"
+                                        <input name="vahed" id="item49_text_1" type="number" min="0"
+                                            max="3" maxlength="254" placeholder="تعداد واحد" data-hint=""
+                                            autocomplete="off"
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
-                                            value="{{ old('vahed') }}" />
+                                            value="{{ old('vahed') }}" onkeypress='validate(event)'
+                                            oninvalid="this.setCustomValidity('مقدار مجاز اعداد بین 0 الی 3 است')"
+                                            oninput="this.setCustomValidity('')" />
 
                                         @error('vahed')
                                             <div class="alert alert-danger"> {{ $message }} </div>
@@ -110,14 +117,18 @@
 
                                 <div class="fb-item fb-50-item-column" id="item49">
                                     <div class="fb-grouplabel">
-                                        <label id="vahed_teory" style="font-weight: bold; display: inline;"> تعداد واحد تئوری</label>
+                                        <label id="vahed_teory" style="font-weight: bold; display: inline;"> تعداد واحد
+                                            تئوری</label>
                                     </div>
 
                                     <div class="fb-input-box">
-                                        <input name="vahed_teory" id="item49_text_1" type="text" maxlength="254"
-                                            placeholder="تعداد واحد تئوری" data-hint="" autocomplete="off"
+                                        <input name="vahed_teory" id="item49_text_1" type="number" min="0"
+                                            max="3" maxlength="254" placeholder="تعداد واحد تئوری" data-hint=""
+                                            autocomplete="off"
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
-                                            value="{{ old('vahed_teory') }}" />
+                                            value="{{ old('vahed_teory') }}" onkeypress='validate(event)'
+                                            oninvalid="this.setCustomValidity('مقدار مجاز اعداد بین 0 الی 3 است')"
+                                            oninput="this.setCustomValidity('')" />
 
                                         @error('vahed_teory')
                                             <div class="alert alert-danger"> {{ $message }} </div>
@@ -127,21 +138,25 @@
 
                                 <div class="fb-item fb-50-item-column" id="item49">
                                     <div class="fb-grouplabel">
-                                        <label id="vahed_amali" style="font-weight: bold; display: inline;">تعداد واحد عملی</label>
+                                        <label id="vahed_amali" style="font-weight: bold; display: inline;">تعداد واحد
+                                            عملی</label>
                                     </div>
 
                                     <div class="fb-input-box">
-                                        <input name="vahed_amali" id="item49_text_1" type="text" maxlength="254"
-                                            placeholder="تعداد واحد عملی" data-hint="" autocomplete="off"
+                                        <input name="vahed_amali" id="item49_text_1" type="number" min="0"
+                                            max="3" maxlength="254" placeholder="تعداد واحد عملی" data-hint=""
+                                            autocomplete="off"
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
-                                            value="{{ old('vahed_amali') }}" />
+                                            value="{{ old('vahed_amali') }}" onkeypress='validate(event)'
+                                            oninvalid="this.setCustomValidity('مقدار مجاز اعداد بین 0 الی 3 است')"
+                                            oninput="this.setCustomValidity('')" />
 
                                         @error('vahed_amali')
                                             <div class="alert alert-danger"> {{ $message }} </div>
                                         @enderror
                                     </div>
                                 </div>
-                                
+
                                 <div class="fb-item fb-50-item-column" id="item50">
                                     <div class="fb-grouplabel">
                                         <label id="state" style="font-weight: bold; display: inline;">وضعیت</label>

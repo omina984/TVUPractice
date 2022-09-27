@@ -22,6 +22,8 @@
                         action="{{ route('admin.term.update', $term->id) }}" method="post">
                         @csrf
 
+                        @include('layouts.messages')
+                        
                         <div class="section" id="section1">
                             <div class="column ui-sortable" id="column1">
                                 <div class="fb-item fb-50-item-column" id="item49">

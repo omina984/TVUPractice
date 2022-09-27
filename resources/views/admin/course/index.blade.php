@@ -22,7 +22,7 @@
                     <form data-aos="fade-up" data-aos-delay="400" class="fb-toplabel fb-100-item-column selected-object"
                         style="width: 100%;" id="docContainer" action="#">
                         <div class="section" id="section1">
-                            <h2 id='MyH2'> درس‌های موجود
+                            <h2 id='MyH2'> دروس موجود
                             </h2>
 
                             {{-- <div class="column ui-sortable" id="column1"> --}}

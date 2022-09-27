@@ -119,10 +119,10 @@
                                     </div>
 
                                     <div class="fb-input-box">
-                                        <input name="nationalcode" id="item55_text_1" type="text" maxlength="254"
+                                        <input name="nationalcode" id="item55_text_1" type="text" maxlength="10"
                                             placeholder="" data-hint="" autocomplete="off"
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
-                                            value="{{ old('nationalcode') }}" />
+                                            value="{{ old('nationalcode') }}" onkeypress='validate(event)'/>
 
                                         @error('nationalcode')
                                             <div class="alert alert-danger"> {{ $message }} </div>
@@ -157,7 +157,7 @@
                                         <input name="mobile" id="item55_text_1" type="text" maxlength="254"
                                             placeholder="" data-hint="" autocomplete="off"
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
-                                            value="{{ old('mobile') }}" />
+                                            value="{{ old('mobile') }}" onkeypress='validate(event)'/>
 
                                         @error('mobile')
                                             <div class="alert alert-danger"> {{ $message }} </div>

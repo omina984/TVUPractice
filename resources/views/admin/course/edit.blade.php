@@ -12,7 +12,7 @@
             <span style="color: gray">ویرایش درس موجود</span>
         </div>
     </div>
-
+    
     <section id="hero" class="d-flex align-items-center">
         <div class="container">
             <div class="row">
@@ -21,6 +21,8 @@
                         class="MyStyle_create_edit_form fb-toplabel fb-100-item-column selected-object" id="docContainer"
                         action="{{ route('admin.course.update', $course->id) }}" method="post">
                         @csrf
+
+                        @include('layouts.messages')
 
                         <div class="section" id="section1">
                             <div class="column ui-sortable" id="column1">
@@ -41,6 +43,122 @@
                                     </div>
                                 </div>
 
+                                <div class="fb-item fb-50-item-column" id="item49">
+                                    <div class="fb-grouplabel">
+                                        <label id="lessongroups_id" style="font-weight: bold; display: inline;">گروه
+                                            درسی</label>
+                                    </div>
+
+                                    <div class="fb-dropdown">
+                                        <select name="lessongroups_id" id="lessongroups_id"
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
+                                            @foreach ($lessongroups as $lessongroup)
+                                                <option value="{{ $lessongroup->id }}"
+                                                    {{ old('lessongroups_id', $course->lessongroups_id) == $lessongroup->id ? 'selected' : '' }}>
+                                                    {{ $lessongroup->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="fb-item fb-50-item-column" id="item49">
+                                    <div class="fb-grouplabel">
+                                        <label id="lessongroup_code" style="font-weight: bold; display: inline;">کد گروه
+                                            درسی</label>
+                                    </div>
+
+                                    <div class="fb-input-box">
+                                        <input name="lessongroup_code" id="item49_text_1" type="text" maxlength="254"
+                                            placeholder="کد گروه درسی" data-hint="" autocomplete="off"
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
+                                            value="{{ $course->lessongroup_code }}" />
+
+                                        @error('lessongroup_code')
+                                            <div class="alert alert-danger"> {{ $message }} </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="fb-item fb-50-item-column" id="item49">
+                                    <div class="fb-grouplabel">
+                                        <label id="lessoncode" style="font-weight: bold; display: inline;">کد درس</label>
+                                    </div>
+
+                                    <div class="fb-input-box">
+                                        <input name="lessoncode" id="item49_text_1" type="text" maxlength="254"
+                                            placeholder="کد درس" data-hint="" autocomplete="off"
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
+                                            value="{{ $course->lessoncode }}" />
+
+                                        @error('lessoncode')
+                                            <div class="alert alert-danger"> {{ $message }} </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="fb-item fb-50-item-column" id="item49">
+                                    <div class="fb-grouplabel">
+                                        <label id="vahed" style="font-weight: bold; display: inline;">تعداد واحد</label>
+                                    </div>
+
+                                    <div class="fb-input-box">
+                                        <input name="vahed" id="item49_text_1" type="number" min="0"
+                                            max="3" maxlength="254" placeholder="تعداد واحد" data-hint=""
+                                            autocomplete="off"
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
+                                            value="{{ $course->vahed }}" onkeypress='validate(event)'
+                                            oninvalid="this.setCustomValidity('مقدار مجاز اعداد بین 0 الی 3 است')"
+                                            oninput="this.setCustomValidity('')" />
+
+                                        @error('vahed')
+                                            <div class="alert alert-danger"> {{ $message }} </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="fb-item fb-50-item-column" id="item49">
+                                    <div class="fb-grouplabel">
+                                        <label id="vahed_teory" style="font-weight: bold; display: inline;"> تعداد واحد
+                                            تئوری</label>
+                                    </div>
+
+                                    <div class="fb-input-box">
+                                        <input name="vahed_teory" id="item49_text_1" type="number" min="0"
+                                            max="3" maxlength="254" placeholder="تعداد واحد تئوری" data-hint=""
+                                            autocomplete="off"
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
+                                            value="{{ $course->vahed_teory }}" onkeypress='validate(event)'
+                                            oninvalid="this.setCustomValidity('مقدار مجاز اعداد بین 0 الی 3 است')"
+                                            oninput="this.setCustomValidity('')" />
+
+                                        @error('vahed_teory')
+                                            <div class="alert alert-danger"> {{ $message }} </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="fb-item fb-50-item-column" id="item49">
+                                    <div class="fb-grouplabel">
+                                        <label id="vahed_amali" style="font-weight: bold; display: inline;">تعداد واحد
+                                            عملی</label>
+                                    </div>
+
+                                    <div class="fb-input-box">
+                                        <input name="vahed_amali" id="item49_text_1" type="number" min="0"
+                                            max="3" maxlength="254" placeholder="تعداد واحد عملی" data-hint=""
+                                            autocomplete="off"
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;"
+                                            value="{{ $course->vahed_amali }}" onkeypress='validate(event)'
+                                            oninvalid="this.setCustomValidity('مقدار مجاز اعداد بین 0 الی 3 است')"
+                                            oninput="this.setCustomValidity('')" />
+
+                                        @error('vahed_amali')
+                                            <div class="alert alert-danger"> {{ $message }} </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
                                 <div class="fb-item fb-50-item-column" id="item50">
                                     <div class="fb-grouplabel">
                                         <label id="state" style="font-weight: bold; display: inline;">وضعیت</label>
@@ -49,28 +167,15 @@
                                     <div class="fb-dropdown">
                                         <select name="state" id="state"
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
-                                            <option value="1" {{ old('state', $course->state) == 1 ? 'selected' : '' }}>
+                                            <option value="1"
+                                                {{ old('state', $course->state) == 1 ? 'selected' : '' }}>
                                                 فعال</option>
-                                            <option value="0" {{ old('state', $course->state) == 0 ? 'selected' : '' }}>
+                                            <option value="0"
+                                                {{ old('state', $course->state) == 0 ? 'selected' : '' }}>
                                                 غیر فعال</option>
                                         </select>
 
                                         @error('state')
-                                            <div class="alert alert-danger"> {{ $message }} </div>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="fb-item fb-100-item-column" id="item49">
-                                    <div class="fb-grouplabel">
-                                        <label id="description" style="font-weight: bold; display: inline;">شرح درس</label>
-                                    </div>
-
-                                    <div class="fb-input-box">
-                                        <textarea name="description" id="description" cols="30" rows="10" data-hint="" autocomplete="off"
-                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;" value="{{ old('description') }}" />{{ $course->description }}</textarea>
-
-                                        @error('description')
                                             <div class="alert alert-danger"> {{ $message }} </div>
                                         @enderror
                                     </div>

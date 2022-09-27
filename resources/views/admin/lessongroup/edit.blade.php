@@ -21,6 +21,8 @@
                         class="MyStyle_create_edit_form fb-toplabel fb-100-item-column selected-object" id="docContainer"
                         action="{{ route('admin.lessongroup.update', $lessongroup->id) }}" method="post">
                         @csrf
+                        
+                        @include('layouts.messages')
 
                         <div class="section" id="section1">
                             <div class="column ui-sortable" id="column1">

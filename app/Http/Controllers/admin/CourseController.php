@@ -49,6 +49,13 @@ class CourseController extends Controller
             'vahed_amali' => 'required',
         ]);
 
+        //اگر جمع تعداد واحدها همخوانی نداشته باشد
+        if ($request->get('vahed') != $request->get('vahed_teory') + $request->get('vahed_amali')) {
+            $msg = 'جمع تعداد واحدهای تئوری و عملی با تعداد واحد درس همخوانی ندارد';
+
+            return redirect(Route('admin.course.create'))->with('warning', $msg)->withInput();
+        }
+
         $course = new Course([
             'name' => $request->get('name'),
             'lessongroups_id' => $request->get('lessongroups_id'),
@@ -79,29 +86,46 @@ class CourseController extends Controller
     public function edit(course $course)
     {
         $pagetitle = 'ویرایش درس جاری';
+        $lessongroups = Lessongroup::all()->where('state', '<>', 0);
 
-        return view('admin.course.edit', compact('pagetitle', 'course'));
+        return view('admin.course.edit', compact('pagetitle', 'course', 'lessongroups'));
     }
 
-    public function update(Request $request, course $course)
+    public function update(Request $request, Course $course)
     {
         $request->validate([
             'name' => 'required',
-            'lessongroup_code' => 'required|unique:courses',
-            'lessoncode' => 'required|unique:courses',
+            'lessongroup_code' => 'required',
+            'lessoncode' => 'required',
             'vahed' => 'required',
             'vahed_teory' => 'required',
             'vahed_amali' => 'required',
         ]);
 
-        //اگر نام تکراری برای درس انتخاب شود
-        $id = DB::table('courses')->where('name', '=', $request->name)->get();
+        //اگر کد گروه درسی تکراری برای درس انتخاب شود
+        $id = DB::table('courses')->where('lessongroup_code', '=', $request->lessongroup_code)->get();
         if (!$id->isEmpty())
             if ($id[0]->id != $course->id) {
-                $msg = 'نام درس نمی‌تواند تکراری باشد';
+                $msg = 'کد گروه درس نمی‌تواند تکراری باشد';
 
                 return redirect(Route('admin.course.edit', $course->id))->with('warning', $msg);
             }
+
+        //اگر کد درس تکراری برای درس انتخاب شود
+        $id = DB::table('courses')->where('lessoncode', '=', $request->lessoncode)->get();
+        if (!$id->isEmpty())
+            if ($id[0]->id != $course->id) {
+                $msg = 'کد درس نمی‌تواند تکراری باشد';
+
+                return redirect(Route('admin.course.edit', $course->id))->with('warning', $msg);
+            }
+
+        //اگر جمع تعداد واحدها همخوانی نداشته باشد
+        if ($request->get('vahed') != $request->get('vahed_teory') + $request->get('vahed_amali')) {
+            $msg = 'جمع تعداد واحدهای تئوری و عملی با تعداد واحد درس همخوانی ندارد';
+
+            return redirect(Route('admin.course.edit', $course->id))->with('warning', $msg);
+        }
 
         try {
             $course->update($request->all());
