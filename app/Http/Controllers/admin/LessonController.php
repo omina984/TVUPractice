@@ -13,7 +13,7 @@ class LessonController extends Controller
 {
     public function index()
     {
-        $pagetitle = 'درس‌ها';
+        $pagetitle = 'دروس';
         $lessons = DB::table('lessons')->join('lessongroups', 'lessongroups.id', '=', 'lessons.lessongroups_id')->orderBy('lessons.id', 'desc')
             ->select(
                 'lessons.id as lesson_id',
