@@ -15,7 +15,7 @@
             &nbsp; / &nbsp;
             <a href="{{ route('admin.lessongroups.index') }}">گروه‌های درسی</a>
             &nbsp; / &nbsp;
-            <a href="{{ route('admin.lessongroups.index') }}">دروس</a>
+            <a href="{{ route('admin.courses.index') }}">دروس</a>
         </div>
     </div>
 @endsection

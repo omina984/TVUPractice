@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\CourseController;
 use App\Http\Controllers\admin\LessongroupController;
 use App\Http\Controllers\admin\TermController;
 use App\Http\Controllers\admin\UserController as AdminUserController;
@@ -50,4 +51,13 @@ Route::prefix('admin')->middleware('Check_Is_ADMIN')->group(function () {
 
     Route::get('/lessongroup/edit/{lessongroup}', [LessongroupController::class, 'edit'])->name('admin.lessongroup.edit');
     Route::post('/lessongroup/update/{lessongroup}', [LessongroupController::class, 'update'])->name('admin.lessongroup.update');
+
+    //admin - course
+    Route::get('/courses', [CourseController::class, 'index'])->name('admin.courses.index');
+
+    Route::get('/course/create', [CourseController::class, 'create'])->name('admin.course.create');
+    Route::post('/course/store', [CourseController::class, 'store'])->name('admin.course.store');
+
+    Route::get('/course/edit/{course}', [CourseController::class, 'edit'])->name('admin.course.edit');
+    Route::post('/course/update/{course}', [CourseController::class, 'update'])->name('admin.course.update');
 });

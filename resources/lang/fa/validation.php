@@ -180,7 +180,12 @@ return [
         "notavailable" => "موجود نیست",
         "size" => "اندازه",
         "nationalcode"=>"کد ملی",
-        "father"=>"نام پدر"
+        "father"=>"نام پدر",
+        "lessongroup_code"=>"کد گروه درسی",
+        "lessoncode"=>"کد درس",
+        "vahed"=>"تعداد واحد",
+        "vahed_teory"=>"تعداد واحد تئوری",
+        "vahed_amali"=>"تعداد واحد عملی",
     ],
 
 ];
