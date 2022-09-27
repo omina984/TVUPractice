@@ -9,7 +9,7 @@
         <div>
             <a href="{{ route('admin.index') }}">برگشت</a>
             &nbsp; / &nbsp;
-            <span class="MyStyle_breadcrumb_span">ترم‌ها</span>
+            <span class="MyStyle_breadcrumb_span">رشته‌های تحصیلی</span>
         </div>
     </div>
 
@@ -22,15 +22,15 @@
                     <form data-aos="fade-up" data-aos-delay="400" class="fb-toplabel fb-100-item-column selected-object"
                         style="width: 100%;" id="docContainer" action="#">
                         <div class="section" id="section1">
-                            <h2 id='MyH2'> ترم‌های موجود
+                            <h2 id='MyH2'> رشته‌های تحصیلی موجود
                             </h2>
 
                             {{-- <div class="column ui-sortable" id="column1"> --}}
                             <div class="fb-item fb-100-item-column" id="item49">
                                 <div class="container">
                                     <button type="button" class="MyStyle_inbox_button btn btn-info btn-fw"
-                                        onclick="window.location='{{ route('admin.term.create') }}'">
-                                        ایجاد ترم جدید </button>
+                                        style="width: 170px;" onclick="window.location='{{ route('admin.major.create') }}'">
+                                        ایجاد رشته تحصیلی جدید </button>
 
                                     <table class="table table-bordered table-hover">
                                         <thead>
@@ -44,27 +44,27 @@
                                         </thead>
 
                                         <body>
-                                            @foreach ($terms as $term)
+                                            @foreach ($majors as $major)
                                                 <tr
-                                                    @if ($term->state == 0) style="background-color: lightsalmon;"
-                                            @else
-                                                style="background-color: transparent" @endif>
+                                                    @if ($major->state == 0) style="background-color: lightsalmon;"
+                                                    @else
+                                                        style="background-color: transparent" @endif>
                                                     <td style="width: 5%; background-color:lightblue;"><a
-                                                            href="{{ route('admin.term.edit', $term->id) }}">{{ $term->id }}</a>
+                                                            href="{{ route('admin.major.edit', $major->id) }}">{{ $major->id }}</a>
                                                     </td>
-                                                    <td style="width: 20%;">{{ $term->name }}</td>
-                                                    <td style="width: 55%;">{{ $term->description }}</td>
+                                                    <td style="width: 20%;">{{ $major->name }}</td>
+                                                    <td style="width: 55%;">{{ $major->description }}</td>
                                                     <td style="width: 10%;">
-                                                        @if ($term->state == 0)
+                                                        @if ($major->state == 0)
                                                             غیر فعال
-                                                        @elseif ($term->state == 1)
+                                                        @elseif ($major->state == 1)
                                                             فعال
                                                         @else
                                                             نا معلوم
                                                         @endif
                                                     </td>
                                                     <td style="width: 10%;">
-                                                        <a id='Mya' href="{{ route('admin.term.edit', $term->id) }}"
+                                                        <a id='Mya' href="{{ route('admin.major.edit', $major->id) }}"
                                                             class="btn btn-info">ویرایش
                                                         </a>
                                                     </td>
@@ -75,7 +75,7 @@
                                 </div>
 
                                 <div id='MyPaginate'>
-                                    {{ $terms->links() }}
+                                    {{ $majors->links() }}
                                 </div>
                             </div>
                             {{-- </div> --}}

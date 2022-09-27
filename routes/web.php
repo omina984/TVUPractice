@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\LessonController;
 use App\Http\Controllers\admin\LessongroupController;
+use App\Http\Controllers\admin\MajorController;
 use App\Http\Controllers\admin\TermController;
 use App\Http\Controllers\admin\UserController as AdminUserController;
 use App\Http\Controllers\Auth\ResetPasswordController;
@@ -59,4 +60,13 @@ Route::prefix('admin')->middleware('Check_Is_ADMIN')->group(function () {
 
     Route::get('/lesson/edit/{lesson}', [LessonController::class, 'edit'])->name('admin.lesson.edit');
     Route::post('/lesson/update/{lesson}', [LessonController::class, 'update'])->name('admin.lesson.update');
+
+    //admin - major
+    Route::get('/majors', [MajorController::class, 'index'])->name('admin.majors.index');
+
+    Route::get('/major/create', [MajorController::class, 'create'])->name('admin.major.create');
+    Route::post('/major/store', [MajorController::class, 'store'])->name('admin.major.store');
+
+    Route::get('/major/edit/{major}', [MajorController::class, 'edit'])->name('admin.major.edit');
+    Route::post('/major/update/{major}', [MajorController::class, 'update'])->name('admin.major.update');
 });

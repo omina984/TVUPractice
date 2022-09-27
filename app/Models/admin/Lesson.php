@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lesson extends Model
 {
-    protected $fillable = ['name', 'lessongroups_id', 'lessongroup_code', 'lessoncode', 'vahed', 'vahed_teory', 'vahed_amali', 'state'];
+    protected $fillable = ['name', 'lessongroups_id', 'lessongroup_code', 'lessoncode', 'vahed', 'vahed_teory', 'vahed_amali', 'description', 'state'];
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->bigInteger('vahed');
             $table->bigInteger('vahed_teory');
             $table->bigInteger('vahed_amali');
+            $table->string('description')->nullable();
             $table->bigInteger('state')->default(1);
             $table->timestamps();
 
@@ -35,6 +36,7 @@ return new class extends Migration
             'vahed' => 2,
             'vahed_teory' => 2,
             'vahed_amali' => 0,
+            'description' => '',
             'state' => 1,
             'created_at' => null,
             'updated_at' => null

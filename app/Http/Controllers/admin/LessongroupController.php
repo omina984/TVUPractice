@@ -27,14 +27,9 @@ class LessongroupController extends Controller
 
     public function store(Request $request)
     {
-        $messages = [
-            'name.required' => 'فیلد نام گروه درسی را وارد کنید',
-            'name.unique' => 'فیلد نام گروه درسی غیر تکراری وارد کنید',
-        ];
-
         $request->validate([
             'name' => 'required|unique:lessongroups',
-        ], $messages);
+        ]);
 
         $lessongroup = new lessongroup([
             'name' => $request->get('name'),
@@ -67,13 +62,9 @@ class LessongroupController extends Controller
 
     public function update(Request $request, lessongroup $lessongroup)
     {
-        $messages = [
-            'name.required' => 'فیلد نام گروه درسی را وارد کنید',
-        ];
-
         $request->validate([
             'name' => 'required',
-        ], $messages);
+        ]);
 
         //اگر نام تکراری برای گروه درسی انتخاب شود
         $id = DB::table('lessongroups')->where('name', '=', $request->name)->get();

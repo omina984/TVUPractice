@@ -23,6 +23,7 @@ class LessonController extends Controller
                 'vahed',
                 'vahed_teory',
                 'vahed_amali',
+                'lessons.description as lesson_description',
                 'lessons.state as lesson_state',
                 'lessongroups.name as lessongroup_name'
             )->paginate(10);
@@ -64,6 +65,7 @@ class LessonController extends Controller
             'vahed' => $request->get('vahed'),
             'vahed_teory' => $request->get('vahed_teory'),
             'vahed_amali' => $request->get('vahed_amali'),
+            'description' => $request->get('description'),
             'state' => $request->get('state')
         ]);
 

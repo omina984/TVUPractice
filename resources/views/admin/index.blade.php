@@ -16,6 +16,8 @@
             <a href="{{ route('admin.lessongroups.index') }}">گروه‌های درسی</a>
             &nbsp; / &nbsp;
             <a href="{{ route('admin.lessons.index') }}">دروس</a>
+            &nbsp; / &nbsp;
+            <a href="{{ route('admin.majors.index') }}">رشته‌های تحصیلی</a>
         </div>
     </div>
 @endsection

@@ -180,6 +180,21 @@
                                         @enderror
                                     </div>
                                 </div>
+
+                                <div class="fb-item fb-100-item-column" id="item49">
+                                    <div class="fb-grouplabel">
+                                        <label id="description" style="font-weight: bold; display: inline;">شرح درس</label>
+                                    </div>
+
+                                    <div class="fb-input-box">
+                                        <textarea name="description" id="description" cols="30" rows="10" data-hint="" autocomplete="off"
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold;" value="{{ old('description') }}" />{{ $lesson->description }}</textarea>
+
+                                        @error('description')
+                                            <div class="alert alert-danger"> {{ $message }} </div>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

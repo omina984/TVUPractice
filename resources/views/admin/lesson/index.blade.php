@@ -50,7 +50,10 @@
 
                                         <body>
                                             @foreach ($lessons as $lesson)
-                                                <tr>
+                                                <tr
+                                                    @if ($lesson->lesson_state == 0) style="background-color: lightsalmon;"
+                                            @else
+                                                style="background-color: transparent" @endif>
                                                     <td style="width: 5%; background-color:lightblue;"><a
                                                             href="{{ route('admin.lesson.edit', $lesson->lesson_id) }}">{{ $lesson->lesson_id }}</a>
                                                     </td>
@@ -71,7 +74,8 @@
                                                         @endif
                                                     </td>
                                                     <td style="width: 10%;">
-                                                        <a id='Mya' href="{{ route('admin.lesson.edit', $lesson->lesson_id) }}"
+                                                        <a id='Mya'
+                                                            href="{{ route('admin.lesson.edit', $lesson->lesson_id) }}"
                                                             class="btn btn-info">ویرایش
                                                         </a>
                                                     </td>

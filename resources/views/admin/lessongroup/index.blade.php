@@ -29,7 +29,7 @@
                             <div class="fb-item fb-100-item-column" id="item49">
                                 <div class="container">
                                     <button type="button" class="MyStyle_inbox_button btn btn-info btn-fw"
-                                    style="width: 160px;"
+                                        style="width: 160px;"
                                         onclick="window.location='{{ route('admin.lessongroup.create') }}'">
                                         ایجاد گروه درسی جدید </button>
 
@@ -46,7 +46,10 @@
 
                                         <body>
                                             @foreach ($lessongroups as $lessongroup)
-                                                <tr>
+                                                <tr
+                                                    @if ($lessongroup->state == 0) style="background-color: lightsalmon;"
+                                            @else
+                                                style="background-color: transparent" @endif>
                                                     <td style="width: 5%; background-color:lightblue;"><a
                                                             href="{{ route('admin.lessongroup.edit', $lessongroup->id) }}">{{ $lessongroup->id }}</a>
                                                     </td>
@@ -62,7 +65,8 @@
                                                         @endif
                                                     </td>
                                                     <td style="width: 10%;">
-                                                        <a id='Mya' href="{{ route('admin.lessongroup.edit', $lessongroup->id) }}"
+                                                        <a id='Mya'
+                                                            href="{{ route('admin.lessongroup.edit', $lessongroup->id) }}"
                                                             class="btn btn-info">ویرایش
                                                         </a>
                                                     </td>
