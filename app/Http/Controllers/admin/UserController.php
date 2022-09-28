@@ -31,7 +31,7 @@ class UserController extends Controller
                 'type',
                 'users.state as user_state',
                 'marakez.name as markaz_name'
-            )->paginate(10);
+            )->paginate(20);
 
         return view('admin.user.index', compact('pagetitle', 'users'));
     }
