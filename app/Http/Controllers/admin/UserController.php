@@ -152,6 +152,12 @@ class UserController extends Controller
 
             $msg = 'ذخیره کاربر موجود با موفقیت انجام شد';
 
+             //reset in User
+             if ($request->state == 0) {
+                User::where('major_id', '=', $user->id)
+                    ->update(['major_id' => 1]);
+            };
+
             return redirect(Route('admin.users.index'))->with('success', $msg);
         } catch (Exception $exception) {
             return redirect(Route('admin.users.index'))->with('warning', $exception->getCode());
