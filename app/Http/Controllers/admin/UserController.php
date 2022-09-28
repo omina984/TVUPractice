@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Models\Marakez;
+use App\Models\admin\Marakez;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Major;
@@ -16,8 +16,10 @@ class UserController extends Controller
 {
     public function index()
     {
-        $pagetitle = 'به روز رسانی مشخصات کاربر';
-        $users = DB::table('users')->join('marakez', 'marakez.id', '=', 'users.markaz_id')->orderBy('users.id', 'desc')
+        $pagetitle = 'کاربران';
+        $users = DB::table('users')
+            ->join('marakez', 'marakez.id', '=', 'users.markaz_id')
+            ->orderBy('users.id', 'desc')
             ->select(
                 'users.id as user_id',
                 'username',
@@ -38,9 +40,11 @@ class UserController extends Controller
 
     public function search(Request $request)
     {
-        $pagetitle = 'به روز رسانی مشخصات کاربر';
+        $pagetitle = 'کاربران';
 
-        $users = User::where('username', 'like', '%' . $request->username . '%')->join('marakez', 'marakez.id', '=', 'users.markaz_id')->orderBy('users.id', 'desc')
+        $users = User::where('username', 'like', '%' . $request->username . '%')
+            ->join('marakez', 'marakez.id', '=', 'users.markaz_id')
+            ->orderBy('users.id', 'desc')
             ->select(
                 'users.id as user_id',
                 'username',
@@ -65,7 +69,7 @@ class UserController extends Controller
         $marakez = Marakez::all()->where('state', '<>', 0);
         $majors = Major::all()->where('state', '<>', 0);
 
-        return view('admin.user.create', compact('pagetitle', 'marakez','majors'));
+        return view('admin.user.create', compact('pagetitle', 'marakez', 'majors'));
     }
 
     public function store(Request $request)
@@ -123,7 +127,7 @@ class UserController extends Controller
         $marakez = Marakez::all()->where('state', '<>', 0);
         $majors = Major::all()->where('state', '<>', 0);
 
-        return view('admin.user.edit', compact('pagetitle', 'user', 'marakez','majors'));
+        return view('admin.user.edit', compact('pagetitle', 'user', 'marakez', 'majors'));
     }
 
     public function update(Request $request, User $user)
@@ -152,8 +156,8 @@ class UserController extends Controller
 
             $msg = 'ذخیره کاربر موجود با موفقیت انجام شد';
 
-             //reset in User
-             if ($request->state == 0) {
+            //reset in User
+            if ($request->state == 0) {
                 User::where('major_id', '=', $user->id)
                     ->update(['major_id' => 1]);
             };

@@ -44,10 +44,10 @@
                                             </button>
                                         </div>
 
-                                        <div style="padding-top: 5px; padding-right: 5px; padding-left: 5px;">
+                                        <div style="padding-top: 1px; padding-right: 5px; padding-left: 5px;">
                                             <input name="username" id="item49_text_1" type="text" maxlength="254"
                                                 placeholder="نام کاربری" data-hint="" autocomplete="off"
-                                                style="font-size: 16px; width: 200px; text-align: left;"
+                                                style="font-family: B Nazanin; font-size: 16px; width: 200px; text-align: left;"
                                                 value="{{ old('username') }}" />
                                         </div>
                                     </div>

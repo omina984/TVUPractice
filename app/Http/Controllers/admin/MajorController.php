@@ -14,7 +14,10 @@ class MajorController extends Controller
     public function index()
     {
         $pagetitle = 'رشته‌های تحصیلی';
-        $majors = DB::table('majors')->join('lessongroups', 'lessongroups.id', '=', 'majors.lessongroup_id')->orderBy('majors.id', 'desc')->where('majors.state', '>=', 0)
+        $majors = DB::table('majors')
+            ->join('lessongroups', 'lessongroups.id', '=', 'majors.lessongroup_id')
+            ->orderBy('majors.id', 'desc')
+            ->where('majors.state', '>=', 0)
             ->select(
                 'majors.id as major_id',
                 'lessongroup_id',
@@ -69,7 +72,7 @@ class MajorController extends Controller
         $pagetitle = 'ویرایش رشته تحصیلی جاری';
         $lessongroups = Lessongroup::all()->where('state', '<>', 0);
 
-        return view('admin.major.edit', compact('pagetitle', 'major','lessongroups'));
+        return view('admin.major.edit', compact('pagetitle', 'major', 'lessongroups'));
     }
 
     public function update(Request $request, Major $major)

@@ -15,7 +15,10 @@ class LessonController extends Controller
     public function index()
     {
         $pagetitle = 'دروس';
-        $lessons = DB::table('lessons')->join('lessongroups', 'lessongroups.id', '=', 'lessons.lessongroup_id')->orderBy('lessons.id', 'desc')
+        $lessons = DB::table('lessons')
+            ->join('lessongroups', 'lessongroups.id', '=', 'lessons.lessongroup_id')
+            ->join('terms', 'terms.id', '=', 'lessons.term_id')
+            ->orderBy('lessons.id', 'desc')
             ->select(
                 'lessons.id as lesson_id',
                 'lessons.name as lesson_name',
@@ -26,7 +29,8 @@ class LessonController extends Controller
                 'vahed_amali',
                 'lessons.description as lesson_description',
                 'lessons.state as lesson_state',
-                'lessongroups.name as lessongroup_name'
+                'lessongroups.name as lessongroup_name',
+                'terms.name as term_name'
             )->paginate(10);
 
         return view('admin.lesson.index', compact('pagetitle', 'lessons'));

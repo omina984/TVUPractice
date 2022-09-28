@@ -37,12 +37,11 @@
                                             <tr>
                                                 <td>شناسه</td>
                                                 <td>نام</td>
+                                                <td>ترم</td>
                                                 <td>گروه درسی</td>
                                                 <td>کد گروه درسی</td>
                                                 <td>کد درس</td>
                                                 <td>تعداد واحد</td>
-                                                <td>تئوری</td>
-                                                <td>عملی</td>
                                                 <td>وضعیت</td>
                                                 <td>ویرایش</td>
                                             </tr>
@@ -57,13 +56,12 @@
                                                     <td style="width: 5%; background-color:lightblue;"><a
                                                             href="{{ route('admin.lesson.edit', $lesson->lesson_id) }}">{{ $lesson->lesson_id }}</a>
                                                     </td>
-                                                    <td style="width: 15%;">{{ $lesson->lesson_name }}</td>
-                                                    <td style="width: 10%;">{{ $lesson->lessongroup_name }}</td>
+                                                    <td style="width: 20%;">{{ $lesson->lesson_name }}</td>
+                                                    <td style="width: 10%;">{{ $lesson->term_name }}</td>
+                                                    <td style="width: 15%;">{{ $lesson->lessongroup_name }}</td>
                                                     <td style="width: 10%;">{{ $lesson->lessongroup_code }}</td>
                                                     <td style="width: 10%;">{{ $lesson->lessoncode }}</td>
                                                     <td style="width: 10%;">{{ $lesson->vahed }}</td>
-                                                    <td style="width: 10%;">{{ $lesson->vahed_teory }}</td>
-                                                    <td style="width: 10%;">{{ $lesson->vahed_amali }}</td>
                                                     <td style="width: 10%;">
                                                         @if ($lesson->lesson_state == 0)
                                                             غیر فعال
