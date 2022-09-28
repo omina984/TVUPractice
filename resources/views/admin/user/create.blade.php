@@ -186,7 +186,7 @@
                                     </div>
                                 </div>
 
-                                <div class="fb-item fb-100-item-column" id="item50">
+                                <div class="fb-item fb-50-item-column" id="item50">
                                     <div class="fb-grouplabel">
                                         <label id="txtname" style="font-weight: bold; display: inline;">نوع
                                             کاربر</label>
@@ -198,6 +198,22 @@
                                             <option value="student" selected>دانشجو</option>
                                             <option value="teacher">استاد</option>
                                             <option value="admin">مدیر</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="fb-item fb-50-item-column" id="item49">
+                                    <div class="fb-grouplabel">
+                                        <label id="major_id" style="font-weight: bold; display: inline;">رشته تحصیلی</label>
+                                    </div>
+
+                                    <div class="fb-dropdown">
+                                        <select name="major_id" id="major_id"
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
+                                            @foreach ($majors as $major)
+                                                <option value="{{ $major->id }}">{{ $major->name }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

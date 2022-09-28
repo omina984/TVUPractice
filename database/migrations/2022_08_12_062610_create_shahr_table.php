@@ -10,8 +10,6 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::dropIfExists('shahr');
-
         Schema::create('shahr', function (Blueprint $table) {
             $table->id();
             $table->string('name');

@@ -9,8 +9,6 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::dropIfExists('ostan');
-
         Schema::create('ostan', function (Blueprint $table) {
             $table->id();
             $table->string('name');

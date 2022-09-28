@@ -9,8 +9,6 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::dropIfExists('lessons');
-
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -30,7 +28,7 @@ return new class extends Migration
         //امنيت شبكه
         DB::table('lessons')->insert([
             'name' => 'امنيت شبكه',
-            'lessongroups_id' => 1, //کامپیوتر
+            'lessongroups_id' => 2, //کامپیوتر
             'lessongroup_code' => '30201133',
             'lessoncode' => '3021131',
             'vahed' => 2,

@@ -5,23 +5,36 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
+// رشته تحصیلی
 return new class extends Migration
 {
     public function up()
     {
-        Schema::dropIfExists('majors');
-
         Schema::create('majors', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('lessongroup_id')->unsigned();
             $table->string('name');
             $table->string('description')->nullable();
             $table->bigInteger('state')->default(1);
             $table->timestamps();
+
+            $table->foreign('lessongroup_id')->references('id')->on('lessongroups')->onDelete('cascade');
         });
+
+         //بی نام
+         DB::table('majors')->insert([
+            'lessongroup_id' => 1,//بی نام
+            'name' => 'بی نام',
+            'description' => '',
+            'state' => 0,
+            'created_at' => null,
+            'updated_at' => null
+        ]);
 
         //کامپیوتر
         DB::table('majors')->insert([
-            'name' => 'کامپیوتر - فناوری اطلاعات',
+            'lessongroup_id' => 2,// کامپیوتر
+            'name' => 'فناوری اطلاعات',
             'description' => 'رشته کامپیوتر',
             'state' => 1,
             'created_at' => null,
@@ -29,7 +42,8 @@ return new class extends Migration
         ]);
 
         DB::table('majors')->insert([
-            'name' => 'کامپیوتر - نرم‌افزار',
+            'lessongroup_id' => 2,//کامپیوتر
+            'name' => 'نرم‌افزار',
             'description' => 'رشته کامپیوتر',
             'state' => 1,
             'created_at' => null,
@@ -37,8 +51,28 @@ return new class extends Migration
         ]);
 
         DB::table('majors')->insert([
-            'name' => 'کامپیوتر - سخت‌افزار',
+            'lessongroup_id' => 2,//کامپیوتر
+            'name' => 'سخت‌افزار',
             'description' => 'رشته کامپیوتر',
+            'state' => 1,
+            'created_at' => null,
+            'updated_at' => null
+        ]);
+
+        //برق
+        DB::table('majors')->insert([
+            'lessongroup_id' => 3,//برق
+            'name' => 'برق صنعتی',
+            'description' => 'رشته برق',
+            'state' => 1,
+            'created_at' => null,
+            'updated_at' => null
+        ]);
+
+        DB::table('majors')->insert([
+            'lessongroup_id' => 3,//برق
+            'name' => 'برق قدرت',
+            'description' => 'رشته برق',
             'state' => 1,
             'created_at' => null,
             'updated_at' => null

@@ -26,6 +26,22 @@
                             <div class="column ui-sortable" id="column1">
                                 <div class="fb-item fb-50-item-column" id="item49">
                                     <div class="fb-grouplabel">
+                                        <label id="lessongroup_id" style="font-weight: bold; display: inline;">گروه درسی</label>
+                                    </div>
+
+                                    <div class="fb-dropdown">
+                                        <select name="lessongroup_id" id="lessongroup_id"
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
+                                            @foreach ($lessongroups as $lessongroup)
+                                                <option value="{{ $lessongroup->id }}">{{ $lessongroup->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="fb-item fb-50-item-column" id="item49">
+                                    <div class="fb-grouplabel">
                                         <label id="name" style="font-weight: bold; display: inline;">عنوان رشته تحصیلی</label>
                                     </div>
 
@@ -41,7 +57,7 @@
                                     </div>
                                 </div>
 
-                                <div class="fb-item fb-50-item-column" id="item50">
+                                <div class="fb-item fb-100-item-column" id="item50">
                                     <div class="fb-grouplabel">
                                         <label id="state" style="font-weight: bold; display: inline;">وضعیت</label>
                                     </div>

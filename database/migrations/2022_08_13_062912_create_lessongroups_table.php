@@ -9,8 +9,6 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::dropIfExists('lessongroups');
-
         Schema::create('lessongroups', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -19,10 +17,28 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        //بی نام
+        DB::table('lessongroups')->insert([
+            'name' => 'بی نام',
+            'description' => '',
+            'state' => 0,
+            'created_at' => null,
+            'updated_at' => null
+        ]);
+
         //کامپیوتر
         DB::table('lessongroups')->insert([
             'name' => 'کامپیوتر',
             'description' => 'گروه درسی کامپیوتر',
+            'state' => 1,
+            'created_at' => null,
+            'updated_at' => null
+        ]);
+
+         //برق
+         DB::table('lessongroups')->insert([
+            'name' => 'برق',
+            'description' => 'گروه درسی برق',
             'state' => 1,
             'created_at' => null,
             'updated_at' => null

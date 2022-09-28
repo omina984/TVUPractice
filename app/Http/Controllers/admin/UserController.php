@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Models\Marakez;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\admin\Major;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -39,39 +40,21 @@ class UserController extends Controller
     {
         $pagetitle = 'به روز رسانی مشخصات کاربر';
 
-        if (is_null($request->username)) {
-            $users = DB::table('users')->join('marakez', 'marakez.id', '=', 'users.markaz_id')->orderBy('users.id', 'desc')
-                ->select(
-                    'users.id as user_id',
-                    'username',
-                    'users.name as user_name',
-                    'family',
-                    'father',
-                    'nationalcode',
-                    'mobile',
-                    'markaz_id',
-                    'email',
-                    'type',
-                    'users.state as user_state',
-                    'marakez.name as markaz_name'
-                )->paginate(10);
-        } else {
-            $users = User::where('username', 'like', '%' . $request->username . '%')->join('marakez', 'marakez.id', '=', 'users.markaz_id')->orderBy('users.id', 'desc')
-                ->select(
-                    'users.id as user_id',
-                    'username',
-                    'users.name as user_name',
-                    'family',
-                    'father',
-                    'nationalcode',
-                    'mobile',
-                    'markaz_id',
-                    'email',
-                    'type',
-                    'users.state as user_state',
-                    'marakez.name as markaz_name'
-                )->paginate(10);
-        }
+        $users = User::where('username', 'like', '%' . $request->username . '%')->join('marakez', 'marakez.id', '=', 'users.markaz_id')->orderBy('users.id', 'desc')
+            ->select(
+                'users.id as user_id',
+                'username',
+                'users.name as user_name',
+                'family',
+                'father',
+                'nationalcode',
+                'mobile',
+                'markaz_id',
+                'email',
+                'type',
+                'users.state as user_state',
+                'marakez.name as markaz_name'
+            )->paginate(10);
 
         return view('admin.user.index', compact('pagetitle', 'users'));
     }
@@ -80,8 +63,9 @@ class UserController extends Controller
     {
         $pagetitle = 'ایجاد کاربر جدید';
         $marakez = Marakez::all()->where('state', '<>', 0);
+        $majors = Major::all()->where('state', '<>', 0);
 
-        return view('admin.user.create', compact('pagetitle', 'marakez'));
+        return view('admin.user.create', compact('pagetitle', 'marakez','majors'));
     }
 
     public function store(Request $request)
@@ -118,6 +102,7 @@ class UserController extends Controller
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password')),
             'type' => $type,
+            'major_id' => $request->get('major_id'),
             'state' => 1,
         ]);
 
@@ -136,8 +121,9 @@ class UserController extends Controller
     {
         $pagetitle = 'ویرایش کاربر موجود';
         $marakez = Marakez::all()->where('state', '<>', 0);
+        $majors = Major::all()->where('state', '<>', 0);
 
-        return view('admin.user.edit', compact('pagetitle', 'user', 'marakez'));
+        return view('admin.user.edit', compact('pagetitle', 'user', 'marakez','majors'));
     }
 
     public function update(Request $request, User $user)

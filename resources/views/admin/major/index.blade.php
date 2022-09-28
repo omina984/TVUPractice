@@ -37,6 +37,7 @@
                                             <tr>
                                                 <td>شناسه</td>
                                                 <td>نام</td>
+                                                <td>گروه درسی</td>
                                                 <td>توضیحات</td>
                                                 <td>وضعیت</td>
                                                 <td>ویرایش</td>
@@ -46,25 +47,26 @@
                                         <body>
                                             @foreach ($majors as $major)
                                                 <tr
-                                                    @if ($major->state == 0) style="background-color: lightsalmon;"
+                                                    @if ($major->major_state == 0) style="background-color: lightsalmon;"
                                                     @else
                                                         style="background-color: transparent" @endif>
                                                     <td style="width: 5%; background-color:lightblue;"><a
-                                                            href="{{ route('admin.major.edit', $major->id) }}">{{ $major->id }}</a>
+                                                            href="{{ route('admin.major.edit', $major->major_id) }}">{{ $major->major_id }}</a>
                                                     </td>
-                                                    <td style="width: 20%;">{{ $major->name }}</td>
-                                                    <td style="width: 55%;">{{ $major->description }}</td>
+                                                    <td style="width: 20%;">{{ $major->major_name }}</td>
+                                                    <td style="width: 20%;">{{ $major->lessongroup_name }}</td>
+                                                    <td style="width: 35%;">{{ $major->major_description }}</td>
                                                     <td style="width: 10%;">
-                                                        @if ($major->state == 0)
+                                                        @if ($major->major_state == 0)
                                                             غیر فعال
-                                                        @elseif ($major->state == 1)
+                                                        @elseif ($major->major_state == 1)
                                                             فعال
                                                         @else
                                                             نا معلوم
                                                         @endif
                                                     </td>
                                                     <td style="width: 10%;">
-                                                        <a id='Mya' href="{{ route('admin.major.edit', $major->id) }}"
+                                                        <a id='Mya' href="{{ route('admin.major.edit', $major->major_id) }}"
                                                             class="btn btn-info">ویرایش
                                                         </a>
                                                     </td>

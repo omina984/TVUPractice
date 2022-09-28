@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Exception;
 use App\Models\admin\Major;
+use App\Models\admin\Lessongroup;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +14,15 @@ class MajorController extends Controller
     public function index()
     {
         $pagetitle = 'رشته‌های تحصیلی';
-        $majors = Major::where('state', '>=', 0)->orderBy('id', 'desc')->paginate(10);
+        $majors = DB::table('majors')->join('lessongroups', 'lessongroups.id', '=', 'majors.lessongroup_id')->orderBy('majors.id', 'desc')->where('majors.state', '>=', 0)
+            ->select(
+                'majors.id as major_id',
+                'lessongroup_id',
+                'majors.name as major_name',
+                'majors.description as major_description',
+                'majors.state as major_state',
+                'lessongroups.name as lessongroup_name',
+            )->paginate(10);
 
         return view('admin.major.index', compact('pagetitle', 'majors'));
     }
@@ -21,8 +30,9 @@ class MajorController extends Controller
     public function create()
     {
         $pagetitle = 'ایجاد رشته تحصیلی جدید';
+        $lessongroups = Lessongroup::all()->where('state', '<>', 0);
 
-        return view('admin.major.create', compact('pagetitle'));
+        return view('admin.major.create', compact('pagetitle', 'lessongroups'));
     }
 
     public function store(Request $request)
@@ -32,6 +42,7 @@ class MajorController extends Controller
         ]);
 
         $major = new Major([
+            'lessongroup_id' => $request->get('lessongroup_id'),
             'name' => $request->get('name'),
             'description' => $request->get('description'),
             'state' => $request->get('state')
@@ -56,8 +67,9 @@ class MajorController extends Controller
     public function edit(Major $major)
     {
         $pagetitle = 'ویرایش رشته تحصیلی جاری';
+        $lessongroups = Lessongroup::all()->where('state', '<>', 0);
 
-        return view('admin.major.edit', compact('pagetitle', 'major'));
+        return view('admin.major.edit', compact('pagetitle', 'major','lessongroups'));
     }
 
     public function update(Request $request, Major $major)
