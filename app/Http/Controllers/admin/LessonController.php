@@ -15,7 +15,7 @@ class LessonController extends Controller
     public function index()
     {
         $pagetitle = 'دروس';
-        $lessons = DB::table('lessons')->join('lessongroups', 'lessongroups.id', '=', 'lessons.lessongroups_id')->orderBy('lessons.id', 'desc')
+        $lessons = DB::table('lessons')->join('lessongroups', 'lessongroups.id', '=', 'lessons.lessongroup_id')->orderBy('lessons.id', 'desc')
             ->select(
                 'lessons.id as lesson_id',
                 'lessons.name as lesson_name',
@@ -61,7 +61,7 @@ class LessonController extends Controller
 
         $lesson = new lesson([
             'name' => $request->get('name'),
-            'lessongroups_id' => $request->get('lessongroups_id'),
+            'lessongroup_id' => $request->get('lessongroup_id'),
             'lessongroup_code' => $request->get('lessongroup_code'),
             'lessoncode' => $request->get('lessoncode'),
             'vahed' => $request->get('vahed'),

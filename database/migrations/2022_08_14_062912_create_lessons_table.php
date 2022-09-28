@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('lessongroups_id')->unsigned();
+            $table->bigInteger('lessongroup_id')->unsigned();
             $table->string('lessongroup_code');
             $table->string('lessoncode');
             $table->bigInteger('vahed');
@@ -24,13 +24,13 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('term_id')->references('id')->on('terms')->onDelete('cascade');
-            $table->foreign('lessongroups_id')->references('id')->on('lessongroups')->onDelete('cascade');
+            $table->foreign('lessongroup_id')->references('id')->on('lessongroups')->onDelete('cascade');
         });
 
         //امنيت شبكه
         DB::table('lessons')->insert([
             'name' => 'امنيت شبكه',
-            'lessongroups_id' => 2, //کامپیوتر
+            'lessongroup_id' => 2, //کامپیوتر
             'lessongroup_code' => '30201133',
             'lessoncode' => '3021131',
             'vahed' => 2,
