@@ -18,10 +18,12 @@ return new class extends Migration
             $table->bigInteger('vahed');
             $table->bigInteger('vahed_teory');
             $table->bigInteger('vahed_amali');
+            $table->bigInteger('term_id')->unsigned();
             $table->string('description')->nullable();
             $table->bigInteger('state')->default(1);
             $table->timestamps();
 
+            $table->foreign('term_id')->references('id')->on('terms')->onDelete('cascade');
             $table->foreign('lessongroups_id')->references('id')->on('lessongroups')->onDelete('cascade');
         });
 
@@ -34,6 +36,7 @@ return new class extends Migration
             'vahed' => 2,
             'vahed_teory' => 2,
             'vahed_amali' => 0,
+            'term_id' => 1,
             'description' => '',
             'state' => 1,
             'created_at' => null,

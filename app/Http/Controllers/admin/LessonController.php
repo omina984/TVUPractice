@@ -7,6 +7,7 @@ use App\Models\admin\Lesson;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Lessongroup;
+use App\Models\admin\Term;
 use Illuminate\Support\Facades\DB;
 
 class LessonController extends Controller
@@ -34,9 +35,10 @@ class LessonController extends Controller
     public function create()
     {
         $pagetitle = 'ایجاد درس جدید';
+        $terms = Term::all()->where('state', '<>', 0);
         $lessongroups = Lessongroup::all()->where('state', '<>', 0);
 
-        return view('admin.lesson.create', compact('pagetitle', 'lessongroups'));
+        return view('admin.lesson.create', compact('pagetitle', 'terms', 'lessongroups'));
     }
 
     public function store(Request $request)
@@ -65,6 +67,7 @@ class LessonController extends Controller
             'vahed' => $request->get('vahed'),
             'vahed_teory' => $request->get('vahed_teory'),
             'vahed_amali' => $request->get('vahed_amali'),
+            'term_id' => $request->get('term_id'),
             'description' => $request->get('description'),
             'state' => $request->get('state')
         ]);
@@ -88,9 +91,10 @@ class LessonController extends Controller
     public function edit(Lesson $lesson)
     {
         $pagetitle = 'ویرایش درس جاری';
-        $lessongroups = Lessongroup::all()->where('state', '<>', 0);
+        $terms = Term::all()->where('state', '>=', 0);
+        $lessongroups = Lessongroup::all()->where('state', '>=', 0);
 
-        return view('admin.lesson.edit', compact('pagetitle', 'lesson', 'lessongroups'));
+        return view('admin.lesson.edit', compact('pagetitle', 'lesson', 'terms', 'lessongroups'));
     }
 
     public function update(Request $request, lesson $lesson)

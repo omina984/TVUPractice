@@ -157,7 +157,23 @@
                                     </div>
                                 </div>
 
-                                <div class="fb-item fb-50-item-column" id="item50">
+                                <div class="fb-item fb-50-item-column" id="item49">
+                                    <div class="fb-grouplabel">
+                                        <label id="term_id" style="font-weight: bold; display: inline;">ترم ارائه درس</label>
+                                    </div>
+
+                                    <div class="fb-dropdown">
+                                        <select name="term_id" id="term_id"
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
+                                            @foreach ($terms as $term)
+                                                <option value="{{ $lessongroup->id }}">{{ $term->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="fb-item fb-100-item-column" id="item50">
                                     <div class="fb-grouplabel">
                                         <label id="state" style="font-weight: bold; display: inline;">وضعیت</label>
                                     </div>

@@ -12,7 +12,7 @@
             <span style="color: gray">ویرایش درس موجود</span>
         </div>
     </div>
-    
+
     <section id="hero" class="d-flex align-items-center">
         <div class="container">
             <div class="row">
@@ -159,7 +159,26 @@
                                     </div>
                                 </div>
 
-                                <div class="fb-item fb-50-item-column" id="item50">
+                                <div class="fb-item fb-50-item-column" id="item49">
+                                    <div class="fb-grouplabel">
+                                        <label id="term_id" style="font-weight: bold; display: inline;">ترم ارائه
+                                            درس</label>
+                                    </div>
+
+                                    <div class="fb-dropdown">
+                                        <select name="term_id" id="term_id"
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
+                                            @foreach ($terms as $term)
+                                                <option value="{{ $term->id }}"
+                                                    {{ old('term_id', $lesson->term_id) == $term->id ? 'selected' : '' }}>
+                                                    {{ $term->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="fb-item fb-100-item-column" id="item50">
                                     <div class="fb-grouplabel">
                                         <label id="state" style="font-weight: bold; display: inline;">وضعیت</label>
                                     </div>
@@ -183,7 +202,8 @@
 
                                 <div class="fb-item fb-100-item-column" id="item49">
                                     <div class="fb-grouplabel">
-                                        <label id="description" style="font-weight: bold; display: inline;">شرح درس</label>
+                                        <label id="description" style="font-weight: bold; display: inline;">شرح
+                                            درس</label>
                                     </div>
 
                                     <div class="fb-input-box">
