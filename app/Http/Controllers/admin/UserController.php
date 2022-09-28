@@ -120,8 +120,8 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $pagetitle = 'ویرایش کاربر موجود';
-        $marakez = Marakez::all()->where('state', '>=', 0);
-        $majors = Major::all()->where('state', '>=', 0);
+        $marakez = Marakez::all()->where('state', '<>', 0);
+        $majors = Major::all()->where('state', '<>', 0);
 
         return view('admin.user.edit', compact('pagetitle', 'user', 'marakez','majors'));
     }

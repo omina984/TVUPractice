@@ -91,8 +91,8 @@ class LessonController extends Controller
     public function edit(Lesson $lesson)
     {
         $pagetitle = 'ویرایش درس جاری';
-        $terms = Term::all()->where('state', '>=', 0);
-        $lessongroups = Lessongroup::all()->where('state', '>=', 0);
+        $terms = Term::all()->where('state', '<>', 0);
+        $lessongroups = Lessongroup::all()->where('state', '<>', 0);
 
         return view('admin.lesson.edit', compact('pagetitle', 'lesson', 'terms', 'lessongroups'));
     }

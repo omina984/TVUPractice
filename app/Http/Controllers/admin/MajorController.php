@@ -67,7 +67,7 @@ class MajorController extends Controller
     public function edit(Major $major)
     {
         $pagetitle = 'ویرایش رشته تحصیلی جاری';
-        $lessongroups = Lessongroup::all()->where('state', '>=', 0);
+        $lessongroups = Lessongroup::all()->where('state', '<>', 0);
 
         return view('admin.major.edit', compact('pagetitle', 'major','lessongroups'));
     }

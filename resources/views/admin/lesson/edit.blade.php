@@ -175,11 +175,6 @@
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
                                             @foreach ($terms as $term)
                                                 <option value="{{ $term->id }}"
-                                                    @if ($term->state == 0) 
-                                                        style="background-color: lightsalmon;"
-                                                    @else
-                                                        style="background-color: transparent"
-                                                    @endif
                                                     {{ old('term_id', $lesson->term_id) == $term->id ? 'selected' : '' }}>
                                                     {{ $term->name }}
                                                 </option>

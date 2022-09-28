@@ -36,7 +36,7 @@ return new class extends Migration
             'email' => 'admin99901@tvu.ac.ir',
             'password' => bcrypt('1234567890'),
             'type' => '0', //admin
-            'major_id' => 1, //بی نام
+            'major_id' => 1,
             'state' => 1,
             'created_at' => null,
             'updated_at' => null
@@ -54,7 +54,7 @@ return new class extends Migration
             'email' => 'user03301@tvu.ac.ir',
             'password' => bcrypt('1234567890'),
             'type' => '1', //teacher
-            'major_id' => 1, //بی نام
+            'major_id' => 1,
             'state' => 1,
             'created_at' => null,
             'updated_at' => null
