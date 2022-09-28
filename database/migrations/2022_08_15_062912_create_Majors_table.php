@@ -21,9 +21,19 @@ return new class extends Migration
             $table->foreign('lessongroup_id')->references('id')->on('lessongroups')->onDelete('cascade');
         });
 
+        //بی نام
+        DB::table('majors')->insert([
+            'lessongroup_id' => 1,// بی نام
+            'name' => 'بی نام',
+            'description' => '',
+            'state' => 1,
+            'created_at' => null,
+            'updated_at' => null
+        ]);
+
         //کامپیوتر
         DB::table('majors')->insert([
-            'lessongroup_id' => 1,// کامپیوتر
+            'lessongroup_id' => 2,// کامپیوتر
             'name' => 'فناوری اطلاعات',
             'description' => 'رشته کامپیوتر',
             'state' => 1,
@@ -32,7 +42,7 @@ return new class extends Migration
         ]);
 
         DB::table('majors')->insert([
-            'lessongroup_id' => 1,//کامپیوتر
+            'lessongroup_id' => 2,//کامپیوتر
             'name' => 'نرم‌افزار',
             'description' => 'رشته کامپیوتر',
             'state' => 1,
@@ -41,7 +51,7 @@ return new class extends Migration
         ]);
 
         DB::table('majors')->insert([
-            'lessongroup_id' => 1,//کامپیوتر
+            'lessongroup_id' => 2,//کامپیوتر
             'name' => 'سخت‌افزار',
             'description' => 'رشته کامپیوتر',
             'state' => 1,
@@ -51,7 +61,7 @@ return new class extends Migration
 
         //برق
         DB::table('majors')->insert([
-            'lessongroup_id' => 2,//برق
+            'lessongroup_id' => 3,//برق
             'name' => 'برق صنعتی',
             'description' => 'رشته برق',
             'state' => 1,
@@ -60,7 +70,7 @@ return new class extends Migration
         ]);
 
         DB::table('majors')->insert([
-            'lessongroup_id' => 2,//برق
+            'lessongroup_id' => 3,//برق
             'name' => 'برق قدرت',
             'description' => 'رشته برق',
             'state' => 1,

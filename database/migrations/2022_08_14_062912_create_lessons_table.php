@@ -36,7 +36,7 @@ return new class extends Migration
             'vahed' => 2,
             'vahed_teory' => 2,
             'vahed_amali' => 0,
-            'term_id' => 1,
+            'term_id' => 2, //ترم 011
             'description' => '',
             'state' => 1,
             'created_at' => null,

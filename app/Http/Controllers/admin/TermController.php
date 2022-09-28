@@ -6,6 +6,7 @@ use Exception;
 use App\Models\admin\Term;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\admin\Lesson;
 use Illuminate\Support\Facades\DB;
 
 class TermController extends Controller
@@ -87,6 +88,12 @@ class TermController extends Controller
 
         try {
             $term->update($request->all());
+
+            //reset in Lesson
+            if ($request->state == 0) {
+                Lesson::where('term_id', '=', $term->id)
+                    ->update(['term_id' => 1]);
+            };
 
             $msg = 'ذخیره ترم موجود با موفقیت انجام شد';
             return redirect(Route('admin.terms.index'))->with('success', $msg);

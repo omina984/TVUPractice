@@ -6,6 +6,8 @@ use Exception;
 use App\Models\admin\lessongroup;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\admin\Lesson;
+use App\Models\admin\Major;
 use Illuminate\Support\Facades\DB;
 
 class LessongroupController extends Controller
@@ -77,6 +79,18 @@ class LessongroupController extends Controller
 
         try {
             $lessongroup->update($request->all());
+
+            //reset in Lesson
+            if ($request->state == 0) {
+                Lesson::where('lessongroup_id', '=', $lessongroup->id)
+                    ->update(['lessongroup_id' => 1]);
+            };
+
+            //reset in Major
+            if ($request->state == 0) {
+                Major::where('lessongroup_id', '=', $lessongroup->id)
+                    ->update(['lessongroup_id' => 1]);
+            };
 
             $msg = 'ذخیره گروه درسی موجود با موفقیت انجام شد';
             return redirect(Route('admin.lessongroups.index'))->with('success', $msg);
