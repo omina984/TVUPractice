@@ -37,6 +37,11 @@
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
                                             @foreach ($lessongroups as $lessongroup)
                                                 <option value="{{ $lessongroup->id }}"
+                                                    @if ($lessongroup->state == 0) 
+                                                    style="background-color: lightsalmon;"
+                                                @else
+                                                    style="background-color: transparent"
+                                                @endif
                                                     {{ old('lessongroup_id', $major->lessongroup_id) == $lessongroup->id ? 'selected' : '' }}>
                                                     {{ $lessongroup->name }}
                                                 </option>

@@ -147,6 +147,11 @@
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
                                             @foreach ($marakez as $mz)
                                                 <option value="{{ $mz->id }}"
+                                                    @if ($mz->state == 0) 
+                                                    style="background-color: lightsalmon;"
+                                                @else
+                                                    style="background-color: transparent"
+                                                @endif
                                                     {{ old('markaz_id', $user->markaz_id) == $mz->id ? 'selected' : '' }}>
                                                     {{ $mz->name }}
                                                 </option>
@@ -221,6 +226,11 @@
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
                                             @foreach ($majors as $major)
                                                 <option value="{{ $major->id }}"
+                                                    @if ($major->state == 0) 
+                                                    style="background-color: lightsalmon;"
+                                                @else
+                                                    style="background-color: transparent"
+                                                @endif
                                                     {{ old('major_id', $user->major_id) == $major->id ? 'selected' : '' }}>
                                                     {{ $major->name }}
                                                 </option>
