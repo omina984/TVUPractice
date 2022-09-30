@@ -9,21 +9,21 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('TeacherLessons', function (Blueprint $table) {
+        Schema::create('StudentTeacherLessons', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('teacher_id')->unsigned();
-            $table->bigInteger('lesson_id')->unsigned();
+            $table->bigInteger('student_id')->unsigned();
+            $table->bigInteger('teacherlesson_id')->unsigned();
             $table->string('description')->nullable();
             $table->bigInteger('state')->default(1);
             $table->timestamps();
 
-            $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('teacherlesson_id')->references('id')->on('teacherlessons')->onDelete('cascade');
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('TeacherLessons');
+        Schema::dropIfExists('StudentTeacherLessons');
     }
 };

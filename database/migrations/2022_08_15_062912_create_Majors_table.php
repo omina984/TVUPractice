@@ -21,10 +21,10 @@ return new class extends Migration
             $table->foreign('lessongroup_id')->references('id')->on('lessongroups')->onDelete('cascade');
         });
 
-        //بی نام
+        //نامشخص
         DB::table('majors')->insert([
-            'lessongroup_id' => 1,// بی نام
-            'name' => 'بی نام',
+            'lessongroup_id' => 1,// نامشخص
+            'name' => 'نامشخص',
             'description' => '',
             'state' => 1,
             'created_at' => null,

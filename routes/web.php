@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\LessonController;
 use App\Http\Controllers\admin\LessongroupController;
 use App\Http\Controllers\admin\MajorController;
+use App\Http\Controllers\admin\TeacherLessonController;
 use App\Http\Controllers\admin\TermController;
 use App\Http\Controllers\admin\UserController as AdminUserController;
 use App\Http\Controllers\Auth\ResetPasswordController;
@@ -69,4 +70,15 @@ Route::prefix('admin')->middleware('Check_Is_ADMIN')->group(function () {
 
     Route::get('/major/edit/{major}', [MajorController::class, 'edit'])->name('admin.major.edit');
     Route::post('/major/update/{major}', [MajorController::class, 'update'])->name('admin.major.update');
+
+    //admin - teacherlesson
+    Route::get('/teacherlessons', [TeacherLessonController::class, 'index'])->name('admin.teacherlessons.index');
+
+    Route::get('/teacherlesson/create', [TeacherLessonController::class, 'create'])->name('admin.teacherlesson.create');
+    Route::post('/teacherlesson/store', [TeacherLessonController::class, 'store'])->name('admin.teacherlesson.store');
+
+    Route::get('/teacherlesson/edit/{teacherlesson}', [TeacherLessonController::class, 'edit'])->name('admin.teacherlesson.edit');
+    Route::post('/teacherlesson/update/{teacherlesson}', [TeacherLessonController::class, 'update'])->name('admin.teacherlesson.update');
+
+    // clear
 });

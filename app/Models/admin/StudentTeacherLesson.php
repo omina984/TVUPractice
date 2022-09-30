@@ -4,12 +4,10 @@ namespace App\Models\admin;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TeacherLesson extends Model
+class StudentTeacherLesson extends Model
 {
-    protected $table = 'teacherlessons';
-
     protected $fillable = [
-        'teacher_id',
+        'student_id',
         'lesson_id',
         'description',
         'state'

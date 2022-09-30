@@ -19,7 +19,9 @@
             &nbsp; / &nbsp;
             <a href="{{ route('admin.majors.index') }}">رشته‌های تحصیلی</a>
             &nbsp; / &nbsp;
-            <a href="{{ route('admin.majors.index') }}">تخصیص دروس</a>
+            <a href="{{ route('admin.teacherlessons.index') }}">تخصیص دروس</a>
+            &nbsp; / &nbsp;
+            <a href="{{ route('admin.majors.index') }}">تخصیص دانشجو</a>
         </div>
     </div>
 @endsection
