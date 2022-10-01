@@ -53,6 +53,16 @@ class TeacherLessonController extends Controller
         return view('admin.teacherlesson.create', compact('pagetitle', 'teachers', 'lessons'));
     }
 
+    public function getTeachers($teachersid = 0)
+    {
+        $empData['data'] = Lesson::orderby("name", "asc")
+            ->select('id', 'name')
+            ->where('lessongroup_id', $teachersid)
+            ->get();
+
+        return response()->json($empData);
+    }
+
     public function store(Request $request)
     {
         $messages = [

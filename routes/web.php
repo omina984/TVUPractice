@@ -10,6 +10,8 @@ use App\Http\Controllers\admin\TeacherLessonController;
 use App\Http\Controllers\admin\TermController;
 use App\Http\Controllers\admin\UserController as AdminUserController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DepartmentsController;
 
 Auth::routes();
 
@@ -75,10 +77,9 @@ Route::prefix('admin')->middleware('Check_Is_ADMIN')->group(function () {
     Route::get('/teacherlessons', [TeacherLessonController::class, 'index'])->name('admin.teacherlessons.index');
 
     Route::get('/teacherlesson/create', [TeacherLessonController::class, 'create'])->name('admin.teacherlesson.create');
+    Route::get('/teacherlesson/getTeachers/{id}', [TeacherLessonController::class, 'getTeachers']);
     Route::post('/teacherlesson/store', [TeacherLessonController::class, 'store'])->name('admin.teacherlesson.store');
 
     Route::get('/teacherlesson/edit/{teacherlesson}', [TeacherLessonController::class, 'edit'])->name('admin.teacherlesson.edit');
     Route::post('/teacherlesson/update/{teacherlesson}', [TeacherLessonController::class, 'update'])->name('admin.teacherlesson.update');
-
-    // clear
 });
