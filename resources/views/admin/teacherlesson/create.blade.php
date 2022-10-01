@@ -26,12 +26,15 @@
                             <div class="column ui-sortable" id="column1">
                                 <div class="fb-item fb-50-item-column" id="item49">
                                     <div class="fb-grouplabel">
-                                        <label id="teacher_id_name" style="font-weight: bold; display: inline;">نام استاد</label>
+                                        <label id="teacher_id_name" style="font-weight: bold; display: inline;">نام
+                                            استاد</label>
                                     </div>
 
                                     <div class="fb-dropdown">
                                         <select name="teacher_id" id="teacher_id"
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
+                                            <option value="0"> لطفا انتخاب کنید </option>
+
                                             @foreach ($teachers as $teacher)
                                                 <option value="{{ $teacher->id }}">
                                                     {{ $teacher->name . ' ' . $teacher->family }}
@@ -43,12 +46,14 @@
 
                                 <div class="fb-item fb-50-item-column" id="item49">
                                     <div class="fb-grouplabel">
-                                        <label id="lesson_id_name" style="font-weight: bold; display: inline;">نام درس</label>
+                                        <label id="lesson_id_name" style="font-weight: bold; display: inline;">نام
+                                            درس</label>
                                     </div>
 
                                     <div class="fb-dropdown">
                                         <select name="lesson_id" id="lesson_id"
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
+                                            <option value="0"> لطفا انتخاب کنید </option>
                                             {{-- @foreach ($lessons as $lesson)
                                                 <option value="{{ $lesson->id }}">
                                                     {{ $lesson->name }}
@@ -125,7 +130,7 @@
                 dataType: 'json',
                 success: function(response) {
                     var len = 0;
-                    
+
                     if (response['data'] != null) {
                         len = response['data'].length;
                     }
@@ -136,7 +141,7 @@
                             var name = response['data'][i].name;
                             var option = "<option value='" + id + "'>" + name + "</option>";
 
-                            $("#student_id").append(option);
+                            $("#lesson_id").append(option);
                         }
                     }
                 }

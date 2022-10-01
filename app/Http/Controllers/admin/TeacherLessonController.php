@@ -55,12 +55,12 @@ class TeacherLessonController extends Controller
 
     public function getTeachers($teachersid = 0)
     {
-        $empData['data'] = Lesson::orderby("name", "asc")
+        $lessons['data'] = Lesson::orderby("name", "asc")
             ->select('id', 'name')
             ->where('lessongroup_id', $teachersid)
             ->get();
 
-        return response()->json($empData);
+        return response()->json($lessons);
     }
 
     public function store(Request $request)
