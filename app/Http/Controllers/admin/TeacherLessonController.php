@@ -41,23 +41,23 @@ class TeacherLessonController extends Controller
             ->where('type', '=', 1)
             ->where('state', '=', 1);
 
+        return view('admin.teacherlesson.create', compact('pagetitle', 'teachers'));
+    }
+
+    public function getTeachers($lessongroup_id = 0)
+    {
         $lastterm = DB::table('terms')
             ->where('state', '=', 1)
             ->orderBy('id', 'desc')
             ->limit(1)
             ->select('id')
             ->get();
-        $lessons = DB::table('lessons')->orderBy('id', 'asc')->get()
-            ->where('state', '=', 1)->where('term_id', '=', $lastterm[0]->id);
 
-        return view('admin.teacherlesson.create', compact('pagetitle', 'teachers', 'lessons'));
-    }
-
-    public function getTeachers($teachersid = 0)
-    {
         $lessons['data'] = Lesson::orderby("name", "asc")
             ->select('id', 'name')
-            ->where('lessongroup_id', $teachersid)
+            ->where('state', '=', 1)
+            ->where('term_id', '=', $lastterm[0]->id)
+            ->where('lessongroup_id', $lessongroup_id)
             ->get();
 
         return response()->json($lessons);
@@ -65,14 +65,12 @@ class TeacherLessonController extends Controller
 
     public function store(Request $request)
     {
-        $messages = [
-            'name.required' => 'فیلد نام ترم را وارد کنید',
-            'name.unique' => 'فیلد نام ترم غیر تکراری وارد کنید',
-        ];
+        dd('gu');
+        exit;
 
         $request->validate([
             'name' => 'required|unique:teacherlessons',
-        ], $messages);
+        ]);
 
         $teacherlesson = new TeacherLesson([
             'name' => $request->get('name'),
