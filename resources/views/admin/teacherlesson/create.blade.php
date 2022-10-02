@@ -22,8 +22,6 @@
                         action="{{ route('admin.teacherlesson.store') }}" method="post">
                         @csrf
 
-                        {{-- @include('layouts.messages') --}}
-
                         <div class="section" id="section1">
                             <div class="column ui-sortable" id="column1">
                                 <div class="fb-item fb-50-item-column" id="item49">
@@ -38,11 +36,16 @@
                                             <option value="0"> لطفا انتخاب کنید </option>
 
                                             @foreach ($teachers as $teacher)
-                                                <option value="{{ $teacher->id }}">
+                                                <option {{ old('id', $teacher->id) == $teacher->id ? 'selected' : '' }}
+                                                    value="{{ $teacher->id }}">
                                                     {{ $teacher->name . ' ' . $teacher->family }}
                                                 </option>
                                             @endforeach
                                         </select>
+
+                                        @error('teacher_id')
+                                            <div class="alert alert-danger"> {{ $message }} </div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -62,6 +65,10 @@
                                                 </option>
                                             @endforeach --}}
                                         </select>
+
+                                        @error('lesson_id')
+                                            <div class="alert alert-danger"> {{ $message }} </div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -85,7 +92,7 @@
 
                                 <div class="fb-item fb-100-item-column" id="item49">
                                     <div class="fb-grouplabel">
-                                        <label id="description" style="font-weight: bold; display: inline;">شرح تخصیص
+                                        <label id="description_name" style="font-weight: bold; display: inline;">شرح تخصیص
                                             درس</label>
                                     </div>
 
@@ -131,6 +138,8 @@
                 type: 'get',
                 dataType: 'json',
                 success: function(response) {
+                    #description.text='hi';
+                    
                     var len = 0;
 
                     if (response['data'] != null) {

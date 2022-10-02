@@ -65,11 +65,9 @@ class TeacherLessonController extends Controller
 
     public function store(Request $request)
     {
-        dd('gu');
-        exit;
-
         $request->validate([
-            'name' => 'required|unique:teacherlessons',
+            'teacher_id' => 'required|not_in:0',
+            'lesson_id' => 'required|not_in:0',
         ]);
 
         $teacherlesson = new TeacherLesson([

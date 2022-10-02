@@ -1,18 +1,6 @@
 <?php
 
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Validation Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines contain the default error messages used by
-    | the validator class. Some of these rules have multiple versions such
-    | as the size rules. Feel free to tweak each of these messages here.
-    | Translated By : LaravelForum.ir Abolfazl Talebi
-    */
-
     'accepted' => ':attribute باید تایید شود.',
     'active_url' => ':attribute لینک وارد شده معتبر نیست.',
     'after' => ':attribute تاریخ باید بعد از :date باشد',
@@ -179,13 +167,15 @@ return [
         "available" => "موجود",
         "notavailable" => "موجود نیست",
         "size" => "اندازه",
-        "nationalcode"=>"کد ملی",
-        "father"=>"نام پدر",
-        "lessongroup_code"=>"کد گروه درسی",
-        "lessoncode"=>"کد درس",
-        "vahed"=>"تعداد واحد",
-        "vahed_teory"=>"تعداد واحد تئوری",
-        "vahed_amali"=>"تعداد واحد عملی",
+        "nationalcode" => "کد ملی",
+        "father" => "نام پدر",
+        "lessongroup_code" => "کد گروه درسی",
+        "lessoncode" => "کد درس",
+        "vahed" => "تعداد واحد",
+        "vahed_teory" => "تعداد واحد تئوری",
+        "vahed_amali" => "تعداد واحد عملی",
+        "teacher_id" => "نام استاد",
+        "lesson_id" => "نام درس",
     ],
 
 ];
