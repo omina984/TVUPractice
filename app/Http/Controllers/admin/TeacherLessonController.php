@@ -61,13 +61,19 @@ class TeacherLessonController extends Controller
             ->orderBy('users.id', 'asc')
             ->where('users.type', '=', 1)
             ->where('users.state', '=', 1)
-            ->where('lessongroups.id', '=', $lessongroup_id_search)
+            // ->where('lessongroups.id', '=', $lessongroup_id_search)
             ->select(
                 'users.id as teacher_id',
                 'users.name as teacher_name',
                 'users.family as teacher_family',
-            )
-            ->get();
+            );
+        // ->get();
+
+        if ($lessongroup_id_search == 0) {
+            $teachers['data'] = $teachers['data']->where('lessongroups.id', '>=', 1)->get();
+        } else {
+            $teachers['data'] = $teachers['data']->where('lessongroups.id', '=', $lessongroup_id_search)->get();
+        };
 
         return response()->json($teachers);
     }
