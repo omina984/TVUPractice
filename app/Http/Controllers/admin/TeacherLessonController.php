@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Lesson;
+use App\Models\admin\Lessongroup;
 use App\Models\admin\TeacherLesson;
 use Illuminate\Support\Facades\DB;
 
@@ -37,11 +38,38 @@ class TeacherLessonController extends Controller
     {
         $pagetitle = 'تخصیص دروس جدید';
 
-        $teachers = DB::table('users')->orderBy('id', 'asc')->get()
-            ->where('type', '=', 1)
-            ->where('state', '=', 1);
+        $lessongroups = DB::table(('lessongroups'))->where('id', '>', 1)->orderBy('name', 'asc')->get();
 
-        return view('admin.teacherlesson.create', compact('pagetitle', 'teachers'));
+        $teachers = DB::table('users')->orderBy('id', 'asc')
+            ->where('type', '=', 1)
+            ->where('state', '=', 1)
+            ->select(
+                'users.id as teacher_id',
+                'users.name as teacher_name',
+                'users.family as teacher_family',
+            )
+            ->get();
+
+        return view('admin.teacherlesson.create', compact('pagetitle', 'lessongroups', 'teachers'));
+    }
+
+    public function mySearch($lessongroup_id_search = 0)
+    {
+        $teachers['data'] = DB::table('users')
+            ->join('majors', 'majors.id', '=', 'users.major_id')
+            ->join('lessongroups', 'lessongroups.id', '=', 'majors.lessongroup_id')
+            ->orderBy('users.id', 'asc')
+            ->where('users.type', '=', 1)
+            ->where('users.state', '=', 1)
+            ->where('lessongroups.id', '=', $lessongroup_id_search)
+            ->select(
+                'users.id as teacher_id',
+                'users.name as teacher_name',
+                'users.family as teacher_family',
+            )
+            ->get();
+
+        return response()->json($teachers);
     }
 
     public function getTeachers($lessongroup_id = 0)

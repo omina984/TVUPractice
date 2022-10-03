@@ -77,6 +77,8 @@ Route::prefix('admin')->middleware('Check_Is_ADMIN')->group(function () {
     Route::get('/teacherlessons', [TeacherLessonController::class, 'index'])->name('admin.teacherlessons.index');
 
     Route::get('/teacherlesson/create', [TeacherLessonController::class, 'create'])->name('admin.teacherlesson.create');
+    // Route::post('/teacherlessons/create', [TeacherLessonController::class, 'search'])->name('admin.teacherlessons.search');
+    Route::get('/teacherlesson/mySearch/{id}', [TeacherLessonController::class, 'mySearch']);
     Route::get('/teacherlesson/getTeachers/{id}', [TeacherLessonController::class, 'getTeachers']);
     Route::post('/teacherlesson/store', [TeacherLessonController::class, 'store'])->name('admin.teacherlesson.store');
 
