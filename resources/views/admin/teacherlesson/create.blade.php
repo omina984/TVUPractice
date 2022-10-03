@@ -50,10 +50,26 @@
                                                 </option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                </div>
 
-                                        @error('teacher_id')
-                                            <div class="alert alert-danger"> {{ $message }} </div>
-                                        @enderror
+                                <div class="fb-item fb-50-item-column" id="item49">
+                                    <div class="fb-grouplabel">
+                                        <label id="major_id_search_name"
+                                            style="font-weight: bold; display: inline;">رشته تحصیلی</label>
+                                    </div>
+
+                                    <div class="fb-dropdown">
+                                        <select name="major_id_search" id="major_id_search"
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
+                                            <option value="0"> لطفا انتخاب کنید </option>
+
+                                            @foreach ($lessongroups as $lessongroup)
+                                                <option value="{{ $lessongroup->id }}">
+                                                    {{ $lessongroup->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -182,13 +198,14 @@
         $("#btnSearch").click(function(e) {
             e.preventDefault();
 
-            var id = $('#lessongroup_id_search').val();
+            var lessongroup_id = $('#lessongroup_id_search').val();
+            var major_id = $('#major_id_search').val();
             // $("#description").val(id);
 
             $('#teacher_id').find('option').not(':first').remove();
-            
+
             $.ajax({
-                url: 'mySearch/' + id,
+                url: 'mySearch/' + lessongroup_id,
                 type: 'get',
                 dataType: 'json',
                 success: function(response) {
@@ -203,7 +220,8 @@
                             // $("#description").val(response['data'][i].id);
 
                             var id = response['data'][i].teacher_id;
-                            var name = response['data'][i].teacher_name + " " + response['data'][i].teacher_family;
+                            var name = response['data'][i].teacher_name + " " + response[
+                                'data'][i].teacher_family;
                             var option = "<option value='" + id + "'>" + name + "</option>";
 
                             $("#teacher_id").append(option);

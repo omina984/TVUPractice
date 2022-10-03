@@ -78,8 +78,11 @@ class TeacherLessonController extends Controller
         return response()->json($teachers);
     }
 
-    public function getTeachers($lessongroup_id = 0)
+    public function getTeachers($teacher_id = 0)
     {
+        $major_id = DB::table('users')->where('id', '=', $teacher_id)->get();
+        $lessongroup_id = DB::table('majors')->where('id', '=', $major_id[0]->major_id)->get();
+
         $lastterm = DB::table('terms')
             ->where('state', '=', 1)
             ->orderBy('id', 'desc')
@@ -88,10 +91,11 @@ class TeacherLessonController extends Controller
             ->get();
 
         $lessons['data'] = Lesson::orderby("name", "asc")
-            ->select('id', 'name')
             ->where('state', '=', 1)
             ->where('term_id', '=', $lastterm[0]->id)
-            ->where('lessongroup_id', $lessongroup_id)
+            ->where('lessongroup_id', $lessongroup_id[0]->lessongroup_id)
+            ->select('id', 'name')
+            ->distinct()
             ->get();
 
         return response()->json($lessons);
