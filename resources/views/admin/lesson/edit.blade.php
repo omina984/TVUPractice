@@ -69,6 +69,30 @@
 
                                 <div class="fb-item fb-50-item-column" id="item49">
                                     <div class="fb-grouplabel">
+                                        <label id="major_id" style="font-weight: bold; display: inline;">رشته
+                                            تحصیلی</label>
+                                    </div>
+
+                                    <div class="fb-dropdown">
+                                        <select name="major_id" id="major_id"
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
+                                            @foreach ($majors as $major)
+                                                <option value="{{ $major->id }}"
+                                                    @if ($major->state == 0) 
+                                                        style="background-color: lightsalmon;"
+                                                    @else
+                                                        style="background-color: transparent"
+                                                    @endif
+                                                    {{ old('major_id', $lesson->major_id) == $major->id ? 'selected' : '' }}>
+                                                    {{ $major->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="fb-item fb-50-item-column" id="item49">
+                                    <div class="fb-grouplabel">
                                         <label id="lessongroup_code" style="font-weight: bold; display: inline;">کد گروه
                                             درسی</label>
                                     </div>
@@ -183,7 +207,7 @@
                                     </div>
                                 </div>
 
-                                <div class="fb-item fb-100-item-column" id="item50">
+                                <div class="fb-item fb-50-item-column" id="item50">
                                     <div class="fb-grouplabel">
                                         <label id="state" style="font-weight: bold; display: inline;">وضعیت</label>
                                     </div>

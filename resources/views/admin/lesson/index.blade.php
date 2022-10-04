@@ -39,6 +39,7 @@
                                                 <td>نام</td>
                                                 <td>ترم</td>
                                                 <td>گروه درسی</td>
+                                                <td>رشته درسی</td>
                                                 <td>کد گروه درسی</td>
                                                 <td>کد درس</td>
                                                 <td>تعداد واحد</td>
@@ -56,9 +57,10 @@
                                                     <td style="width: 5%; background-color:lightblue;"><a
                                                             href="{{ route('admin.lesson.edit', $lesson->lesson_id) }}">{{ $lesson->lesson_id }}</a>
                                                     </td>
-                                                    <td style="width: 20%;">{{ $lesson->lesson_name }}</td>
+                                                    <td style="width: 15%;">{{ $lesson->lesson_name }}</td>
                                                     <td style="width: 10%;">{{ $lesson->term_name }}</td>
-                                                    <td style="width: 15%;">{{ $lesson->lessongroup_name }}</td>
+                                                    <td style="width: 10%;">{{ $lesson->lessongroup_name }}</td>
+                                                    <td style="width: 10%;">{{ $lesson->major_name }}</td>
                                                     <td style="width: 10%;">{{ $lesson->lessongroup_code }}</td>
                                                     <td style="width: 10%;">{{ $lesson->lessoncode }}</td>
                                                     <td style="width: 10%;">{{ $lesson->vahed }}</td>

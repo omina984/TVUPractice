@@ -7,6 +7,7 @@ use App\Models\admin\Lesson;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Lessongroup;
+use App\Models\admin\Major;
 use App\Models\admin\Term;
 use Illuminate\Support\Facades\DB;
 
@@ -17,6 +18,7 @@ class LessonController extends Controller
         $pagetitle = 'دروس';
         $lessons = DB::table('lessons')
             ->join('lessongroups', 'lessongroups.id', '=', 'lessons.lessongroup_id')
+            ->join('majors', 'majors.id', '=', 'lessons.major_id')
             ->join('terms', 'terms.id', '=', 'lessons.term_id')
             ->orderBy('lessons.id', 'desc')
             ->select(
@@ -30,6 +32,7 @@ class LessonController extends Controller
                 'lessons.description as lesson_description',
                 'lessons.state as lesson_state',
                 'lessongroups.name as lessongroup_name',
+                'majors.name as major_name',
                 'terms.name as term_name'
             )->paginate(10);
 
@@ -41,8 +44,9 @@ class LessonController extends Controller
         $pagetitle = 'ایجاد درس جدید';
         $terms = Term::all()->where('state', '<>', 0);
         $lessongroups = Lessongroup::all()->where('state', '<>', 0);
+        $majors = Major::all()->where('state', '<>', 0);
 
-        return view('admin.lesson.create', compact('pagetitle', 'terms', 'lessongroups'));
+        return view('admin.lesson.create', compact('pagetitle', 'terms', 'lessongroups', 'majors'));
     }
 
     public function store(Request $request)
@@ -66,6 +70,7 @@ class LessonController extends Controller
         $lesson = new lesson([
             'name' => $request->get('name'),
             'lessongroup_id' => $request->get('lessongroup_id'),
+            'major_id' => $request->get('major_id'),
             'lessongroup_code' => $request->get('lessongroup_code'),
             'lessoncode' => $request->get('lessoncode'),
             'vahed' => $request->get('vahed'),
@@ -97,8 +102,9 @@ class LessonController extends Controller
         $pagetitle = 'ویرایش درس جاری';
         $terms = Term::all()->where('state', '<>', 0);
         $lessongroups = Lessongroup::all()->where('state', '<>', 0);
+        $majors = Major::all()->where('state', '<>', 0);
 
-        return view('admin.lesson.edit', compact('pagetitle', 'lesson', 'terms', 'lessongroups'));
+        return view('admin.lesson.edit', compact('pagetitle', 'lesson', 'terms', 'lessongroups', 'majors'));
     }
 
     public function update(Request $request, lesson $lesson)

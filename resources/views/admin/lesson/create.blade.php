@@ -62,6 +62,23 @@
 
                                 <div class="fb-item fb-50-item-column" id="item49">
                                     <div class="fb-grouplabel">
+                                        <label id="major_id" style="font-weight: bold; display: inline;">رشته
+                                            تحصیلی</label>
+                                    </div>
+
+                                    <div class="fb-dropdown">
+                                        <select name="major_id" id="major_id"
+                                            style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
+                                            @foreach ($majors as $major)
+                                                <option value="{{ $major->id }}">{{ $major->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="fb-item fb-50-item-column" id="item49">
+                                    <div class="fb-grouplabel">
                                         <label id="lessongroup_code" style="font-weight: bold; display: inline;">کد گروه
                                             درسی</label>
                                     </div>
@@ -159,7 +176,8 @@
 
                                 <div class="fb-item fb-50-item-column" id="item49">
                                     <div class="fb-grouplabel">
-                                        <label id="term_id" style="font-weight: bold; display: inline;">ترم ارائه درس</label>
+                                        <label id="term_id" style="font-weight: bold; display: inline;">ترم ارائه
+                                            درس</label>
                                     </div>
 
                                     <div class="fb-dropdown">
@@ -173,7 +191,7 @@
                                     </div>
                                 </div>
 
-                                <div class="fb-item fb-100-item-column" id="item50">
+                                <div class="fb-item fb-50-item-column" id="item50">
                                     <div class="fb-grouplabel">
                                         <label id="state" style="font-weight: bold; display: inline;">وضعیت</label>
                                     </div>
@@ -193,7 +211,8 @@
 
                                 <div class="fb-item fb-100-item-column" id="item49">
                                     <div class="fb-grouplabel">
-                                        <label id="description" style="font-weight: bold; display: inline;">شرح درس</label>
+                                        <label id="description" style="font-weight: bold; display: inline;">شرح
+                                            درس</label>
                                     </div>
 
                                     <div class="fb-input-box">

@@ -9,6 +9,7 @@ class Lesson extends Model
     protected $fillable = [
         'name',
         'lessongroup_id',
+        'major_id',
         'lessongroup_code',
         'lessoncode',
         'vahed',
