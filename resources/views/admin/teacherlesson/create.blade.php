@@ -55,8 +55,8 @@
 
                                 <div class="fb-item fb-50-item-column" id="item49">
                                     <div class="fb-grouplabel">
-                                        <label id="major_id_search_name"
-                                            style="font-weight: bold; display: inline;">رشته تحصیلی</label>
+                                        <label id="major_id_search_name" style="font-weight: bold; display: inline;">رشته
+                                            تحصیلی</label>
                                     </div>
 
                                     <div class="fb-dropdown">
@@ -193,7 +193,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<script type='text/javascript'>
+{{-- <script type='text/javascript'>
     $(document).ready(function() {
         $("#btnSearch").click(function(e) {
             e.preventDefault();
@@ -231,7 +231,46 @@
             });
         });
     });
+</script> --}}
+
+{{-- mySearch --}}
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $('#lessongroup_id_search').change(function() {
+            var id = $(this).val();
+            // $("#description").val(id);
+
+            $('#teacher_id').find('option').not(':first').remove();
+
+            $.ajax({
+                url: 'mySearch/' + id,
+                type: 'get',
+                dataType: 'json',
+                success: function(response) {
+                    var len = 0;
+
+                    if (response['data'] != null) {
+                        len = response['data'].length;
+                    }
+
+                    if (len > 0) {
+                        for (var i = 0; i < len; i++) {
+                            // $("#description").val(response['data'][i].id);
+
+                            var id = response['data'][i].teacher_id;
+                            var name = response['data'][i].teacher_name + " " + response[
+                                'data'][i].teacher_family;
+                            var option = "<option value='" + id + "'>" + name + "</option>";
+
+                            $("#teacher_id").append(option);
+                        }
+                    }
+                }
+            });
+        });
+    });
 </script>
+{{-- mySearch --}}
 
 <script type='text/javascript'>
     $(document).ready(function() {
