@@ -17,18 +17,9 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        //نامشخص
-        DB::table('lessongroups')->insert([
-            'name' => 'نامشخص',
-            'description' => '',
-            'state' => 1,
-            'created_at' => null,
-            'updated_at' => null
-        ]);
-
         //کامپیوتر
         DB::table('lessongroups')->insert([
-            'name' => 'کامپیوتر',
+            'name' => 'گروه درسی کامپیوتر',
             'description' => 'گروه درسی کامپیوتر',
             'state' => 1,
             'created_at' => null,
@@ -37,7 +28,7 @@ return new class extends Migration
 
          //برق
          DB::table('lessongroups')->insert([
-            'name' => 'برق',
+            'name' => 'گروه درسی برق',
             'description' => 'گروه درسی برق',
             'state' => 1,
             'created_at' => null,

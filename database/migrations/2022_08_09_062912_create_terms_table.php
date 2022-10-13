@@ -17,15 +17,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        //نامشخص
-        DB::table('terms')->insert([
-            'name' => 'نامشخص',
-            'description' => '',
-            'state' => 1,
-            'created_at' => null,
-            'updated_at' => null
-        ]);
-
         //011
         DB::table('terms')->insert([
             'name' => '011',

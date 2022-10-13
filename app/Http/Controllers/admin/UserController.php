@@ -38,31 +38,6 @@ class UserController extends Controller
         return view('admin.user.index', compact('pagetitle', 'users'));
     }
 
-    public function search(Request $request)
-    {
-        $pagetitle = 'کاربران';
-
-        $users = User::where('username', 'like', '%' . $request->username . '%')
-            ->join('marakez', 'marakez.id', '=', 'users.markaz_id')
-            ->orderBy('users.id', 'desc')
-            ->select(
-                'users.id as user_id',
-                'username',
-                'users.name as user_name',
-                'family',
-                'father',
-                'nationalcode',
-                'mobile',
-                'markaz_id',
-                'email',
-                'type',
-                'users.state as user_state',
-                'marakez.name as markaz_name'
-            )->paginate(10);
-
-        return view('admin.user.index', compact('pagetitle', 'users'));
-    }
-
     public function create()
     {
         $pagetitle = 'ایجاد کاربر جدید';
@@ -166,5 +141,30 @@ class UserController extends Controller
         } catch (Exception $exception) {
             return redirect(Route('admin.users.index'))->with('warning', $exception->getCode());
         }
+    }
+
+    public function search(Request $request)
+    {
+        $pagetitle = 'کاربران';
+
+        $users = User::where('username', 'like', '%' . $request->username . '%')
+            ->join('marakez', 'marakez.id', '=', 'users.markaz_id')
+            ->orderBy('users.id', 'desc')
+            ->select(
+                'users.id as user_id',
+                'username',
+                'users.name as user_name',
+                'family',
+                'father',
+                'nationalcode',
+                'mobile',
+                'markaz_id',
+                'email',
+                'type',
+                'users.state as user_state',
+                'marakez.name as markaz_name'
+            )->paginate(10);
+
+        return view('admin.user.index', compact('pagetitle', 'users'));
     }
 }

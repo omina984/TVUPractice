@@ -157,4 +157,11 @@ class LessonController extends Controller
     {
         //
     }
+
+    public function getLessons($lessongroup_id = 0)
+    {
+        $majors = DB::table('majors')->where('lessongroup_id', '=', $lessongroup_id)->get();
+
+        return response()->json($majors);
+    }
 }

@@ -59,6 +59,7 @@ Route::prefix('admin')->middleware('Check_Is_ADMIN')->group(function () {
     Route::get('/lessons', [LessonController::class, 'index'])->name('admin.lessons.index');
 
     Route::get('/lesson/create', [LessonController::class, 'create'])->name('admin.lesson.create');
+    Route::get('/lesson/getLessons/{id}', [LessonController::class, 'getLessons']);
     Route::post('/lesson/store', [LessonController::class, 'store'])->name('admin.lesson.store');
 
     Route::get('/lesson/edit/{lesson}', [LessonController::class, 'edit'])->name('admin.lesson.edit');
@@ -77,9 +78,9 @@ Route::prefix('admin')->middleware('Check_Is_ADMIN')->group(function () {
     Route::get('/teacherlessons', [TeacherLessonController::class, 'index'])->name('admin.teacherlessons.index');
 
     Route::get('/teacherlesson/create', [TeacherLessonController::class, 'create'])->name('admin.teacherlesson.create');
-    // Route::post('/teacherlessons/create', [TeacherLessonController::class, 'search'])->name('admin.teacherlessons.search');
-    Route::get('/teacherlesson/mySearch/{id}', [TeacherLessonController::class, 'mySearch']);
+    Route::get('/teacherlesson/getMajors/{id}', [TeacherLessonController::class, 'getMajors']);
     Route::get('/teacherlesson/getTeachers/{id}', [TeacherLessonController::class, 'getTeachers']);
+    Route::get('/teacherlesson/getLessons/{id}', [TeacherLessonController::class, 'getLessons']);
     Route::post('/teacherlesson/store', [TeacherLessonController::class, 'store'])->name('admin.teacherlesson.store');
 
     Route::get('/teacherlesson/edit/{teacherlesson}', [TeacherLessonController::class, 'edit'])->name('admin.teacherlesson.edit');

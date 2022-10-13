@@ -33,14 +33,14 @@ return new class extends Migration
         //امنيت شبكه
         DB::table('lessons')->insert([
             'name' => 'امنيت شبكه',
-            'lessongroup_id' => 2, //کامپیوتر
-            'major_id' => 3, //نرم‌افزار
+            'lessongroup_id' => 1, //کامپیوتر
+            'major_id' => 2, //نرم‌افزار
             'lessongroup_code' => '30201133',
             'lessoncode' => '3021131',
             'vahed' => 2,
             'vahed_teory' => 2,
             'vahed_amali' => 0,
-            'term_id' => 2, //ترم 011
+            'term_id' => 3, //ترم 013
             'description' => '',
             'state' => 1,
             'created_at' => null,

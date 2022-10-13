@@ -19,16 +19,8 @@
                 <div class="col-lg-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
                     <form data-aos="fade-up" data-aos-delay="400"
                         class="MyStyle_create_edit_form fb-toplabel fb-100-item-column selected-object" id="docContainer"
-                        style="margin-bottom: 5px;" {{-- action="{{ route('admin.teacherlessons.search') }}"  --}} method="post">
+                        style="margin-bottom: 5px;" method="post">
                         @csrf
-
-                        <div>
-                            <button name="btnSearch" id="btnSearch" type="submit"
-                                class="btn btn-info btn-fw fb-item fb-100-item-column" style="width: 100%;"
-                                {{-- onclick="window.location='{{ route('admin.teacherlessons.search') }}'" --}}>
-                                جستجو
-                            </button>
-                        </div>
 
                         <div class="section" id="section1">
                             <div class="column ui-sortable" id="column1">
@@ -64,9 +56,9 @@
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
                                             <option value="0"> لطفا انتخاب کنید </option>
 
-                                            @foreach ($lessongroups as $lessongroup)
-                                                <option value="{{ $lessongroup->id }}">
-                                                    {{ $lessongroup->name }}
+                                            @foreach ($majors as $major)
+                                                <option value="{{ $major->id }}">
+                                                    {{ $major->name }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -193,19 +185,14 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-{{-- <script type='text/javascript'>
+<script type='text/javascript'>
     $(document).ready(function() {
-        $("#btnSearch").click(function(e) {
-            e.preventDefault();
-
-            var lessongroup_id = $('#lessongroup_id_search').val();
-            var major_id = $('#major_id_search').val();
-            // $("#description").val(id);
-
-            $('#teacher_id').find('option').not(':first').remove();
+        $('#lessongroup_id_search').change(function() {
+            var id = $(this).val();
+            $('#major_id_search').find('option').not(':first').remove();
 
             $.ajax({
-                url: 'mySearch/' + lessongroup_id,
+                url: 'getMajors/' + id,
                 type: 'get',
                 dataType: 'json',
                 success: function(response) {
@@ -217,23 +204,19 @@
 
                     if (len > 0) {
                         for (var i = 0; i < len; i++) {
-                            // $("#description").val(response['data'][i].id);
-
-                            var id = response['data'][i].teacher_id;
-                            var name = response['data'][i].teacher_name + " " + response[
-                                'data'][i].teacher_family;
+                            var id = response['data'][i].id;
+                            var name = response['data'][i].name;
                             var option = "<option value='" + id + "'>" + name + "</option>";
 
-                            $("#teacher_id").append(option);
+                            $("#major_id_search").append(option);
                         }
                     }
                 }
             });
         });
     });
-</script> --}}
+</script>
 
-{{-- mySearch --}}
 <script type='text/javascript'>
     $(document).ready(function() {
         $('#lessongroup_id_search').change(function() {
@@ -243,7 +226,7 @@
             $('#teacher_id').find('option').not(':first').remove();
 
             $.ajax({
-                url: 'mySearch/' + id,
+                url: 'getTeachers/' + id,
                 type: 'get',
                 dataType: 'json',
                 success: function(response) {
@@ -270,7 +253,6 @@
         });
     });
 </script>
-{{-- mySearch --}}
 
 <script type='text/javascript'>
     $(document).ready(function() {
@@ -281,7 +263,7 @@
             $('#lesson_id').find('option').not(':first').remove();
 
             $.ajax({
-                url: 'getTeachers/' + id,
+                url: 'getLessons/' + id,
                 type: 'get',
                 dataType: 'json',
                 success: function(response) {

@@ -45,7 +45,7 @@ return new class extends Migration
         // user
         DB::table('users')->insert([
             'username' => 'user03301',
-            'name' => 'کاربر 01 مرکز شمسی‌پور',
+            'name' => 'استاد فناوری اطلاعات',
             'family' => '',
             'father' => '',
             'nationalcode' => '0',
@@ -54,7 +54,75 @@ return new class extends Migration
             'email' => 'user03301@tvu.ac.ir',
             'password' => bcrypt('1234567890'),
             'type' => '1', //teacher
-            'major_id' => 1,
+            'major_id' => 1,//فناوری اطلاعات
+            'state' => 1,
+            'created_at' => null,
+            'updated_at' => null
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'user03301',
+            'name' => 'استاد نرم افزار',
+            'family' => '',
+            'father' => '',
+            'nationalcode' => '0',
+            'mobile' => '0',
+            'markaz_id' => 33, //33 = shamsipoor
+            'email' => 'user03302@tvu.ac.ir',
+            'password' => bcrypt('1234567890'),
+            'type' => '1', //teacher
+            'major_id' => 2,//نرم افزار
+            'state' => 1,
+            'created_at' => null,
+            'updated_at' => null
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'user03301',
+            'name' => 'استاد سخت افزار',
+            'family' => '',
+            'father' => '',
+            'nationalcode' => '0',
+            'mobile' => '0',
+            'markaz_id' => 33, //33 = shamsipoor
+            'email' => 'user03303@tvu.ac.ir',
+            'password' => bcrypt('1234567890'),
+            'type' => '1', //teacher
+            'major_id' => 3,//سخت افزار
+            'state' => 1,
+            'created_at' => null,
+            'updated_at' => null
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'user03301',
+            'name' => 'استاد برق صنعتی',
+            'family' => '',
+            'father' => '',
+            'nationalcode' => '0',
+            'mobile' => '0',
+            'markaz_id' => 33, //33 = shamsipoor
+            'email' => 'user03304@tvu.ac.ir',
+            'password' => bcrypt('1234567890'),
+            'type' => '1', //teacher
+            'major_id' => 4,//برق صنعتی
+            'state' => 1,
+            'created_at' => null,
+            'updated_at' => null
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'user03301',
+            'name' => 'استاد برق قدرت',
+            'family' => '',
+            'father' => '',
+            'nationalcode' => '0',
+            'mobile' => '0',
+            'markaz_id' => 33, //33 = shamsipoor
+            'email' => 'user03305@tvu.ac.ir',
+            'password' => bcrypt('1234567890'),
+            'type' => '1', //teacher
+            'major_id' => 5,//برق قدرت
             'state' => 1,
             'created_at' => null,
             'updated_at' => null
