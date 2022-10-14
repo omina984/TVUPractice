@@ -62,7 +62,8 @@ class TeacherLessonController extends Controller
         ]);
 
         $teacherlesson = new TeacherLesson([
-            'name' => $request->get('name'),
+            'teacher_id' => $request->get('teacher_id'),
+            'lesson_id' => $request->get('lesson_id'),
             'description' => $request->get('description'),
             'state' => $request->get('state')
         ]);
@@ -70,11 +71,11 @@ class TeacherLessonController extends Controller
         try {
             $teacherlesson->save();
 
-            $msg = 'ذخیره ترم جدید با موفقیت انجام شد';
+            $msg = 'تخصیص درس جدید با موفقیت انجام شد';
 
             return redirect(Route('admin.teacherlessons.index'))->with('success', $msg);
         } catch (Exception $exception) {
-            return redirect(Route('admin.teacherlessons.index'))->with('warning', $exception->getCode());
+            return redirect(Route('admin.teacherlessons.index'))->with('warning', $exception->getMessage());
         }
     }
 
@@ -140,7 +141,7 @@ class TeacherLessonController extends Controller
         return response()->json($majors);
     }
 
-    public function getTeachers($lessongroup_id_search = 0)
+    public function getTeachers_Lessongroup($lessongroup_id_search = 0)
     {
         $teachers['data'] = DB::table('users')
             ->join('majors', 'majors.id', '=', 'users.major_id')
@@ -165,10 +166,34 @@ class TeacherLessonController extends Controller
         return response()->json($teachers);
     }
 
+    public function getTeachers_Major($major_id_search = 0)
+    {
+        $teachers['data'] = DB::table('users')
+            ->join('majors', 'majors.id', '=', 'users.major_id')
+            ->join('lessongroups', 'lessongroups.id', '=', 'majors.lessongroup_id')
+            ->orderBy('users.id', 'asc')
+            ->where('users.type', '=', 1)
+            ->where('users.state', '=', 1)
+            // ->where('lessongroups.id', '=', $lessongroup_id_search)
+            ->select(
+                'users.id as teacher_id',
+                'users.name as teacher_name',
+                'users.family as teacher_family',
+            );
+        // ->get();
+
+        if ($major_id_search == 0) {
+            $teachers['data'] = $teachers['data']->where('majors.id', '>=', 1)->get();
+        } else {
+            $teachers['data'] = $teachers['data']->where('majors.id', '=', $major_id_search)->get();
+        };
+
+        return response()->json($teachers);
+    }
+
     public function getLessons($teacher_id = 0)
     {
         $major_id = DB::table('users')->where('id', '=', $teacher_id)->get();
-        $lessongroup_id = DB::table('majors')->where('id', '=', $major_id[0]->major_id)->get();
 
         $lastterm = DB::table('terms')
             ->where('state', '=', 1)
@@ -178,9 +203,9 @@ class TeacherLessonController extends Controller
             ->get();
 
         $lessons['data'] = Lesson::orderby("name", "asc")
-            ->where('state', '=', 1)
+            ->where('major_id', '=', $major_id[0]->major_id)
             ->where('term_id', '=', $lastterm[0]->id)
-            ->where('lessongroup_id', $lessongroup_id[0]->lessongroup_id)
+            ->where('state', '=', 1)
             ->select('id', 'name')
             ->distinct()
             ->get();

@@ -22,6 +22,11 @@
                         style="margin-bottom: 5px;" method="post">
                         @csrf
 
+                        <div class="fb-grouplabel" style="text-align: center; background-color: lightblue; margin-top: 0; height:50px; padding-top: 10px;">
+                            <label id="lessongroup_id_search_name" style="font-weight: bold; display: inline;">پنل
+                                جستجو</label>
+                        </div>
+
                         <div class="section" id="section1">
                             <div class="column ui-sortable" id="column1">
                                 <div class="fb-item fb-50-item-column" id="item49">
@@ -226,7 +231,44 @@
             $('#teacher_id').find('option').not(':first').remove();
 
             $.ajax({
-                url: 'getTeachers/' + id,
+                url: 'getTeachers_Lessongroup/' + id,
+                type: 'get',
+                dataType: 'json',
+                success: function(response) {
+                    var len = 0;
+
+                    if (response['data'] != null) {
+                        len = response['data'].length;
+                    }
+
+                    if (len > 0) {
+                        for (var i = 0; i < len; i++) {
+                            // $("#description").val(response['data'][i].id);
+
+                            var id = response['data'][i].teacher_id;
+                            var name = response['data'][i].teacher_name + " " + response[
+                                'data'][i].teacher_family;
+                            var option = "<option value='" + id + "'>" + name + "</option>";
+
+                            $("#teacher_id").append(option);
+                        }
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $('#major_id_search').change(function() {
+            var id = $(this).val();
+            // $("#description").val(id);
+
+            $('#teacher_id').find('option').not(':first').remove();
+
+            $.ajax({
+                url: 'getTeachers_Major/' + id,
                 type: 'get',
                 dataType: 'json',
                 success: function(response) {
