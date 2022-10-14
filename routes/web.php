@@ -87,5 +87,9 @@ Route::prefix('admin')->middleware('Check_Is_ADMIN')->group(function () {
     Route::post('/teacherlesson/store', [TeacherLessonController::class, 'store'])->name('admin.teacherlesson.store');
 
     Route::get('/teacherlesson/edit/{teacherlesson}', [TeacherLessonController::class, 'edit'])->name('admin.teacherlesson.edit');
+    Route::get('/teacherlesson/edit/getMajors/{id}', [TeacherLessonController::class, 'getMajors']);
+    Route::get('/teacherlesson/edit/getTeachers_Lessongroup/{id}', [TeacherLessonController::class, 'getTeachers_Lessongroup']);
+    Route::get('/teacherlesson/edit/getTeachers_Major/{id}', [TeacherLessonController::class, 'getTeachers_Major']);
+    Route::get('/teacherlesson/edit/getLessons/{id}', [TeacherLessonController::class, 'getLessons']);
     Route::post('/teacherlesson/update/{teacherlesson}', [TeacherLessonController::class, 'update'])->name('admin.teacherlesson.update');
 });

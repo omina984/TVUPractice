@@ -22,7 +22,7 @@
                         style="margin-bottom: 5px;" method="post">
                         @csrf
 
-                        <div class="fb-grouplabel" style="text-align: center; background-color: lightblue; margin-top: 0; height:50px; padding-top: 10px;">
+                        <div class="fb-grouplabel" style="text-align: center; background-color: lightblue; margin-top: 0; height:50px; padding-top: 7px; border-block-end: 3px solid #0071bc">
                             <label id="lessongroup_id_search_name" style="font-weight: bold; display: inline;">پنل
                                 جستجو</label>
                         </div>

@@ -87,26 +87,39 @@ class TeacherLessonController extends Controller
 
     public function edit(TeacherLesson $teacherlesson)
     {
-        $pagetitle = 'ویرایش ترم جاری';
+        $pagetitle = 'ویرایش تخصیص درس جاری';
 
-        return view('admin.teacherlesson.edit', compact('pagetitle', 'teacherlesson'));
+        $lessongroups = DB::table(('lessongroups'))->where('id', '>', 0)->orderBy('name', 'asc')->get();
+
+        $majors = DB::table(('majors'))->where('id', '>', 1)->orderBy('name', 'asc')->get();
+
+        $teachers = DB::table('users')->orderBy('id', 'asc')
+            ->where('type', '=', 1)
+            ->where('state', '=', 1)
+            ->select(
+                'users.id as teacher_id',
+                'users.name as teacher_name',
+                'users.family as teacher_family',
+            )
+            ->get();
+
+        return view('admin.teacherlesson.edit', compact('pagetitle','teacherlesson', 'lessongroups', 'majors', 'teachers'));
     }
 
     public function update(Request $request, TeacherLesson $teacherlesson)
     {
-        $messages = [
-            'name.required' => 'فیلد نام ترم را وارد کنید',
-        ];
-
+        dd($request);
+        exit;
+        
         $request->validate([
             'name' => 'required',
-        ], $messages);
+        ]);
 
-        //اگر نام تکراری برای ترم انتخاب شود
+        //اگر نام تکراری برای تخصیص درس انتخاب شود
         $id = DB::table('teacherlessons')->where('name', '=', $request->name)->get();
         if (!$id->isEmpty())
             if ($id[0]->id != $teacherlesson->id) {
-                $msg = 'نام ترم نمی‌تواند تکراری باشد';
+                $msg = 'نام تخصیص درس نمی‌تواند تکراری باشد';
 
                 return redirect(Route('admin.teacherlesson.edit', $teacherlesson->id))->with('warning', $msg);
             }
@@ -120,7 +133,7 @@ class TeacherLessonController extends Controller
                     ->update(['teacherlesson_id' => 1]);
             };
 
-            $msg = 'ذخیره ترم موجود با موفقیت انجام شد';
+            $msg = 'ذخیره تخصیص درس موجود با موفقیت انجام شد';
             return redirect(Route('admin.teacherlessons.index'))->with('success', $msg);
         } catch (Exception $exception) {
             return redirect(Route('admin.teacherlessons.index'))->with('warning', $exception->getCode());
@@ -143,7 +156,7 @@ class TeacherLessonController extends Controller
             ->join('terms', 'terms.id', '=', 'lessons.term_id')
             ->orderBy('terms.id', 'desc')->orderBy('teacherlessons.id', 'desc')
             ->where('teacherlessons.state', '>=', 0)
-            ->where('family', 'like', '%' . $request->family . '%')
+            ->where('nationalcode', 'like', '%' . $request->nationalcode . '%')
             ->select(
                 'teacherlessons.id as teacherlesson_id',
                 'teacherlessons.description as teacherlesson_description',

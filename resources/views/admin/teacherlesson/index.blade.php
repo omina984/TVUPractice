@@ -47,10 +47,10 @@
                                         </div>
 
                                         <div style="padding-top: 1px; padding-right: 5px; padding-left: 5px;">
-                                            <input name="family" id="item49_text_1" type="text" maxlength="254"
-                                                placeholder="نام استاد" data-hint="" autocomplete="off"
+                                            <input name="nationalcode" id="item49_text_1" type="text" maxlength="254"
+                                                placeholder="کدملی استاد" data-hint="" autocomplete="off"
                                                 style="font-family: B Nazanin; font-size: 16px; width: 200px; text-align: left;"
-                                                value="{{ old('family') }}" />
+                                                value="{{ old('nationalcode') }}" />
                                         </div>
                                     </div>
 
