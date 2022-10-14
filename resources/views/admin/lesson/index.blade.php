@@ -58,8 +58,8 @@
                                                             href="{{ route('admin.lesson.edit', $lesson->lesson_id) }}">{{ $lesson->lesson_id }}</a>
                                                     </td>
                                                     <td style="width: 15%;">{{ $lesson->lesson_name }}</td>
-                                                    <td style="width: 10%;">{{ $lesson->term_name }}</td>
-                                                    <td style="width: 10%;">{{ $lesson->lessongroup_name }}</td>
+                                                    <td style="width: 5%;">{{ $lesson->term_name }}</td>
+                                                    <td style="width: 15%;">{{ $lesson->lessongroup_name }}</td>
                                                     <td style="width: 10%;">{{ $lesson->major_name }}</td>
                                                     <td style="width: 10%;">{{ $lesson->lessongroup_code }}</td>
                                                     <td style="width: 10%;">{{ $lesson->lessoncode }}</td>

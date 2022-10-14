@@ -59,10 +59,11 @@ Route::prefix('admin')->middleware('Check_Is_ADMIN')->group(function () {
     Route::get('/lessons', [LessonController::class, 'index'])->name('admin.lessons.index');
 
     Route::get('/lesson/create', [LessonController::class, 'create'])->name('admin.lesson.create');
-    Route::get('/lesson/getLessons/{id}', [LessonController::class, 'getLessons']);
+    Route::get('/lesson/getMajors/{id}', [LessonController::class, 'getMajors']);
     Route::post('/lesson/store', [LessonController::class, 'store'])->name('admin.lesson.store');
 
     Route::get('/lesson/edit/{lesson}', [LessonController::class, 'edit'])->name('admin.lesson.edit');
+    Route::get('/lesson/edit/getMajors/{id}', [LessonController::class, 'getMajors']);
     Route::post('/lesson/update/{lesson}', [LessonController::class, 'update'])->name('admin.lesson.update');
 
     //admin - major
@@ -76,6 +77,7 @@ Route::prefix('admin')->middleware('Check_Is_ADMIN')->group(function () {
 
     //admin - teacherlesson
     Route::get('/teacherlessons', [TeacherLessonController::class, 'index'])->name('admin.teacherlessons.index');
+    Route::post('/teacherlessons', [TeacherLessonController::class, 'search'])->name('admin.teacherlessons.search');
 
     Route::get('/teacherlesson/create', [TeacherLessonController::class, 'create'])->name('admin.teacherlesson.create');
     Route::get('/teacherlesson/getMajors/{id}', [TeacherLessonController::class, 'getMajors']);

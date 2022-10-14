@@ -143,6 +143,7 @@ class UserController extends Controller
         }
     }
 
+    // extra
     public function search(Request $request)
     {
         $pagetitle = 'کاربران';

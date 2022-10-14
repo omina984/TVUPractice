@@ -176,6 +176,8 @@ return [
         "vahed_amali" => "تعداد واحد عملی",
         "teacher_id" => "نام استاد",
         "lesson_id" => "نام درس",
+        "lessongroup_id" => "گروه درسی",
+        "major_id" => "رشته تحصیلی",
     ],
 
 ];

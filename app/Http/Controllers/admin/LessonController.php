@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Lessongroup;
 use App\Models\admin\Major;
-use App\Models\admin\Term;
 use Illuminate\Support\Facades\DB;
 
 class LessonController extends Controller
@@ -42,7 +41,8 @@ class LessonController extends Controller
     public function create()
     {
         $pagetitle = 'ایجاد درس جدید';
-        $terms = Term::all()->where('state', '<>', 0);
+        // $terms = Term::all()->where('state', '<>', 0);
+        $terms = DB::table('terms')->where('state', '<>', 0)->orderBy('id', 'desc')->get();
         $lessongroups = Lessongroup::all()->where('state', '<>', 0);
         $majors = Major::all()->where('state', '<>', 0);
 
@@ -53,6 +53,8 @@ class LessonController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'lessongroup_id' => 'required|not_in:0',
+            'major_id' => 'required|not_in:0',
             'lessongroup_code' => 'required|unique:lessons',
             'lessoncode' => 'required|unique:lessons',
             'vahed' => 'required',
@@ -100,7 +102,8 @@ class LessonController extends Controller
     public function edit(Lesson $lesson)
     {
         $pagetitle = 'ویرایش درس جاری';
-        $terms = Term::all()->where('state', '<>', 0);
+        // $terms = Term::all()->where('state', '<>', 0);
+        $terms = DB::table('terms')->where('state', '<>', 0)->orderBy('id', 'desc')->get();
         $lessongroups = Lessongroup::all()->where('state', '<>', 0);
         $majors = Major::all()->where('state', '<>', 0);
 
@@ -111,6 +114,8 @@ class LessonController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'lessongroup_id' => 'required|not_in:0',
+            'major_id' => 'required|not_in:0',
             'lessongroup_code' => 'required',
             'lessoncode' => 'required',
             'vahed' => 'required',
@@ -158,9 +163,13 @@ class LessonController extends Controller
         //
     }
 
-    public function getLessons($lessongroup_id = 0)
+    // extra
+    public function getMajors($lessongroup_id = 0)
     {
-        $majors = DB::table('majors')->where('lessongroup_id', '=', $lessongroup_id)->get();
+        $majors['data'] = DB::table('majors')
+            ->where('lessongroup_id', '=', $lessongroup_id)
+            ->select('id', 'name')
+            ->get();
 
         return response()->json($majors);
     }

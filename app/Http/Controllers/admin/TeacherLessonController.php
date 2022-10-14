@@ -25,6 +25,7 @@ class TeacherLessonController extends Controller
                 'teacherlessons.description as teacherlesson_description',
                 'teacherlessons.state as teacherlesson_state',
                 'users.name as teacher_name',
+                'users.family as teacher_family',
                 'lessons.name as lesson_name',
                 'lessoncode',
                 'terms.name as term_name',
@@ -75,7 +76,7 @@ class TeacherLessonController extends Controller
 
             return redirect(Route('admin.teacherlessons.index'))->with('success', $msg);
         } catch (Exception $exception) {
-            return redirect(Route('admin.teacherlessons.index'))->with('warning', $exception->getMessage());
+            return redirect(Route('admin.teacherlessons.index'))->with('warning', $exception->getCode());
         }
     }
 
@@ -129,6 +130,32 @@ class TeacherLessonController extends Controller
     public function destroy(TeacherLesson $teacherlesson)
     {
         //
+    }
+
+    // extra
+    public function search(Request $request)
+    {
+        $pagetitle = 'تخصیص دروس';
+
+        $teacherlessons = DB::table('teacherlessons')
+            ->join('users', 'users.id', '=', 'teacherlessons.teacher_id')
+            ->join('lessons', 'lessons.id', '=', 'teacherlessons.lesson_id')
+            ->join('terms', 'terms.id', '=', 'lessons.term_id')
+            ->orderBy('terms.id', 'desc')->orderBy('teacherlessons.id', 'desc')
+            ->where('teacherlessons.state', '>=', 0)
+            ->where('family', 'like', '%' . $request->family . '%')
+            ->select(
+                'teacherlessons.id as teacherlesson_id',
+                'teacherlessons.description as teacherlesson_description',
+                'teacherlessons.state as teacherlesson_state',
+                'users.name as teacher_name',
+                'users.family as teacher_family',
+                'lessons.name as lesson_name',
+                'lessoncode',
+                'terms.name as term_name',
+            )->paginate(10);
+
+        return view('admin.teacherlesson.index', compact('pagetitle', 'teacherlessons'));
     }
 
     public function getMajors($lessongroup_id = 0)

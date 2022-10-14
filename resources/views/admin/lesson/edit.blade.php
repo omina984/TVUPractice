@@ -45,49 +45,46 @@
 
                                 <div class="fb-item fb-50-item-column" id="item49">
                                     <div class="fb-grouplabel">
-                                        <label id="lessongroup_id" style="font-weight: bold; display: inline;">گروه
+                                        <label id="lessongroup_id_name" style="font-weight: bold; display: inline;">گروه
                                             درسی</label>
                                     </div>
 
                                     <div class="fb-dropdown">
                                         <select name="lessongroup_id" id="lessongroup_id"
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
+                                            <option value="0"> لطفا انتخاب کنید </option>
+
                                             @foreach ($lessongroups as $lessongroup)
                                                 <option value="{{ $lessongroup->id }}"
-                                                    @if ($lessongroup->state == 0) 
-                                                        style="background-color: lightsalmon;"
+                                                    @if ($lessongroup->state == 0) style="background-color: lightsalmon;"
                                                     @else
-                                                        style="background-color: transparent"
-                                                    @endif
-                                                    {{ old('lessongroup_id', $lesson->lessongroup_id) == $lessongroup->id ? 'selected' : '' }}>
+                                                        style="background-color: transparent" @endif>
                                                     {{ $lessongroup->name }}
                                                 </option>
                                             @endforeach
                                         </select>
+
+                                        @error('lessongroup_id')
+                                            <div class="alert alert-danger"> {{ $message }} </div>
+                                        @enderror
                                     </div>
                                 </div>
 
                                 <div class="fb-item fb-50-item-column" id="item49">
                                     <div class="fb-grouplabel">
-                                        <label id="major_id" style="font-weight: bold; display: inline;">رشته
+                                        <label id="major_id_name" style="font-weight: bold; display: inline;">رشته
                                             تحصیلی</label>
                                     </div>
 
                                     <div class="fb-dropdown">
                                         <select name="major_id" id="major_id"
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
-                                            @foreach ($majors as $major)
-                                                <option value="{{ $major->id }}"
-                                                    @if ($major->state == 0) 
-                                                        style="background-color: lightsalmon;"
-                                                    @else
-                                                        style="background-color: transparent"
-                                                    @endif
-                                                    {{ old('major_id', $lesson->major_id) == $major->id ? 'selected' : '' }}>
-                                                    {{ $major->name }}
-                                                </option>
-                                            @endforeach
+                                            <option value="0"> لطفا انتخاب کنید </option>
                                         </select>
+
+                                        @error('major_id')
+                                            <div class="alert alert-danger"> {{ $message }} </div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -263,3 +260,37 @@
         </div>
     </section>
 @endsection
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $('#lessongroup_id').change(function() {
+            var id = $(this).val();
+            $('#major_id').find('option').not(':first').remove();
+
+            $.ajax({
+                url: 'getMajors/' + id,
+                type: 'get',
+                dataType: 'json',
+                success: function(response) {
+                    var len = 0;
+
+                    if (response['data'] != null) {
+                        len = response['data'].length;
+                    }
+
+                    if (len > 0) {
+                        for (var i = 0; i < len; i++) {
+                            var id = response['data'][i].id;
+                            var name = response['data'][i].name;
+                            var option = "<option value='" + id + "'>" + name + "</option>";
+
+                            $("#major_id").append(option);
+                        }
+                    }
+                }
+            });
+        });
+    });
+</script>

@@ -20,7 +20,10 @@
                     @include('layouts.messages')
 
                     <form data-aos="fade-up" data-aos-delay="400" class="fb-toplabel fb-100-item-column selected-object"
-                        style="width: 100%;" id="docContainer" action="#">
+                        style="width: 100%;" id="docContainer" action="{{ route('admin.teacherlessons.search') }}"
+                        method="post">
+                        @csrf
+
                         <div class="section" id="section1">
                             <h2 id='MyH2'> تخصیص دروس موجود
                             </h2>
@@ -28,10 +31,28 @@
                             {{-- <div class="column ui-sortable" id="column1"> --}}
                             <div class="fb-item fb-100-item-column" id="item49">
                                 <div class="container">
-                                    <button type="button" class="MyStyle_inbox_button btn btn-info btn-fw"
-                                        onclick="window.location='{{ route('admin.teacherlesson.create') }}'"
-                                        style="width: 160px;">
-                                        تخصیص دروس جدید </button>
+                                    <div class="d-flex justify-content-between" style="margin-left: -6px;">
+                                        <div>
+                                            <button type="button" class="MyStyle_inbox_button btn btn-info btn-fw"
+                                                onclick="window.location='{{ route('admin.teacherlesson.create') }}'"
+                                                style="width: 160px;">
+                                                تخصیص دروس جدید </button>
+                                        </div>
+
+                                        <div style="width: 100%; text-align: left;">
+                                            <button type="submit" class="MyStyle_inbox_button btn btn-info btn-fw"
+                                                onclick="window.location='{{ route('admin.teacherlessons.search') }}'">
+                                                جستجو
+                                            </button>
+                                        </div>
+
+                                        <div style="padding-top: 1px; padding-right: 5px; padding-left: 5px;">
+                                            <input name="family" id="item49_text_1" type="text" maxlength="254"
+                                                placeholder="نام استاد" data-hint="" autocomplete="off"
+                                                style="font-family: B Nazanin; font-size: 16px; width: 200px; text-align: left;"
+                                                value="{{ old('family') }}" />
+                                        </div>
+                                    </div>
 
                                     <table class="table table-bordered table-hover">
                                         <thead>
@@ -56,7 +77,9 @@
                                                     <td style="width: 5%; background-color:lightblue;"><a
                                                             href="{{ route('admin.teacherlesson.edit', $teacherlesson->teacherlesson_id) }}">{{ $teacherlesson->teacherlesson_id }}</a>
                                                     </td>
-                                                    <td style="width: 15%;">{{ $teacherlesson->teacher_name }}</td>
+                                                    <td style="width: 15%;">
+                                                        {{ $teacherlesson->teacher_name . ' ' . $teacherlesson->teacher_family }}
+                                                    </td>
                                                     <td style="width: 15%;">{{ $teacherlesson->lesson_name }}</td>
                                                     <td style="width: 10%;">{{ $teacherlesson->lessoncode }}</td>
                                                     <td style="width: 10%;">{{ $teacherlesson->term_name }}</td>
