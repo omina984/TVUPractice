@@ -7,6 +7,8 @@
 @section('content')
     <div class="breadcrumb">
         <div>
+            <a href="{{ route('admin.index') }}">صفحه مدیریت</a>
+            &nbsp; / &nbsp;
             <a href="{{ route('admin.lessons.index') }}">برگشت</a>
             &nbsp; / &nbsp;
             <span style="color: gray">ایجاد درس جدید</span>

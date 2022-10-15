@@ -7,6 +7,8 @@
 @section('content')
     <div class="breadcrumb">
         <div>
+            <a href="{{ route('admin.index') }}">صفحه مدیریت</a>
+            &nbsp; / &nbsp;
             <a href="{{ route('admin.users.index') }}">بازگشت</a>
             &nbsp; / &nbsp;
             <span style="color: gray">کاربر موجود</span>
@@ -147,11 +149,9 @@
                                             style="font-family: B Nazanin; font-size: 18px; font-weight: bold; height: 40px;">
                                             @foreach ($marakez as $mz)
                                                 <option value="{{ $mz->id }}"
-                                                    @if ($mz->state == 0) 
-                                                    style="background-color: lightsalmon;"
+                                                    @if ($mz->state == 0) style="background-color: lightsalmon;"
                                                 @else
-                                                    style="background-color: transparent"
-                                                @endif
+                                                    style="background-color: transparent" @endif
                                                     {{ old('markaz_id', $user->markaz_id) == $mz->id ? 'selected' : '' }}>
                                                     {{ $mz->name }}
                                                 </option>

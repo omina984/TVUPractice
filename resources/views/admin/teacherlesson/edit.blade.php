@@ -7,6 +7,8 @@
 @section('content')
     <div class="breadcrumb">
         <div>
+            <a href="{{ route('admin.index') }}">صفحه مدیریت</a>
+            &nbsp; / &nbsp;
             <a href="{{ route('admin.teacherlessons.index') }}">برگشت</a>
             &nbsp; / &nbsp;
             <span style="color: gray">تخصیص دروس جدید</span>
@@ -18,7 +20,7 @@
             <div class="row">
                 <div class="col-lg-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
                     @include('layouts.messages')
-                    
+
                     <form data-aos="fade-up" data-aos-delay="400"
                         class="MyStyle_create_edit_form fb-toplabel fb-100-item-column selected-object" id="docContainer"
                         style="margin-bottom: 5px;" method="post">
