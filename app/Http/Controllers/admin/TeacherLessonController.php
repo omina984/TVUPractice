@@ -70,6 +70,18 @@ class TeacherLessonController extends Controller
         ]);
 
         try {
+            //اگر تخصیص درس تکراری انتخاب شود
+            $id = DB::table('teacherlessons')
+                ->where('teacher_id', '=', $request->teacher_id)
+                ->where('lesson_id', '=', $request->lesson_id)
+                ->get();
+            if (!$id->isEmpty())
+                if ($id[0]->id != $teacherlesson->id) {
+                    $msg = 'تخصیص درس نمی‌تواند تکراری باشد';
+
+                    return redirect(Route('admin.teacherlesson.create'))->with('warning', $msg);
+                }
+
             $teacherlesson->save();
 
             $msg = 'تخصیص درس جدید با موفقیت انجام شد';

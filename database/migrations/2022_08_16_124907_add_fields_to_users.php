@@ -27,8 +27,8 @@ return new class extends Migration
         //admin user
         DB::table('users')->insert([
             'username' => 'admin99901',
-            'name' => 'کاربر مدیریت 99901',
-            'family' => '',
+            'name' => 'کاربر 1 مدیریت',
+            'family' => '99901',
             'father' => '',
             'nationalcode' => '0',
             'mobile' => '0',
@@ -45,8 +45,8 @@ return new class extends Migration
         // user
         DB::table('users')->insert([
             'username' => 'user03301',
-            'name' => 'استاد 1 فناوری اطلاعات',
-            'family' => '',
+            'name' => 'استاد 1',
+            'family' => 'فناوری اطلاعات',
             'father' => '',
             'nationalcode' => '0',
             'mobile' => '0',
@@ -62,10 +62,10 @@ return new class extends Migration
 
         DB::table('users')->insert([
             'username' => 'user03302',
-            'name' => 'استاد 1 نرم افزار',
-            'family' => '',
+            'name' => 'استاد 1',
+            'family' => 'نرم افزار',
             'father' => '',
-            'nationalcode' => '0',
+            'nationalcode' => '0064693848',
             'mobile' => '0',
             'markaz_id' => 33, //33 = shamsipoor
             'email' => 'user03302@tvu.ac.ir',
@@ -79,8 +79,8 @@ return new class extends Migration
 
         DB::table('users')->insert([
             'username' => 'user03303',
-            'name' => 'استاد 1 سخت افزار',
-            'family' => '',
+            'name' => 'استاد 1',
+            'family' => 'سخت افزار',
             'father' => '',
             'nationalcode' => '0',
             'mobile' => '0',
@@ -96,8 +96,8 @@ return new class extends Migration
 
         DB::table('users')->insert([
             'username' => 'user03304',
-            'name' => 'استاد 1 برق صنعتی',
-            'family' => '',
+            'name' => 'استاد 1',
+            'family' => 'برق صنعتی',
             'father' => '',
             'nationalcode' => '0',
             'mobile' => '0',
@@ -113,8 +113,8 @@ return new class extends Migration
 
         DB::table('users')->insert([
             'username' => 'user03305',
-            'name' => 'استاد 1 برق قدرت',
-            'family' => '',
+            'name' => 'استاد 1',
+            'family' => 'برق قدرت',
             'father' => '',
             'nationalcode' => '0',
             'mobile' => '0',
@@ -130,8 +130,8 @@ return new class extends Migration
 
         DB::table('users')->insert([
             'username' => 'user03306',
-            'name' => 'استاد 2 فناوری اطلاعات',
-            'family' => '',
+            'name' => 'استاد 2',
+            'family' => 'فناوری اطلاعات',
             'father' => '',
             'nationalcode' => '0',
             'mobile' => '0',
@@ -147,8 +147,8 @@ return new class extends Migration
 
         DB::table('users')->insert([
             'username' => 'user03307',
-            'name' => 'استاد 2 نرم افزار',
-            'family' => '',
+            'name' => 'استاد 2',
+            'family' => 'نرم افزار',
             'father' => '',
             'nationalcode' => '0',
             'mobile' => '0',
@@ -164,8 +164,8 @@ return new class extends Migration
 
         DB::table('users')->insert([
             'username' => 'user03308',
-            'name' => 'استاد 2 سخت افزار',
-            'family' => '',
+            'name' => 'استاد 2',
+            'family' => 'سخت افزار',
             'father' => '',
             'nationalcode' => '0',
             'mobile' => '0',
@@ -181,8 +181,8 @@ return new class extends Migration
 
         DB::table('users')->insert([
             'username' => 'user03309',
-            'name' => 'استاد 2 برق صنعتی',
-            'family' => '',
+            'name' => 'استاد 2',
+            'family' => 'برق صنعتی',
             'father' => '',
             'nationalcode' => '0',
             'mobile' => '0',
@@ -198,8 +198,8 @@ return new class extends Migration
 
         DB::table('users')->insert([
             'username' => 'user03310',
-            'name' => 'استاد 2 برق قدرت',
-            'family' => '',
+            'name' => 'استاد 2',
+            'family' => 'برق قدرت',
             'father' => '',
             'nationalcode' => '0',
             'mobile' => '0',
