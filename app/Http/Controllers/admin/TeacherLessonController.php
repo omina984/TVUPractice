@@ -103,35 +103,30 @@ class TeacherLessonController extends Controller
             )
             ->get();
 
-        return view('admin.teacherlesson.edit', compact('pagetitle','teacherlesson', 'lessongroups', 'majors', 'teachers'));
+        return view('admin.teacherlesson.edit', compact('pagetitle', 'teacherlesson', 'lessongroups', 'majors', 'teachers'));
     }
 
     public function update(Request $request, TeacherLesson $teacherlesson)
     {
-        dd($request);
-        exit;
-        
         $request->validate([
-            'name' => 'required',
+            'teacher_id' => 'required|not_in:0',
+            'lesson_id' => 'required|not_in:0',
         ]);
 
-        //اگر نام تکراری برای تخصیص درس انتخاب شود
-        $id = DB::table('teacherlessons')->where('name', '=', $request->name)->get();
+        //اگر تخصیص درس تکراری انتخاب شود
+        $id = DB::table('teacherlessons')
+            ->where('teacher_id', '=', $request->teacher_id)
+            ->where('lesson_id', '=', $request->lesson_id)
+            ->get();
         if (!$id->isEmpty())
             if ($id[0]->id != $teacherlesson->id) {
-                $msg = 'نام تخصیص درس نمی‌تواند تکراری باشد';
+                $msg = 'تخصیص درس نمی‌تواند تکراری باشد';
 
                 return redirect(Route('admin.teacherlesson.edit', $teacherlesson->id))->with('warning', $msg);
             }
 
         try {
             $teacherlesson->update($request->all());
-
-            //reset in Lesson
-            if ($request->state == 0) {
-                Lesson::where('teacherlesson_id', '=', $teacherlesson->id)
-                    ->update(['teacherlesson_id' => 1]);
-            };
 
             $msg = 'ذخیره تخصیص درس موجود با موفقیت انجام شد';
             return redirect(Route('admin.teacherlessons.index'))->with('success', $msg);
